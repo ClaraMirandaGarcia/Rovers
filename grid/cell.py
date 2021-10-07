@@ -13,12 +13,15 @@ class Cell:
         self.assigned = False
 
     def is_explored(self) -> bool:
-        if self.state.EXPLORED:
+        if self.state == CellState.EXPLORED:
             return True
         return False
 
     def set_state(self, state: CellState):
         self.state = state
+
+    def get_cell_state(self) -> CellState:
+        return self.state
 
     def set_assigned(self, assigned: bool):
         self.assigned = assigned

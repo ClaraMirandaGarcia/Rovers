@@ -16,14 +16,13 @@ class Main:
         # -> Grid -> matriz formada por -> celdas { unexplored, explored }
         # -> Las celdas tienen que ser del tamaño de -> capacidad de exploración del agente
 
-        area = height * width;
+        area = height * width
         num_cells = area / explore_capacity
         cells = []
 
         it_var = 0
         while it_var < num_cells:
-            new_cell = Cell(CellState.UNEXPLORED, explore_capacity)
-            cells.append(new_cell)
+            cells.append(Cell(CellState.UNEXPLORED, explore_capacity))
             it_var += 1
 
         grid = Grid(cells)
@@ -32,8 +31,6 @@ class Main:
         # por el usuario.
         jobs = []
         job_cells = num_cells / num_jobs
-        print("Number of cells in each job: ")
-        print(job_cells)
 
         aux_job = 0
         while aux_job < num_jobs:
@@ -47,11 +44,9 @@ class Main:
                     cells_for_job.append(cell)
                     current_num_cells += 1
 
-            print("Cells assigned to job: ")
-            print(aux_job)
-            print(" -> ")
-            print(current_num_cells)
+            print("Job: "+str(aux_job)+" has: "+str(current_num_cells)+" assigned cells")
             jobs.append(Job(JobState.NOTSTARTED, cells_for_job))
+
         # Sortear las celdas a explorar por prioridad -> TBD
 
         # Scheduler
@@ -59,7 +54,8 @@ class Main:
         # un solo agente) los trabajos. El trabajo pasa a estar fulfilled una vez que
         # todas sus celdas estén explored. JOB (fulfilled, started, not started)
 
-        agent = Rover(area, battery=100, state=ExploringState)
+        agent = Rover(area, battery=100, state=ExploringState, max_speed=1, min_speed=1,
+                      max_bat=10, min_bat=10, charging_time=1, cells_second=1)
         scheduler = Scheduler(1, area, [agent])
         scheduler.schedule(jobs)
 

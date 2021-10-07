@@ -11,12 +11,13 @@ class Job:
     def __init__(self, state: JobState, job_cells):
         self.state = state
         self.job_cells = job_cells
+        self.time_to_explore = 0
 
     def job_started(self) -> bool:
         cells_explored = False
         for cell in self.job_cells:
-            if not cell.is_explored():
-                cells_explored = False
+            if cell.is_explored():
+                cells_explored = True
         return cells_explored
 
     def job_fulfilled(self) -> bool:
@@ -39,3 +40,9 @@ class Job:
 
     def set_job_state(self, state):
         self.state = state
+
+    def get_job_state(self) -> JobState:
+        return self.state
+
+    def set_time_to_explore(self, time_to_explore):
+        self.time_to_explore = time_to_explore

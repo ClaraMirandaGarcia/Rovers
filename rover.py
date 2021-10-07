@@ -1,23 +1,42 @@
-from state.state import State
 from grid.cell import Cell
 
 
 class Rover:
-    def __init__(self, area, battery, state): #, speed, charging_point):
 
-        self.battery = battery
+    # distancia mínima / velocidad máxima
+    # velocidad máxima
+    # velocidad mínima
+    # gasto de batería máximo
+    # gasto de batería mínimo
+    # punto de carga -> ? que tenga atributos: available, queue (de agentes)
+    # tiempo de carga (necesario para el 100%)
+    # autonomy time???
+    def __init__(self, area, battery, state, max_speed, min_speed, max_bat, min_bat, charging_time,
+                 cells_second):
         self.area = area
-        #self.speed = speed
-        #self.autonomyTime = autonomyTIme
+        self.battery = battery
         self.state = state
+        self.set_state(state)
+        self.max_speed = max_speed
+        self.min_speed = min_speed
+        self.max_bat = max_bat
+        self.min_bat = min_bat
+        self.charging_time = charging_time
+        self.cells_second = cells_second
+        self.recharge = False
+        self.best_known_path = []
+        self.location = None
 
-    def set_state(self, state: State):
-        print(f"Agent: Transitioning to {type(state).__name__}")
-        self.state.context = self
+    def set_state(self, new_state):
+        print(f"Agent: Transitioning to {new_state.__name__}")
+        self.state = new_state
+        self.state.set_context(self.state, context=self)
 
     def explore(self, cell: Cell):
+        self.state.explore(self.state, cell)
+
+    def move_to(self, cell: Cell):
         self.state.explore(self, cell)
-        cell.set_state(cell.state.EXPLORED)
 
     def battery_available(self) -> bool:
         # if battery needed to return to charging point < battery left
@@ -28,6 +47,13 @@ class Rover:
 
     # Calcular la máxima distancia que se puede mover con la batería
     # actual, depende del estado en el que se encuentre.
-    #def maxDistance:
+    # def maxDistance:
+    def set_battery(self, new_battery):
+        self.battery = new_battery
+        pass
 
+    def add_best_cell(self, best_cell: Cell):
+        self.best_known_path.append(best_cell)
 
+    def get_best_path(self) -> []:
+        return self.best_known_path

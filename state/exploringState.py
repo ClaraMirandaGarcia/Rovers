@@ -1,8 +1,35 @@
 from state.state import State
 from grid.cell import Cell, CellState
+from state.translateState import TranslateState
 
 
 class ExploringState(State):
 
     def explore(self, cell: Cell) -> None:
-        cell.set_state(CellState.EXPLORED)
+        # check battery -> change state
+
+        rover = self.context
+        enough_battery = rover.battery_available()
+        print("BATTERY AVAILABLE: " + str(rover.battery))
+
+        if enough_battery:
+            # self.move()
+            self.context.location = cell
+            cell.set_state(CellState.EXPLORED)
+            self.battery_discharge(self)
+            # ahora mismo añadiremos todas las celdas que nos encontremos, ya que el espacio
+            # modelado tiene forma de pasillo, solo hay una ruta de ida y vuelta.
+            self.context.add_best_cell(cell)
+        else:
+            print("NOT ENOUGH BATTERY")
+            self.context.recharge = True
+            self.context.set_state(TranslateState)
+
+
+        # -- batería
+        #   dado por el usuario
+
+    def battery_discharge(self):
+        new_battery = self.context.battery - self.context.min_bat
+        self.context.set_battery(new_battery)
+        pass

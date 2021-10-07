@@ -1,4 +1,8 @@
-class StateTranslate(State):
+from state.state import State
+from grid.cell import Cell, CellState
 
-    def doSomething(self) -> None:
+
+class IddleState(State):
+
+    def explore(self, cell: Cell) -> None:
         pass
