@@ -24,14 +24,6 @@ class Scheduler:
 
         while aux < num_agent:
             agent = self.queue[aux]
+            agent.set_job(job)
+            agent.simple_strategy()
             aux += 1
-            cell_count = 0
-
-            for cell in job.job_cells:
-                print("Exploring cell " + str(cell_count))
-                cell_count += 1
-                agent.explore(cell)
-                job.change_state()
-                print("Cell state: " + cell.get_cell_state().name)
-                print("Job state: " + job.get_job_state().name)
-

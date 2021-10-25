@@ -25,7 +25,9 @@ class Rover:
         self.cells_second = cells_second
         self.recharge = False
         self.best_known_path = []
+        self.job = None
         self.location = None
+        self.occupied = False
 
     def set_state(self, new_state):
         print(f"Agent: Transitioning to {new_state.__name__}")
@@ -57,3 +59,29 @@ class Rover:
 
     def get_best_path(self) -> []:
         return self.best_known_path
+
+    def get_battery(self) -> int:
+        return self.battery
+
+    def set_occupied(self, occupied):
+        self.occupied = occupied
+
+    def is_occupied(self)-> bool:
+        return self.occupied
+
+    def set_job(self, job):
+        self.job = job
+        self.occupied = True
+
+    def simple_strategy(self):
+        cell_count = 0
+        for cell in self.job.job_cells:
+            print("Exploring cell " + str(cell_count))
+            cell_count += 1
+            self.explore(cell)
+            self.job.change_state()
+            print("Cell state: " + cell.get_cell_state().name)
+            print("Job state: " + self.job.get_job_state().name)
+
+        print("FINALLY")
+        print(self.job.get_job_state())

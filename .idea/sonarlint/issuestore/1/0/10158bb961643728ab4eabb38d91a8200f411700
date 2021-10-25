@@ -1,4 +1,7 @@
 
-kpython:S930"HRemove 1 unexpected arguments; 'retreat' expects 0 positional arguments.(õêß£şÿÿÿÿ8ÃÑ¿½Å/
-;python:S2772%"Remove this unneeded "pass".(ã‘Û¾8òè¾Å/
-Fpython:S1481"(Remove the unused local variable "cell".(„´18Ÿæÿ·Å/
+ipython:S930"KRemove 1 unexpected arguments; 'go_to_cell' expects 1 positional arguments.(âùÙà8È¦ö˜Ë/
+;python:S2772."Remove this unneeded "pass".(ã‘Û¾8òè¾Å/
+Hpython:S1481")Remove the unused local variable "cells".(Ïç¸½8ÓõÍÅ/
+ppython:S930""RRemove 1 unexpected arguments; 'battery_discharge' expects 0 positional arguments.(³ß´Ì8º¹îÍÅ/
+kpython:S930
+"HRemove 1 unexpected arguments; 'retreat' expects 0 positional arguments.(õêß£şÿÿÿÿ8ÃÑ¿½Å/

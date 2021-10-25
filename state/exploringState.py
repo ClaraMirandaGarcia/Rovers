@@ -24,7 +24,7 @@ class ExploringState(State):
             print("NOT ENOUGH BATTERY")
             self.context.recharge = True
             self.context.set_state(TranslateState)
-
+            self.context.explore(cell)
 
         # -- batería
         #   dado por el usuario
