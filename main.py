@@ -15,37 +15,7 @@ class Main:
         # Initialize variables
         # -> Grid -> matriz formada por -> celdas { unexplored, explored }
         # -> Las celdas tienen que ser del tamaño de -> capacidad de exploración del agente
-
-        area = height * width
-        num_cells = area / explore_capacity
-        cells = []
-
-        it_var = 0
-        while it_var < num_cells:
-            cells.append(Cell(CellState.UNEXPLORED, explore_capacity))
-            it_var += 1
-
-        grid = Grid(cells)
-
-        # -> Sobre este grid, se tienen que agrupar en trabajos JOBS, cuyo número está determinado
-        # por el usuario.
-        jobs = []
-        job_cells = num_cells / num_jobs
-
-        aux_job = 0
-        while aux_job < num_jobs:
-            cells_for_job = []
-            aux_job += 1
-            current_num_cells = 0
-
-            for cell in cells:
-                if (not cell.is_assigned()) and (current_num_cells < job_cells):
-                    cell.set_assigned(True)
-                    cells_for_job.append(cell)
-                    current_num_cells += 1
-
-            print("Job: "+str(aux_job)+" has: "+str(current_num_cells)+" assigned cells")
-            jobs.append(Job(JobState.NOTSTARTED, cells_for_job))
+        grid = Grid(explore_capacity, height, width, num_jobs)
 
         # Sortear las celdas a explorar por prioridad -> TBD
 
@@ -54,10 +24,10 @@ class Main:
         # un solo agente) los trabajos. El trabajo pasa a estar fulfilled una vez que
         # todas sus celdas estén explored. JOB (fulfilled, started, not started)
 
-        agent = Rover(area, battery=100, state=ExploringState, max_speed=1, min_speed=1,
+        rover = Rover(battery=100, state=ExploringState, max_speed=1, min_speed=1,
                       max_bat=10, min_bat=10, charging_time=1, cells_second=1)
-        scheduler = Scheduler(1, area, [agent])
-        scheduler.schedule(jobs)
+        scheduler = Scheduler(1, [rover])
+        scheduler.schedule(grid.get_jobs())
 
 
 main = Main(1, 5, 2, 2)

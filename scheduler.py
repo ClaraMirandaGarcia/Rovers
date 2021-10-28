@@ -5,9 +5,8 @@ class Scheduler:
     '''
     Output: time spent in each mode
     '''
-    def __init__(self, numAgents, areaToExplore, queue):
+    def __init__(self, numAgents, queue):
         self.numAgents = numAgents
-        self.areaToExplore = areaToExplore
         self.queue = queue
 
     def schedule(self, jobs):
@@ -27,3 +26,12 @@ class Scheduler:
             agent.set_job(job)
             agent.simple_strategy()
             aux += 1
+        aux2 = 0
+        while aux2 < num_agent:
+            agent = self.queue[aux2]
+            print("Time exploring:" + str(agent.time_exploring))
+            print("Time translate:" + str(agent.time_translate))
+            print("Time charging:" + str(agent.time_charging))
+            print("Time iddle:" + str(agent.time_iddle))
+
+            aux2 += 1

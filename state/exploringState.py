@@ -5,12 +5,13 @@ from state.translateState import TranslateState
 
 class ExploringState(State):
 
-    def explore(self, cell: Cell) -> None:
+    def move(self, cell: Cell) -> None:
         # check battery -> change state
 
         rover = self.context
         enough_battery = rover.battery_available()
         print("BATTERY AVAILABLE: " + str(rover.battery))
+        self.context.time_exploring += 1
 
         if enough_battery:
             # self.move()
@@ -24,7 +25,7 @@ class ExploringState(State):
             print("NOT ENOUGH BATTERY")
             self.context.recharge = True
             self.context.set_state(TranslateState)
-            self.context.explore(cell)
+            self.context.move(cell)
 
         # -- batería
         #   dado por el usuario

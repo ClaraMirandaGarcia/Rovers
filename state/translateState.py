@@ -5,7 +5,8 @@ import state.exploringState as s
 
 
 class TranslateState(State):
-    def explore(self, cell: Cell) -> None:
+    def move(self, cell: Cell) -> None:
+        self.context.time_translate += 1
         if self.context.recharge:
             self.retreat(self)
         else:
@@ -13,7 +14,7 @@ class TranslateState(State):
             print("GOING BACk TO EXPLORING POINT")
             self.go_to_cell(self, cell)
             self.context.set_state(s.ExploringState)
-            self.context.explore(cell)
+            self.context.move(cell)
         cell.set_state(CellState.EXPLORED)
         # gasto de batería:
         #   dado por el usuario
@@ -30,6 +31,7 @@ class TranslateState(State):
         aux = len(cells) - 1
 
         while aux >= 0:
+            self.context.time_translate += 1
             cell = cells[aux]
             self.battery_discharge(self)
             if aux == 0:
@@ -37,7 +39,7 @@ class TranslateState(State):
                 print("IF CHARGING POINT FREE -> change state")
                 # Set state -> Iddle
                 self.context.set_state(ChargingState)
-                self.context.explore(cell)
+                self.context.move(cell)
             aux = aux - 1
 
     def battery_discharge(self):

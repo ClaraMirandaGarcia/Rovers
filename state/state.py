@@ -13,7 +13,7 @@ class State(ABC):
         self.context = context
 
     @abstractmethod
-    def explore(self, cell):
+    def move(self, cell):
         pass
 
     @abstractmethod
