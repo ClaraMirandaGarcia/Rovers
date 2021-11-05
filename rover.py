@@ -4,16 +4,17 @@ from grid.job import Job
 
 class Rover:
 
-    # distancia mínima / velocidad máxima
-    # velocidad máxima
-    # velocidad mínima
-    # gasto de batería máximo
-    # gasto de batería mínimo
-    # punto de carga -> ? que tenga atributos: available, queue (de agentes)
-    # tiempo de carga (necesario para el 100%)
-    # autonomy time???
-    def __init__(self, battery, state, max_speed, min_speed, max_bat, min_bat, charging_time,
-                 cells_second):
+    """Initialize the class Rover
+
+        @param battery: initial battery of the rover
+        @param state: initial state of the rover
+        @param max_speed: maximum speed reached, translate speed.
+        @param min_speed: minimum speed, exploring speed.
+        @param max_battery: maximum battery usage.
+        @param min_battery: minimum battery usage.
+        @param charging_time:
+    """
+    def __init__(self, battery, state, max_speed, min_speed, max_bat, min_bat, charging_time):
 
         self.battery = battery
         self.state = state
@@ -23,7 +24,6 @@ class Rover:
         self.max_bat = max_bat
         self.min_bat = min_bat
         self.charging_time = charging_time
-        self.cells_second = cells_second
         self.recharge = False
         self.best_known_path = []
         self.job = None
@@ -32,7 +32,7 @@ class Rover:
 
         self.time_exploring = 0
         self.time_translate = 0
-        self.time_iddle = 0
+        self.time_idle = 0
         self.time_charging = 0
 
     def set_state(self, new_state):
@@ -46,16 +46,12 @@ class Rover:
     def move_to(self, cell: Cell):
         self.state.explore(self, cell)
 
-    def battery_available(self) -> bool:
+    def battery_available(self, limit=10, move_cost=10) -> bool:
         # if battery needed to return to charging point < battery left
-        battery_spent = 100 - self.battery
-        if battery_spent < self.battery:
-            return True
-        return False
-
-    # Calcular la máxima distancia que se puede mover con la batería
-    # actual, depende del estado en el que se encuentre.
-    # def maxDistance:
+        battery_spent = 100 - self.get_battery()
+        if (battery_spent+limit+move_cost) >= self.get_battery():
+            return False
+        return True
 
     # Battery
     def set_battery(self, new_battery):
@@ -87,6 +83,9 @@ class Rover:
     def get_job(self) -> Job:
         return self.job
 
+    '''
+    Performs a simple strategy for the rover with the jobs given.
+    '''
     def simple_strategy(self):
         cell_count = 0
         for cell in self.job.job_cells:

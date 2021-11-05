@@ -8,6 +8,9 @@ class JobState(Enum):
 
 
 class Job:
+    """
+
+    """
     def __init__(self, state: JobState, job_cells):
         self.state = state
         self.job_cells = job_cells

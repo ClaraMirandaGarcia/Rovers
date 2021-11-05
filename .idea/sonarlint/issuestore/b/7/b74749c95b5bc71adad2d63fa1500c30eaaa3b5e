@@ -1,5 +1,2 @@
 
-;python:S2772"Remove this unneeded "pass".(ã‘Û¾8ïæ¾Å/
-Ppython:S1481"2Remove the unused local variable "time_to_charge".(Úó“v8“°„öÉ/
-rpython:S930"ORemove 1 unexpected arguments; 'battery_charge' expects 0 positional arguments.(ÏİãŒıÿÿÿÿ8«ˆïÍÅ/
-;python:S2772!"Remove this unneeded "pass".(ã‘Û¾8Ú¶’¾Å/
+}python:S1186"YAdd a nested comment explaining why this method is empty, or complete the implementation.(²®™÷şÿÿÿÿ8¿áÁ‡Ì/

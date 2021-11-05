@@ -2,10 +2,13 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from rover import Rover
 
+"""
+    Represents the state of the rover
+"""
+
 
 class State(ABC):
 
-    #@property
     def context(self) -> Rover:
         return self.context
 

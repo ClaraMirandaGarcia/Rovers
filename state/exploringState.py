@@ -11,10 +11,10 @@ class ExploringState(State):
         rover = self.context
         enough_battery = rover.battery_available()
         print("BATTERY AVAILABLE: " + str(rover.battery))
+
         self.context.time_exploring += 1
 
         if enough_battery:
-            # self.move()
             self.context.location = cell
             cell.set_state(CellState.EXPLORED)
             self.battery_discharge(self)
@@ -23,14 +23,13 @@ class ExploringState(State):
             self.context.add_best_cell(cell)
         else:
             print("NOT ENOUGH BATTERY")
+            print(self.context.get_battery())
             self.context.recharge = True
             self.context.set_state(TranslateState)
             self.context.move(cell)
 
-        # -- batería
-        #   dado por el usuario
 
     def battery_discharge(self):
-        new_battery = self.context.battery - self.context.min_bat
+        new_battery = self.context.battery - self.context.max_bat
         self.context.set_battery(new_battery)
         pass

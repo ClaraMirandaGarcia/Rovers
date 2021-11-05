@@ -11,17 +11,17 @@ class TranslateState(State):
             self.retreat(self)
         else:
             # necesita volver desde el punto de carga hasta la celda
-            print("GOING BACk TO EXPLORING POINT")
-            self.go_to_cell(self, cell)
+            print("GOING BACK TO EXPLORING POINT")
+            #self.go_to_cell(self, cell)
             self.context.set_state(s.ExploringState)
             self.context.move(cell)
         cell.set_state(CellState.EXPLORED)
         # gasto de batería:
         #   dado por el usuario
 
-    def go_to_cell(self, cell):
-        print("GOING BACK TO EXPLORE")
-        cells = self.context.best_known_path
+    #def go_to_cell(self, cell):
+     #   print("GOING BACK TO EXPLORE")
+      #  cells = self.context.best_known_path
 
         # for cell in len(cells):
 
@@ -29,7 +29,6 @@ class TranslateState(State):
         print("------------------------------RETREATING------------------------")
         cells = self.context.get_best_path()
         aux = len(cells) - 1
-
         while aux >= 0:
             self.context.time_translate += 1
             cell = cells[aux]
@@ -37,7 +36,7 @@ class TranslateState(State):
             if aux == 0:
                 print("NEXT TO CHARGING POINT")
                 print("IF CHARGING POINT FREE -> change state")
-                # Set state -> Iddle
+                # Set state -> Idle
                 self.context.set_state(ChargingState)
                 self.context.move(cell)
             aux = aux - 1
