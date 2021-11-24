@@ -26,9 +26,7 @@ class Scheduler(pykka.ThreadingActor):
     def schedule(self):
         print("scheduling")
         aux = 0
-        print("Clara")
         jobs = self.get_jobs()
-        print(jobs)
 
         for job in jobs:
             self.simple_strategy(job, aux)
@@ -47,13 +45,13 @@ class Scheduler(pykka.ThreadingActor):
         while aux < num_agent:
             '''Reference to the actor of the type pykka._ref.ActorRef'''
             rover_ref = self.queue[aux]
-            '''Wrapping the reference to represent the rover'''
             if not rover_ref.is_alive():
                 actor = rover_ref._actor
                 rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
                       max_bat=10, min_bat=5, charging_time=1)
 
             try:
+                '''Wrapping the reference to represent the rover'''
                 rover = rover_ref.proxy()
             except pykka.ActorDeadError:
                 print("ActorDeadError")

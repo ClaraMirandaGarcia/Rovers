@@ -13,8 +13,14 @@ class Job:
     """
     def __init__(self, state: JobState, job_cells):
         self.state = state
-        self.job_cells = job_cells
+        self.job_cells = []
+        self.set_job_cells(job_cells)
         self.time_to_explore = 0
+
+    def set_job_cells(self, job_cells):
+        for cell in job_cells:
+            cell.set_assigned(True)
+        self.job_cells = job_cells
 
     def job_started(self) -> bool:
         cells_explored = False

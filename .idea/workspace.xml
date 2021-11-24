@@ -2,38 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="673b032a-2bfe-4a7a-bd68-f6cb210f6683" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Rovers.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/03ad45b18ffa701a0573c223803770332a2cf6ae" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/0/10158bb961643728ab4eabb38d91a8200f411700" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/e/6e30a061ef8ee0aef0f3538856d4019885e40ea3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/3/b3766ad9ca2c21f2cc10c84427460269ec70018d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/7/b74749c95b5bc71adad2d63fa1500c30eaaa3b5e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/9/c93ce581ea75785410d1bd7eada80263e61ec142" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/e/ce55d2bcb11a2a7935d90b4530179330988a2d6e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/8/d852e80ffa9bbd80003c1266180f67327223d2b4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/d/dd48254f6d64e727ec8f02e8cf4db6672aa8e3eb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/1/e16460a202958bb26f277067cd1275f208905c27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f1bdda93d9a278e358509d498e17d97764c1fb29" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/grid/cell.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/grid/grid.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/grid/job.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rover.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/chargingState.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/exploringState.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/idleState.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/state.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/translateState.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testProjectPykka/scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/testProjectPykka/scheduler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +30,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/testProjectPykka" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/testProjectPykka" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">

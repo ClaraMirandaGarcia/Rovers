@@ -1,4 +1,5 @@
 from enum import Enum, auto
+from coordinates import Coordinate
 
 
 class CellState(Enum):
@@ -7,10 +8,12 @@ class CellState(Enum):
 
 
 class Cell:
-    def __init__(self, state: CellState, size: int):
+    def __init__(self, state: CellState, size: int, accessible=True, coordinate=None):
         self.state = state
         self.size = size
         self.assigned = False
+        self.accessible = accessible
+        self.coordinate = coordinate
 
     def is_explored(self) -> bool:
         if self.state == CellState.EXPLORED:
@@ -28,3 +31,15 @@ class Cell:
 
     def is_assigned(self) -> bool:
         return self.assigned
+
+    def is_accessible(self) -> bool:
+        return self.accessible
+
+    def set_accessible(self, accessible):
+        self.accessible = accessible
+
+    def set_coordinate(self, coordinate):
+        self.coordinate = coordinate
+
+    def get_coordinate(self) -> Coordinate:
+        return self.coordinate

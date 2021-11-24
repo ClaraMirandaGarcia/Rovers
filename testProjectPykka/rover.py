@@ -129,13 +129,24 @@ class Rover(pykka.ThreadingActor):
 
     def simple_strategy(self):
         cell_count = 0
+
+        # Check for an accessible cell
+        # If accessible then explore
+        # If not then eliminate the cell for the cells of the job
+
         for cell in self.job.job_cells:
-            print("Exploring cell " + str(cell_count))
-            cell_count += 1
-            self.move(cell)
-            self.job.change_state()
-            print("Cell state: " + cell.get_cell_state().name)
-            print("Job state: " + self.job.get_job_state().name)
+            if cell.is_accessible():
+                print("The cell can be accessed")
+                print("Exploring cell " + str(cell_count))
+                cell_count += 1
+                self.move(cell)
+                self.job.change_state()
+                print("Cell state: " + cell.get_cell_state().name)
+                print("Job state: " + self.job.get_job_state().name)
+
+            else:
+                print("The cell can not be accessed")
+                self.job.job_cells.remove(cell)
 
         print("FINALLY")
         print(self.job.get_job_state())
