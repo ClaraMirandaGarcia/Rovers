@@ -29,7 +29,8 @@ class Grid(pykka.ThreadingActor):
         # cells = self.calculate_cells(area, explore_capacity)
         num_cells = area / explore_capacity
 
-        self.assign_jobs(cells, num_jobs, num_cells)
+        jobs = self.assign_jobs(cells, num_jobs, num_cells)
+        self.jobs = jobs
         '''
         job_cells = num_cells / num_jobs
 
@@ -74,12 +75,12 @@ class Grid(pykka.ThreadingActor):
         aux_jobs = []
 
         for n in range(num_jobs):
+            print("JOB ", n)
             cells_to_assign = int(num_cells // (num_jobs - n))
 
             print("Número de celdas para asignar")
             print(cells_to_assign)
             num_cells -= cells_to_assign
-
             aux_job = self.assign_cells(cells, cells_to_assign)
             aux_jobs.append(aux_job)
             # del cells[:cells_assigned]
@@ -110,8 +111,8 @@ class Grid(pykka.ThreadingActor):
                     print("Cells extra to assign", cells_to_assign)
                     pos_y = cells[i + extra][-cells_to_assign:]
                     print("Assigning cells: ", pos_y)
-                    for l in range(len(pos_y)):
-                        print("Coordinates of the cell ", pos_y[l].coordinate)
+                    for cell in range(len(pos_y)):
+                        print("Coordinates of the cell ", pos_y[cell].coordinate)
 
                     # Añadimos las celdas extra
                     aux_cells.extend(pos_y)
@@ -121,8 +122,9 @@ class Grid(pykka.ThreadingActor):
                 return Job(JobState.NOTSTARTED, aux_cells)
 
             else:
-                print(":DDDDDDDDDDDDDDDDDDD")
+                print("There are enough cells")
                 pos_x = pos_x[:cells_to_assign]
+                print("Assigning cells ", pos_x)
                 aux_cells.extend(pos_x)
                 return Job(JobState.NOTSTARTED, aux_cells)
 

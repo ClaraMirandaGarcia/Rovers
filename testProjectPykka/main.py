@@ -19,7 +19,7 @@ class Main:
         # un solo agente) los trabajos. El trabajo pasa a estar fulfilled una vez que
         # todas sus celdas estén explored. JOB (fulfilled, started, not started)
 
-        '''
+
         actor_ref = Rover.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
                       max_bat=10, min_bat=5, charging_time=1)
 
@@ -31,8 +31,10 @@ class Main:
         scheduler_ref.stop()
         actor_ref.stop()
         '''
+        '''
 
 
 #main = Main(0.25, 5.7, 3.3, 4)
-main = Main(1, 4, 5, 3)
+#main = Main(1, 4, 5, 3)
+main = Main(1, 5.5, 2, 2)
 
