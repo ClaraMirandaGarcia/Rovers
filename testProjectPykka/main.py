@@ -1,34 +1,34 @@
 from grid.grid import Grid
-from scheduler import Scheduler
+from planner import Planner
 from rover import Rover
 from state.exploringState import ExploringState
 import pykka
 
 
 class Main:
-    def __init__(self, explore_capacity, height, width, num_jobs):
+    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers):
         # Preprocessing
 
         # Initialize variables
-        grid = Grid(explore_capacity, height, width, num_jobs)
+        grid = Grid(obser_rad, height, cave_wx, num_jobs, num_rovers)
 
         # Sortear las celdas a explorar por prioridad -> TBD
 
-        # Scheduler
+        # Planner
         # El scheduler recibe los agentes, recibe los jobs, asigna (en este caso a
         # un solo agente) los trabajos. El trabajo pasa a estar fulfilled una vez que
         # todas sus celdas estén explored. JOB (fulfilled, started, not started)
 
-
-        actor_ref = Rover.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
-                      max_bat=10, min_bat=5, charging_time=1)
+        #def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
+        actor_ref = Rover.start(battery=100, state=ExploringState, translate_speed=1, exp_speed=1,
+                      exp_bat=10, translate_bat=5, charging_time=1)
 
         rover1 = actor_ref.proxy()
-        scheduler_ref = Scheduler.start([actor_ref])
-        scheduler = scheduler_ref.proxy()
-        scheduler.set_jobs(grid.get_jobs())
-        scheduler.schedule()
-        scheduler_ref.stop()
+        planner_ref = Planner.start([actor_ref], 1)
+        planner = planner_ref.proxy()
+        planner.set_jobs(grid.get_jobs())
+        planner.schedule()
+        planner_ref.stop()
         actor_ref.stop()
         '''
         '''
@@ -36,5 +36,5 @@ class Main:
 
 #main = Main(0.25, 5.7, 3.3, 4)
 #main = Main(1, 4, 5, 3)
-main = Main(1, 5.5, 2, 2)
+main = Main(1, 5.5, 2, 2, 2)
 

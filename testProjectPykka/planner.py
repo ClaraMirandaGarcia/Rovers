@@ -4,7 +4,7 @@ import pykka
 from state.exploringState import ExploringState
 
 
-class Scheduler(pykka.ThreadingActor):
+class Planner(pykka.ThreadingActor):
     """
     The scheduler receives the agents and the jobs and assign them
     accordingly to its strategy
@@ -12,9 +12,10 @@ class Scheduler(pykka.ThreadingActor):
     Output: time spent in each mode
     """
 
-    def __init__(self, queue):
+    def __init__(self, queue, deploy_time):
         super().__init__()
         self.queue = queue
+        self.deploy_time = deploy_time
         self.jobs = []
 
     def set_jobs(self, jobs):

@@ -8,22 +8,22 @@ class Rover(pykka.ThreadingActor):
 
         @param battery: initial battery of the rover
         @param state: initial state of the rover
-        @param max_speed: maximum speed reached, translate speed.
+        @param translate_speed: maximum speed reached, translate speed.
         @param min_speed: minimum speed, exploring speed.
         @param max_battery: maximum battery usage.
         @param min_battery: minimum battery usage.
         @param charging_time:
     """
 
-    def __init__(self, battery, state, max_speed, min_speed, max_bat, min_bat, charging_time):
+    def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
         super().__init__()
         self.battery = battery
         self.state = state
         self.set_state(state)
-        self.max_speed = max_speed
-        self.min_speed = min_speed
-        self.max_bat = max_bat
-        self.min_bat = min_bat
+        self.translate_speed = translate_speed
+        self.exp_speed = exp_speed
+        self.translate_bat = translate_bat
+        self.exp_bat = exp_bat
         self.charging_time = charging_time
         self.recharge = False
         self.best_known_path = []
@@ -55,15 +55,15 @@ class Rover(pykka.ThreadingActor):
         return True
 
     # , battery, state, max_speed, min_speed, max_bat, min_bat, charging_time
-    def set_properties(self, battery, state, max_speed, min_speed, max_bat, min_bat, charging_time):
+    def set_properties(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
         self.battery = battery
         self.state = state
         self.set_state(state)
-        self.max_speed = max_speed
-        self.min_speed = min_speed
-        self.max_bat = max_bat
-        self.min_bat = min_bat
-        self.charging_time = 0
+        self.translate_speed = translate_speed
+        self.exp_speed = exp_speed
+        self.exp_bat = exp_bat
+        self.translate_bat = translate_bat
+        self.charging_time = charging_time
 
     # Battery
     def set_battery(self, new_battery):
@@ -74,32 +74,32 @@ class Rover(pykka.ThreadingActor):
         return self.battery
 
     # Max speed
-    def set_max_speed(self, max_speed):
-        self.max_speed = max_speed
+    def set_translate_speed(self, translate_speed):
+        self.translate_speed = translate_speed
 
-    def get_max_speed(self):
-        return self.max_speed
+    def get_translate_speed(self):
+        return self.translate_speed
 
     # min speed
-    def set_min_speed(self, min_speed):
-        self.min_speed = min_speed
+    def set_exp_speed(self, exp_speed):
+        self.exp_speed = exp_speed
 
-    def get_min_speed(self):
-        return self.min_speed
+    def get_exp_speed(self):
+        return self.exp_speed
 
     # max bat
-    def set_max_bat(self, max_bat):
-        self.max_bat = max_bat
+    def set_exp_bat(self, exp_bat):
+        self.exp_bat = exp_bat
 
-    def get_max_bat(self):
-        return self.max_bat
+    def get_exp_bat(self):
+        return self.exp_bat
 
     # min bat
-    def set_min_bat(self, min_bat):
-        self.min_bat = min_bat
+    def set_translate_bat(self, translate_bat):
+        self.translate_bat = translate_bat
 
-    def get_min_bat(self):
-        return self.min_bat
+    def get_translate_bat(self):
+        return self.translate_bat
 
     # Best known path
     def add_best_cell(self, best_cell: Cell):

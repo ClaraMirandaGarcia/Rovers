@@ -42,6 +42,6 @@ class TranslateState(State):
             aux = aux - 1
 
     def battery_discharge(self):
-        new_battery = self.context.battery - self.context.min_bat
+        new_battery = self.context.battery - self.context.translate_bat
         self.context.set_battery(new_battery)
         pass

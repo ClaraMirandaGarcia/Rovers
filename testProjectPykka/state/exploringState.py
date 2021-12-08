@@ -28,8 +28,7 @@ class ExploringState(State):
             self.context.set_state(TranslateState)
             self.context.move(cell)
 
-
     def battery_discharge(self):
-        new_battery = self.context.battery - self.context.max_bat
+        new_battery = self.context.battery - self.context.exp_bat
         self.context.set_battery(new_battery)
         pass

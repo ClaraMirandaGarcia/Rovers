@@ -6,10 +6,11 @@ import pykka
 
 
 class Grid(pykka.ThreadingActor):
-    def __init__(self, explore_capacity, height, width, num_jobs):
+    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers):
         super().__init__()
         self.jobs = []
-        self.preprocess(explore_capacity, height, width, num_jobs)
+        self.num_rovers = num_rovers
+        self.preprocess(obser_rad, height, cave_wx, num_jobs)
 
     def add_job(self, job):
         self.jobs.append(job)
@@ -17,30 +18,34 @@ class Grid(pykka.ThreadingActor):
     def get_jobs(self) -> []:
         return self.jobs
 
-    def preprocess(self, explore_capacity, height, width, num_jobs):
+    def preprocess(self, obser_rad, height, cave_wx, num_jobs):
+
+        explore_capacity = obser_rad ** 4
+
         # Calculating the new height in order to
         # obtain the logic grid
         new_height = self.approximate_value(explore_capacity, height)
-        new_width = self.approximate_value(explore_capacity, width)
+        new_width = self.approximate_value(explore_capacity, cave_wx)
 
         area = new_height * new_width
 
         cells = self.find_cells(new_height, new_width, explore_capacity)
-        # cells = self.calculate_cells(area, explore_capacity)
+        for i in range(len(cells)):
+            for j in range(len(cells[i])):
+                print('a', end='')
+            print("")
+        print(cells)
         num_cells = area / explore_capacity
 
         jobs = self.assign_jobs(cells, num_jobs, num_cells)
         self.jobs = jobs
-        '''
-        job_cells = num_cells / num_jobs
 
-        aux_job = 0
-        while aux_job < num_jobs:
-            cells_in_job = self.cells_for_job(cells, job_cells)
-            print("Job: " + str(aux_job) + " has: " + str(len(cells_in_job)) + " assigned cells")
-            self.add_job(Job(JobState.NOTSTARTED, cells_in_job))
-            aux_job += 1
-        '''
+    '''
+    Obtains the next multiple of the explore capacity of a value.
+    
+    @explore_capacity
+    @value_to_approximate
+    '''
 
     def approximate_value(self, explore_capacity, value_to_approximate):
         aux = value_to_approximate // np.sqrt(explore_capacity)
@@ -50,16 +55,21 @@ class Grid(pykka.ThreadingActor):
             aux = self.find_next_multiple(aux, np.sqrt(explore_capacity))
         return aux
 
+    '''
+    Creates the cells to explore the cave
+    @new_
+    '''
+
     @staticmethod
     def find_cells(new_height, new_width, explore_capacity):
-        len_y = int(new_height / np.sqrt(explore_capacity))
-        len_x = int(new_width / np.sqrt(explore_capacity))
+        len_y = int(new_width / np.sqrt(explore_capacity))
+        len_x = int(new_height / np.sqrt(explore_capacity))
         cells = np.full((len_x, len_y), Cell(CellState.UNEXPLORED, explore_capacity))
 
         for i in range(len_x):
             for j in range(len_y):
                 coordinate = Coordinate(x=i, y=j)
-                if i == 0 and j == 0:
+                if i == ((len_x // 2) - 1) and j == 0:
                     # Charging Point placement
                     cells[i][j] = Cell(CellState.EXPLORED, explore_capacity, True, coordinate)
                 else:
@@ -71,8 +81,26 @@ class Grid(pykka.ThreadingActor):
     def find_next_multiple(value, multiple):
         return value + multiple
 
+    @staticmethod
+    def pre_explore(cells):
+        cells_job = []
+        i = 0
+        while i < len(cells):
+            for j in range(len(cells[i])):
+                if j < 2:
+                    cells_job.append(cells[i][j])
+            i += 1 
+        return cells_job
+
     def assign_jobs(self, cells, num_jobs, num_cells):
         aux_jobs = []
+        # set cells apart to pre-explore job
+        if self.num_rovers > 0:
+            pre_explore_cells = self.pre_explore(cells)
+            aux_jobs.append(Job(JobState.NOTSTARTED, pre_explore_cells))
+
+        if len(cells) <= 0:
+            return aux_jobs
 
         for n in range(num_jobs):
             print("JOB ", n)
@@ -83,13 +111,13 @@ class Grid(pykka.ThreadingActor):
             num_cells -= cells_to_assign
             aux_job = self.assign_cells(cells, cells_to_assign)
             aux_jobs.append(aux_job)
-            # del cells[:cells_assigned]
 
         return aux_jobs
 
     @staticmethod
     def assign_cells(cells, cells_to_assign):
         aux_cells = []
+
         for i in range(len(cells)):
             print("X: ", i)
             pos_x = cells[i]
@@ -101,13 +129,13 @@ class Grid(pykka.ThreadingActor):
 
             elif cells_to_assign > len(pos_x):
                 # Añadimos las celdas justas
-                print("Assigning cells: ", pos_x)
+                for cell_prnt in range(len(pos_x)):
+                    print("Assigning cell in ", pos_x[cell_prnt].coordinate)
                 aux_cells.extend(pos_x)
                 cells_to_assign -= len(pos_x)
                 extra = 1
 
                 while cells_to_assign > 0:
-
                     print("Cells extra to assign", cells_to_assign)
                     pos_y = cells[i + extra][-cells_to_assign:]
                     print("Assigning cells: ", pos_y)
@@ -128,6 +156,7 @@ class Grid(pykka.ThreadingActor):
                 aux_cells.extend(pos_x)
                 return Job(JobState.NOTSTARTED, aux_cells)
 
+    '''
     @staticmethod
     def calculate_cells(area, explore_capacity) -> []:
         num_cells = area / explore_capacity
@@ -138,6 +167,7 @@ class Grid(pykka.ThreadingActor):
             cells.append(Cell(CellState.UNEXPLORED, explore_capacity))
             it_var += 1
         return cells
+
 
     @staticmethod
     def cells_for_job(cells, job_cells) -> []:
@@ -151,3 +181,4 @@ class Grid(pykka.ThreadingActor):
                 current_num_cells += 1
 
         return cells_aux
+'''
