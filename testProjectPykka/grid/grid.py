@@ -10,6 +10,8 @@ class Grid(pykka.ThreadingActor):
         super().__init__()
         self.jobs = []
         self.num_rovers = num_rovers
+        self.cells = []
+
         self.preprocess(obser_rad, height, cave_wx, num_jobs)
 
     def add_job(self, job):
@@ -30,16 +32,13 @@ class Grid(pykka.ThreadingActor):
         area = new_height * new_width
 
         cells = self.find_cells(new_height, new_width, explore_capacity)
-        for i in range(len(cells)):
-            for j in range(len(cells[i])):
-                print('a', end='')
-            print("")
-        print(cells)
+        self.set_cells(cells)
         num_cells = area / explore_capacity
-
         jobs = self.assign_jobs(cells, num_jobs, num_cells)
         self.jobs = jobs
 
+    def set_cells(self, cells):
+        self.cells = cells
     '''
     Obtains the next multiple of the explore capacity of a value.
     
@@ -72,10 +71,18 @@ class Grid(pykka.ThreadingActor):
                 if i == ((len_x // 2) - 1) and j == 0:
                     # Charging Point placement
                     cells[i][j] = Cell(CellState.EXPLORED, explore_capacity, True, coordinate)
+                    cells[i][j].set_charging_point(True)
                 else:
                     cells[i][j] = Cell(CellState.UNEXPLORED, explore_capacity, True, coordinate)
 
         return cells
+
+    def find_charging_point_placement(self) -> Cell:
+        cells = self.cells
+        for i in range(len(cells)):
+            for j in range(len(cells[i])):
+                if cells[i][j].is_charging_point():
+                    return cells[i][j]
 
     @staticmethod
     def find_next_multiple(value, multiple):
@@ -89,13 +96,13 @@ class Grid(pykka.ThreadingActor):
             for j in range(len(cells[i])):
                 if j < 2:
                     cells_job.append(cells[i][j])
-            i += 1 
+            i += 1
         return cells_job
 
     def assign_jobs(self, cells, num_jobs, num_cells):
         aux_jobs = []
         # set cells apart to pre-explore job
-        if self.num_rovers > 0:
+        if self.num_rovers > 1:
             pre_explore_cells = self.pre_explore(cells)
             aux_jobs.append(Job(JobState.NOTSTARTED, pre_explore_cells))
 
@@ -103,58 +110,41 @@ class Grid(pykka.ThreadingActor):
             return aux_jobs
 
         for n in range(num_jobs):
-            print("JOB ", n)
             cells_to_assign = int(num_cells // (num_jobs - n))
-
-            print("Número de celdas para asignar")
-            print(cells_to_assign)
             num_cells -= cells_to_assign
             aux_job = self.assign_cells(cells, cells_to_assign)
             aux_jobs.append(aux_job)
 
         return aux_jobs
 
-    @staticmethod
-    def assign_cells(cells, cells_to_assign):
+    def assign_cells(self, cells, cells_to_assign):
         aux_cells = []
-
         for i in range(len(cells)):
-            print("X: ", i)
             pos_x = cells[i]
             pos_x = list(filter(lambda cell: not cell.is_assigned(), pos_x))
-            print("Non-assigned cells: ", pos_x)
 
             if len(pos_x) == 0:
                 print("There is no cell to assign in X:", i)
 
             elif cells_to_assign > len(pos_x):
                 # Añadimos las celdas justas
-                for cell_prnt in range(len(pos_x)):
-                    print("Assigning cell in ", pos_x[cell_prnt].coordinate)
                 aux_cells.extend(pos_x)
                 cells_to_assign -= len(pos_x)
                 extra = 1
 
                 while cells_to_assign > 0:
-                    print("Cells extra to assign", cells_to_assign)
                     pos_y = cells[i + extra][-cells_to_assign:]
-                    print("Assigning cells: ", pos_y)
-                    for cell in range(len(pos_y)):
-                        print("Coordinates of the cell ", pos_y[cell].coordinate)
-
                     # Añadimos las celdas extra
                     aux_cells.extend(pos_y)
                     cells_to_assign -= len(pos_y)
                     extra += 1
                 # Create a job with that cell and add it to the grid.
-                return Job(JobState.NOTSTARTED, aux_cells)
+                return Job(JobState.NOTSTARTED, self.find_charging_point_placement(), aux_cells)
 
             else:
-                print("There are enough cells")
                 pos_x = pos_x[:cells_to_assign]
-                print("Assigning cells ", pos_x)
                 aux_cells.extend(pos_x)
-                return Job(JobState.NOTSTARTED, aux_cells)
+                return Job(JobState.NOTSTARTED, self.find_charging_point_placement(), aux_cells)
 
     '''
     @staticmethod

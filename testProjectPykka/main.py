@@ -11,6 +11,9 @@ class Main:
 
         # Initialize variables
         grid = Grid(obser_rad, height, cave_wx, num_jobs, num_rovers)
+        jbs = grid.get_jobs()
+        jb = jbs[0]
+        cells = jb.job_cells
 
         # Sortear las celdas a explorar por prioridad -> TBD
 
@@ -24,17 +27,16 @@ class Main:
                       exp_bat=10, translate_bat=5, charging_time=1)
 
         rover1 = actor_ref.proxy()
+
         planner_ref = Planner.start([actor_ref], 1)
         planner = planner_ref.proxy()
         planner.set_jobs(grid.get_jobs())
         planner.schedule()
         planner_ref.stop()
         actor_ref.stop()
-        '''
-        '''
 
 
 #main = Main(0.25, 5.7, 3.3, 4)
 #main = Main(1, 4, 5, 3)
-main = Main(1, 5.5, 2, 2, 2)
+main = Main(1, 5.5, 2, 2, 1)
 

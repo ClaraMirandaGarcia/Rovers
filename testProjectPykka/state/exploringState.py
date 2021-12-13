@@ -9,6 +9,8 @@ class ExploringState(State):
         # check battery -> change state
 
         rover = self.context
+        #print("LOCATION: ", rover.location.coordinate)
+        print("LOCATION: ", cell.coordinate)
         enough_battery = rover.battery_available()
         print("BATTERY AVAILABLE: " + str(rover.battery))
 
@@ -16,6 +18,7 @@ class ExploringState(State):
 
         if enough_battery:
             self.context.location = cell
+
             cell.set_state(CellState.EXPLORED)
             self.battery_discharge(self)
             # ahora mismo añadiremos todas las celdas que nos encontremos, ya que el espacio

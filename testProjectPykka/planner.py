@@ -28,10 +28,32 @@ class Planner(pykka.ThreadingActor):
         print("scheduling")
         aux = 0
         jobs = self.get_jobs()
-
+        print("scheduling2")
+        self.simple_strategy2(jobs)
+        '''
+        print("scheduling3")
         for job in jobs:
-            self.simple_strategy(job, aux)
+            self.simple_strategy2(job, aux)
             aux += 1
+        '''
+
+    def simple_strategy2(self, jobs):
+        rover_ref = self.queue[0]
+        print(type(rover_ref))
+        rover = rover_ref.proxy()
+        counter = 0
+        for job in jobs:
+            rover.set_job(job)
+
+            if not rover_ref.is_alive():
+                print(type(rover_ref))
+                actor = rover_ref._actor
+                rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
+                                        max_bat=10, min_bat=5, charging_time=1)
+            rover_ref.tell("simple_strategy") # -> rises a problem
+            counter += 1
+
+        rover_ref.stop()
 
     '''
     Simple strategy modeling the jobs as "halls" and assigning each of them
