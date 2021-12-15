@@ -1,2 +1,4 @@
 
-4python:S2772G"Remove this unneeded "pass".(ã‘Û¾
+]python:S3516r"9Refactor this method to not always return the same value.(°…Î§øÿÿÿÿ8¯Ú…ÅÛ/
+Dpython:S1481u"%Remove the unused local variable "i".(·ˆØç8Â†ÈÛ/
+4python:S2772H"Remove this unneeded "pass".(ã‘Û¾

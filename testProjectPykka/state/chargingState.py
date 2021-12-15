@@ -26,4 +26,7 @@ class ChargingState(State):
         self.context.time_charging += time_to_charge
 
         new_battery = charge_speed + self.context.get_battery()
+        if new_battery > 100:
+            aux = 100 - new_battery
+            new_battery = new_battery + aux
         self.context.set_battery(new_battery)

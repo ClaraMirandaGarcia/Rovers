@@ -11,24 +11,22 @@ class ExploringState(State):
         rover = self.context
         #print("LOCATION: ", rover.location.coordinate)
         print("LOCATION: ", cell.coordinate)
+
         enough_battery = rover.battery_available()
         print("BATTERY AVAILABLE: " + str(rover.battery))
 
         self.context.time_exploring += 1
 
         if enough_battery:
-            self.context.location = cell
-
+            # self.context.location = cell
             cell.set_state(CellState.EXPLORED)
             self.battery_discharge(self)
-            # ahora mismo añadiremos todas las celdas que nos encontremos, ya que el espacio
-            # modelado tiene forma de pasillo, solo hay una ruta de ida y vuelta.
+            # se tiene en cuenta si hay otro posible path que tiene menor distancia
             self.context.add_best_cell(cell)
         else:
-            print("NOT ENOUGH BATTERY")
-            print(self.context.get_battery())
             self.context.recharge = True
             self.context.set_state(TranslateState)
+            self.context.add_best_cell(cell)
             self.context.move(cell)
 
     def battery_discharge(self):

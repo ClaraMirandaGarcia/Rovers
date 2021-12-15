@@ -8,7 +8,7 @@ class CellState(Enum):
 
 
 class Cell:
-    def __init__(self, state: CellState, size: int, accessible=True, coordinate=Coordinate):
+    def __init__(self, state: CellState, size: int, accessible=False, coordinate=Coordinate):
         self.state = state
         self.size = size
         self.assigned = False
@@ -50,9 +50,9 @@ class Cell:
         return False
 
     def distance_to(self, cell_to):
-        dx = (self.get_x() - cell_to.get_x())
-        dy = (self.get_y() - cell_to.get_y())
-        distance = np.sqrt(dx ** 2 + dy ** 2)
+        dx = (self.get_x() - cell_to.get_x()) ** 2
+        dy = (self.get_y() - cell_to.get_y()) ** 2
+        distance = np.sqrt(dx+dy)
         return distance
 
     def set_state(self, state: CellState):

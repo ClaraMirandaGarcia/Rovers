@@ -14,6 +14,43 @@ class Grid(pykka.ThreadingActor):
 
         self.preprocess(obser_rad, height, cave_wx, num_jobs)
 
+    def search_path(self, charging_point, current_cell):
+        best_path = [current_cell]
+        while not current_cell.is_charging_point():
+            # check for accessible cells already explored
+            accessible_cells = self.get_cells_accessible_from(charging_point, current_cell)
+            # check min distance cell
+            min_cell = self.get_closest_cell_simple(charging_point, accessible_cells)
+            # append it
+            best_path.append(min_cell)
+            current_cell = min_cell
+        print("best_path")
+        return best_path
+
+    @staticmethod
+    def get_closest_cell_simple(charging_point, cells):
+        closest_cell = cells[0]
+        cp = charging_point
+        min_distance = closest_cell.distance_to(cp)
+
+        for i in range(1, len(cells)):
+            cell_from = cells[i]
+            distance = cell_from.distance_to(cp)
+            if distance < min_distance:
+                min_distance = distance
+                closest_cell = cell_from
+        return closest_cell
+
+    def get_cells_accessible_from(self, charging_point, current_cell):
+        list_accessible_cells = []
+        for i in range(len(self.cells)):
+            for j in range(len(self.cells[i])):
+                if current_cell.is_accessible(self.cells[i][j]):
+                    list_accessible_cells.append(self.cells[i][j])
+        if current_cell.is_accessible(charging_point):
+            list_accessible_cells.append(charging_point)
+        return list_accessible_cells
+
     def add_job(self, job):
         self.jobs.append(job)
 
@@ -39,9 +76,10 @@ class Grid(pykka.ThreadingActor):
 
     def set_cells(self, cells):
         self.cells = cells
+
     '''
     Obtains the next multiple of the explore capacity of a value.
-    
+
     @explore_capacity
     @value_to_approximate
     '''
@@ -112,14 +150,14 @@ class Grid(pykka.ThreadingActor):
         for n in range(num_jobs):
             cells_to_assign = int(num_cells // (num_jobs - n))
             num_cells -= cells_to_assign
-            aux_job = self.assign_cells(cells, cells_to_assign)
+            aux_cells = self.assign_cells(cells, cells_to_assign, [], 0)
+            aux_job = Job(JobState.NOTSTARTED, self.find_charging_point_placement(), aux_cells)
             aux_jobs.append(aux_job)
 
         return aux_jobs
 
-    def assign_cells(self, cells, cells_to_assign):
-        aux_cells = []
-        for i in range(len(cells)):
+    def assign_cells(self, cells, cells_to_assign, aux_cells: [], it):
+        for i in range(it, len(cells)+1):
             pos_x = cells[i]
             pos_x = list(filter(lambda cell: not cell.is_assigned(), pos_x))
 
@@ -128,23 +166,21 @@ class Grid(pykka.ThreadingActor):
 
             elif cells_to_assign > len(pos_x):
                 # Añadimos las celdas justas
+
+                for j in range(len(pos_x)):
+                    pos_x[j].set_assigned(True)
                 aux_cells.extend(pos_x)
                 cells_to_assign -= len(pos_x)
-                extra = 1
 
-                while cells_to_assign > 0:
-                    pos_y = cells[i + extra][-cells_to_assign:]
-                    # Añadimos las celdas extra
-                    aux_cells.extend(pos_y)
-                    cells_to_assign -= len(pos_y)
-                    extra += 1
-                # Create a job with that cell and add it to the grid.
-                return Job(JobState.NOTSTARTED, self.find_charging_point_placement(), aux_cells)
+                if cells_to_assign > 0:
+                    self.assign_cells(cells, cells_to_assign, aux_cells, i+1)
+
+                return aux_cells
 
             else:
                 pos_x = pos_x[:cells_to_assign]
                 aux_cells.extend(pos_x)
-                return Job(JobState.NOTSTARTED, self.find_charging_point_placement(), aux_cells)
+                return aux_cells
 
     '''
     @staticmethod
