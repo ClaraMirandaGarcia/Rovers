@@ -1,6 +1,6 @@
 
-6python:S125+"Remove this commented out code.(“°’
-fpython:S930"HRemove 1 unexpected arguments; 'retreat' expects 2 positional arguments.(¡’¦8ñ†ÖĞÛ/
-mpython:S930"JRemove 1 unexpected arguments; 'to_charge' expects 1 positional arguments.(øĞû­ûÿÿÿÿ8Å‰îĞÛ/
-;python:S2772F"Remove this unneeded "pass".(ã‘Û¾8¾ÂûÏÛ/
 ppython:S930@"RRemove 1 unexpected arguments; 'battery_discharge' expects 0 positional arguments.(³ß´Ì8¾ÂûÏÛ/
+mpython:S930"JRemove 1 unexpected arguments; 'to_charge' expects 1 positional arguments.(øĞû­ûÿÿÿÿ8ûš•Ü/
+=python:S125+"Remove this commented out code.(“°’8ûš•Ü/
+fpython:S930"HRemove 1 unexpected arguments; 'retreat' expects 2 positional arguments.(¡’¦8ûš•Ü/
+;python:S2772F"Remove this unneeded "pass".(ã‘Û¾8¾ÂûÏÛ/

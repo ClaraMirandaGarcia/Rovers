@@ -61,6 +61,11 @@ class Cell:
     def get_cell_state(self) -> CellState:
         return self.state
 
+    def is_cell_explored(self):
+        if self.state == CellState.EXPLORED:
+            return True
+        return False
+
     def set_assigned(self, assigned: bool):
         self.assigned = assigned
 

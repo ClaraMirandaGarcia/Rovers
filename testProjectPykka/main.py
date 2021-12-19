@@ -46,5 +46,5 @@ class Main:
 
 #main = Main(0.25, 5.7, 3.3, 4, 1)
 #main = Main(1, 4, 5, 3, 1)
-main = Main(1, 5.5, 2, 1, 1)
+main = Main(1, 5.5, 2, 2, 1)
 

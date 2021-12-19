@@ -6,6 +6,20 @@ from state.translateState import TranslateState
 class ExploringState(State):
 
     def move(self, cell: Cell) -> None:
+        # check if there are accessible unexplored cells, if not -> Translate state + move(cell)
+
+        unexplored_accessible_cells = self.context.check_cells()
+
+        if unexplored_accessible_cells:
+            self.context.location = cell
+        else:
+            print("There are no accessible unexplored cells")
+            self.context.set_state(TranslateState)
+            self.context.move(cell)
+
+        
+        # in translate state -> check the same, if there are accessible unexplored cells
+        self.context.location = cell
         # check battery -> change state
 
         rover = self.context

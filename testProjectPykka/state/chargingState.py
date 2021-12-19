@@ -9,6 +9,10 @@ class ChargingState(State):
         pass
 
     def move(self, cell: Cell):
+        #self.context.location = cell # change this, it cannot be
+
+        if cell.get_x() == 5 and cell.get_y() == 1:
+            print("HERE")
         battery_aux = self.context.get_battery()
         self.context.time_charging += 1
 

@@ -43,8 +43,22 @@ class Rover(pykka.ThreadingActor):
         self.state.set_context(self.state, context=self)
 
     def move(self, cell: Cell):
-        self.location = cell
+        if self.location is None:
+            self.location = cell
         self.state.move(self.state, cell)
+
+    def check_cells(self):
+        '''
+
+        :return: True if there are accessible unexplored cells from the rover location
+
+        '''
+        accessible_cells = self.job.get_cells_accessible_from(self.location)
+        unexplored_accessible_cells = list(filter(lambda a_c: not a_c.is_cell_explored(), accessible_cells))
+        if len(unexplored_accessible_cells) > 0:
+            return True
+        else:
+            return False
 
     def move_to(self, cell: Cell):
         self.state.explore(self, cell)
