@@ -5,23 +5,22 @@ from state.idleState import IdleState
 
 class ChargingState(State):
 
+    def add_time(self, cell_origin, cell_to):
+        self.context.time_charging += self.context.charging_time
+
     def battery_discharge(self):
         pass
 
     def move(self, cell: Cell):
-        #self.context.location = cell # change this, it cannot be
 
-        if cell.get_x() == 5 and cell.get_y() == 1:
-            print("HERE")
         battery_aux = self.context.get_battery()
-        self.context.time_charging += 1
-
         while battery_aux != 100:
             self.battery_charge(self)
             battery_aux = self.context.get_battery()
 
             if battery_aux == 100:
                 self.context.recharge = False
+                self.add_time(self, cell, cell)
                 self.context.set_state(IdleState)
                 self.context.move(cell)
 

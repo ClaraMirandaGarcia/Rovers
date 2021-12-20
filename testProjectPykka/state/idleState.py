@@ -5,6 +5,9 @@ import state.translateState as s
 
 class IdleState(State):
 
+    def add_time(self, cell_origin, cell_to):
+        pass
+
     def battery_discharge(self):
         pass
 

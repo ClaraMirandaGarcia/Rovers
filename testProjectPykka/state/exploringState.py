@@ -5,12 +5,22 @@ from state.translateState import TranslateState
 
 class ExploringState(State):
 
+    def add_time(self, cell_from, cell_to):
+        # t = distancia(localización, celda a la que me voy a mover) / velocidad
+
+        distance = cell_from.distance_to(cell_to)
+        time = distance / self.context.exp_speed
+        self.context.time_exploring += time
+
     def move(self, cell: Cell) -> None:
         # check if there are accessible unexplored cells, if not -> Translate state + move(cell)
 
         unexplored_accessible_cells = self.context.check_cells()
 
         if unexplored_accessible_cells:
+            if self.context.location != cell:
+                location = self.context.location
+                self.add_time(self, location, cell)
             self.context.location = cell
         else:
             print("There are no accessible unexplored cells")

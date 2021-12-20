@@ -5,9 +5,13 @@ import state.exploringState as s
 
 
 class TranslateState(State):
-    def move(self, cell: Cell) -> None:
+    def add_time(self, cell_origin, cell_to):
+        # t = distancia(localización, celda a la que me voy a mover) / velocidad
+        distance = cell_origin.distance_to(cell_to)
+        time = distance / self.context.translate_speed
+        self.context.time_translate += time
 
-        self.context.time_translate += 1
+    def move(self, cell: Cell) -> None:
 
         if self.context.recharge:
             if self.context.location.is_charging_point():
@@ -36,9 +40,17 @@ class TranslateState(State):
                     goal_index = path.index(goal_cell)
 
                 if goal_index == 0:
-                    self.context.location = path[current_index - 1]
+                    # check distance
+                    cell_to = path[current_index - 1]
+                    #if cell_to is not None:
+                    self.add_time(self, self.context.location, cell_to)
+                    self.context.location = cell_to
                 else:
-                    self.context.location = path[current_index+1]
+                    cell_to = path[current_index + 1]
+                    #if cell_to is not None:
+                    self.add_time(self, self.context.location, cell_to)
+                    self.context.location = cell_to
+
                 print("Moving to: ", cell.get_coordinate(), " from: ", self.context.location.get_coordinate())
                 self.context.move(cell)
         cell.set_state(CellState.EXPLORED)
@@ -54,13 +66,14 @@ class TranslateState(State):
 
     def retreat(self, cell,  best_known_path):
         print("------------------------------RETREATING------------------------")
-        if self.context.location.get_x() == 5 and self.context.location.get_y() ==1:
-            print("HERE")
-        print(self.context.location.get_coordinate())
         cells = best_known_path
         current_index = cells.index(self.context.location)
-        self.context.location = cells[current_index + 1]
-        print(self.context.location.get_coordinate())
+        # Calculate the distance here
+        cell_origin = cells[current_index]
+        cell_to = cells[current_index + 1]
+        self.add_time(self, cell_origin, cell_to)
+
+        self.context.location = cell_to
         self.battery_discharge(self)
         self.context.move(cell)
 
