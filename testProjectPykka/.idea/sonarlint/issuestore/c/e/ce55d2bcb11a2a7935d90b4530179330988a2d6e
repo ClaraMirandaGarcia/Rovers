@@ -1,4 +1,4 @@
 
-4python:S2772#"Remove this unneeded "pass".(ã‘Û¾
-Bpython:S125"Remove this commented out code.(ËÌ§¾øÿÿÿÿ8Ìúš•Ü/
-ppython:S930"RRemove 1 unexpected arguments; 'battery_discharge' expects 0 positional arguments.(³ß´Ì8Ìúš•Ü/
+ppython:S930%"RRemove 1 unexpected arguments; 'battery_discharge' expects 0 positional arguments.(³ß´Ì8Ìúš•Ü/
+Bpython:S125#"Remove this commented out code.(ËÌ§¾øÿÿÿÿ8Ìúš•Ü/
+4python:S27721"Remove this unneeded "pass".(ã‘Û¾

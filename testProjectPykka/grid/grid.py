@@ -182,29 +182,3 @@ class Grid(pykka.ThreadingActor):
                 aux_cells.extend(pos_x)
                 return aux_cells
 
-    '''
-    @staticmethod
-    def calculate_cells(area, explore_capacity) -> []:
-        num_cells = area / explore_capacity
-        cells = []
-
-        it_var = 0
-        while it_var < num_cells:
-            cells.append(Cell(CellState.UNEXPLORED, explore_capacity))
-            it_var += 1
-        return cells
-
-
-    @staticmethod
-    def cells_for_job(cells, job_cells) -> []:
-        cells_aux = []
-        current_num_cells = 0
-
-        for cell in cells:
-            if (not cell.is_assigned()) and (current_num_cells < job_cells):
-                cell.set_assigned(True)
-                cells_aux.append(cell)
-                current_num_cells += 1
-
-        return cells_aux
-'''
