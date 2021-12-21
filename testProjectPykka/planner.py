@@ -88,12 +88,12 @@ class Planner(pykka.ThreadingActor):
 
         aux2 = 0
         while aux2 < num_agent:
-            # rover_ref = self.queue[aux2]
-            # rover = rover_ref.proxy()
-            # print("Time exploring:" + str(rover.time_exploring))
-            # print("Time translate:" + str(rover.time_translate))
-            # print("Time charging:" + str(rover.time_charging))
-            # print("Time idle:" + str(rover.time_idle))
+            rover_ref = self.queue[aux2]
+            rover = rover_ref.proxy()
+            print("Time exploring:" + str(rover.time_exploring))
+            print("Time translate:" + str(rover.time_translate))
+            print("Time charging:" + str(rover.time_charging))
+            print("Time idle:" + str(rover.time_idle))
 
             aux2 += 1
 

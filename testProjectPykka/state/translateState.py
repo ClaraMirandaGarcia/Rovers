@@ -7,7 +7,7 @@ import state.exploringState as s
 class TranslateState(State):
     def add_time(self, cell_origin, cell_to):
         # t = distancia(localización, celda a la que me voy a mover) / velocidad
-        distance = cell_origin.distance_to(cell_to)
+        distance = cell_origin.distance_to(cell_to) * cell_origin.size
         time = distance / self.context.translate_speed
         self.context.time_translate += time
 
@@ -18,7 +18,6 @@ class TranslateState(State):
                 self.to_charge(self, cell)
             else:
                 path = self.context.best_known_path
-                print(path)
                 self.retreat(self, cell, path)
         else:
             # necesita volver desde el punto de carga hasta la celda
@@ -59,13 +58,12 @@ class TranslateState(State):
 
         print("NEXT TO CHARGING POINT")
         print(self.context.location.get_coordinate())
-        print("IF CHARGING POINT FREE -> change state")
         # Set state -> Idle
         self.context.set_state(ChargingState)
         self.context.move(cell)
 
     def retreat(self, cell,  best_known_path):
-        print("------------------------------RETREATING------------------------")
+        print("RETREATING")
         cells = best_known_path
         current_index = cells.index(self.context.location)
         # Calculate the distance here

@@ -24,7 +24,6 @@ class Grid(pykka.ThreadingActor):
             # append it
             best_path.append(min_cell)
             current_cell = min_cell
-        print("best_path")
         return best_path
 
     @staticmethod

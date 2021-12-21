@@ -8,7 +8,7 @@ class ExploringState(State):
     def add_time(self, cell_from, cell_to):
         # t = distancia(localización, celda a la que me voy a mover) / velocidad
 
-        distance = cell_from.distance_to(cell_to)
+        distance = cell_from.distance_to(cell_to) * cell_from.size
         time = distance / self.context.exp_speed
         self.context.time_exploring += time
 
@@ -34,7 +34,7 @@ class ExploringState(State):
 
         rover = self.context
         #print("LOCATION: ", rover.location.coordinate)
-        print("LOCATION: ", cell.coordinate)
+        print("LOCATION: ", rover.location.get_coordinate())
 
         enough_battery = rover.battery_available()
         print("BATTERY AVAILABLE: " + str(rover.battery))

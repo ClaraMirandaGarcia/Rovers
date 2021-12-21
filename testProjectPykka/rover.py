@@ -122,8 +122,6 @@ class Rover(pykka.ThreadingActor):
         # check if there exists a path from best_cell[0] hasta -> best_cell mejor que el que hay hasta entonces
         # search for min distance path
         self.best_known_path = self.find_better_path(best_cell)
-        if self.job.charging_point not in self.best_known_path:
-            print("E")
         print("BEST KNOWN PATH")
         for cell in self.best_known_path:
             print(cell.get_coordinate())
@@ -184,7 +182,6 @@ class Rover(pykka.ThreadingActor):
         # If not then eliminate the cell for the cells of the job
 
         for cell in self.job.job_cells:
-            print("The cell can be accessed")
             print("Exploring cell " + str(cell_count))
             cell_count += 1
             # self.location(cell)
@@ -194,8 +191,13 @@ class Rover(pykka.ThreadingActor):
             print("Cell state: " + cell.get_cell_state().name)
             print("Job state: " + self.job.get_job_state().name)
 
-        print("FINALLY")
+        print("FINISHING")
         print(self.job.get_job_state())
+
+        print("Time exploring:" + str(self.time_exploring))
+        print("Time translate:" + str(self.time_translate))
+        print("Time charging:" + str(self.time_charging))
+        print("Time idle:" + str(self.time_idle))
 
     def on_receive(self, message):
         if message == "simple_strategy":

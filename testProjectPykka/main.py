@@ -20,7 +20,7 @@ class Main:
         for jb in jbs:
             for cell in jb.job_cells:
                 print("JOB: ", counter, " - Cell location: ", cell.get_coordinate())
-            counter +=1
+            counter += 1
 
         # Sortear las celdas a explorar por prioridad -> TBD
 
@@ -29,9 +29,9 @@ class Main:
         # un solo agente) los trabajos. El trabajo pasa a estar fulfilled una vez que
         # todas sus celdas estén explored. JOB (fulfilled, started, not started)
 
-        #def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
-        actor_ref = Rover.start(battery=100, state=ExploringState, translate_speed=1, exp_speed=1,
-                      exp_bat=10, translate_bat=5, charging_time=1, grid=grid)
+        # def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
+        actor_ref = Rover.start(battery=100, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
+                                exp_bat=10, translate_bat=5, charging_time=60, grid=grid)
 
         rover1 = actor_ref.proxy()
 
@@ -43,8 +43,7 @@ class Main:
         actor_ref.stop()
 
 
-
-#main = Main(0.25, 5.7, 3.3, 4, 1)
-#main = Main(1, 4, 5, 3, 1)
-main = Main(1, 5.5, 2, 2, 1)
-
+# main = Main(0.25, 5.7, 3.3, 4, 1)
+# main = Main(1, 4, 5, 3, 1)
+main = Main(4, 292.1, 1, 2, 1)
+#main = Main(1, 5.5, 2, 2, 1)

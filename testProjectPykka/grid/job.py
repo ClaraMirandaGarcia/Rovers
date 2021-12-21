@@ -44,12 +44,8 @@ class Job:
         cells = self.get_cells_accessible_from(closest_cell)
         cells = list(filter(lambda c: c in job_cells, cells))
         counter = 0
-        print(closest_cell.get_coordinate())
 
         while counter < len(job_cells) - 1:
-            if closest_cell is not None:
-                if closest_cell.get_x() == 3:
-                    print("HER")
             # for cell in cells:
             if closest_cell in aux_cells:
                 aux_cells.remove(closest_cell)
