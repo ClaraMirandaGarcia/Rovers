@@ -6,7 +6,12 @@ from state.idleState import IdleState
 class ChargingState(State):
 
     def add_time(self, cell_origin, cell_to):
-        self.context.time_charging += self.context.charging_time
+        self.context.time_charging += self.context.charging_time * 60
+        check_time = self.context.time_idle + self.context.time_translate + self.context.time_charging + self.context.time_exploring + self.context.charging_time
+        if self.context.max_time is not None and check_time >= self.context.max_time:
+            self.context.is_max_time = True
+        else:
+            self.context.total_time += self.context.charging_time
 
     def battery_discharge(self):
         pass
@@ -26,7 +31,7 @@ class ChargingState(State):
 
     def battery_charge(self, charge_speed=10):
         time_to_charge = self.context.charging_time
-        self.context.time_charging += time_to_charge
+        #self.context.time_charging += time_to_charge
 
         new_battery = charge_speed + self.context.get_battery()
         if new_battery > 100:

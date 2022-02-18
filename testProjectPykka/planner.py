@@ -1,6 +1,6 @@
 from grid.job import Job
 import pykka
-
+from fileManagement import FileManager
 from state.exploringState import ExploringState
 
 
@@ -12,11 +12,13 @@ class Planner(pykka.ThreadingActor):
     Output: time spent in each mode
     """
 
-    def __init__(self, queue, deploy_time):
+    def __init__(self, queue, deploy_time, name_file):
         super().__init__()
         self.queue = queue
         self.deploy_time = deploy_time
         self.jobs = []
+        path_to_file = "log_files/" + name_file
+        self.file_manager = FileManager(name_file, path_to_file)
 
     def set_jobs(self, jobs):
         self.jobs = jobs
@@ -28,14 +30,31 @@ class Planner(pykka.ThreadingActor):
         print("scheduling")
         aux = 0
         jobs = self.get_jobs()
-        print("scheduling2")
-        self.simple_strategy2(jobs)
+        if len(self.queue) == 1:
+            self.simple_strategy2(jobs)
+        elif len(self.queue) == 2:
+            self.simple_strategy3(jobs)
         '''
         print("scheduling3")
         for job in jobs:
             self.simple_strategy2(job, aux)
             aux += 1
         '''
+    def simple_strategy3(self, jobs):
+        for i in range(len(self.queue)):
+            rover_ref = self.queue[i]
+            print(type(rover_ref))
+            rover = rover_ref.proxy()
+            counter = 0
+            job = jobs[i]
+            rover.set_job(job)
+            if not rover_ref.is_alive():
+                actor = rover_ref._actor
+                rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
+                                            max_bat=10, min_bat=5, charging_time=1, max_time=100)
+
+            rover_ref.tell("simple_strategy")
+            rover_ref.stop()
 
     def simple_strategy2(self, jobs):
         rover_ref = self.queue[0]
@@ -46,11 +65,11 @@ class Planner(pykka.ThreadingActor):
             rover.set_job(job)
 
             if not rover_ref.is_alive():
-                print(type(rover_ref))
                 actor = rover_ref._actor
                 rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
-                                        max_bat=10, min_bat=5, charging_time=1)
-            rover_ref.tell("simple_strategy") # -> rises a problem
+                                        max_bat=10, min_bat=5, charging_time=1, max_time=100)
+
+            rover_ref.tell("simple_strategy")
             counter += 1
 
         rover_ref.stop()
@@ -71,7 +90,7 @@ class Planner(pykka.ThreadingActor):
             if not rover_ref.is_alive():
                 actor = rover_ref._actor
                 rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
-                      max_bat=10, min_bat=5, charging_time=1)
+                      max_bat=10, min_bat=5, charging_time=1, max_time=100)
 
             try:
                 '''Wrapping the reference to represent the rover'''
@@ -90,10 +109,7 @@ class Planner(pykka.ThreadingActor):
         while aux2 < num_agent:
             rover_ref = self.queue[aux2]
             rover = rover_ref.proxy()
-            print("Time exploring:" + str(rover.time_exploring))
-            print("Time translate:" + str(rover.time_translate))
-            print("Time charging:" + str(rover.time_charging))
-            print("Time idle:" + str(rover.time_idle))
+
 
             aux2 += 1
 

@@ -1,18 +1,23 @@
 from grid.cell import Cell, CellState
 from grid.job import Job, JobState
+from fileManagement import FileManager
 from coordinates import Coordinate
 import numpy as np
 import pykka
 
 
 class Grid(pykka.ThreadingActor):
-    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers):
+    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers, name_file):
         super().__init__()
+        path_to_file = "log_files/" + name_file
+        self.file_manager = FileManager(name_file, path_to_file)
         self.jobs = []
         self.num_rovers = num_rovers
         self.cells = []
-
-        self.preprocess(obser_rad, height, cave_wx, num_jobs)
+        aux_wx = cave_wx
+        if aux_wx is None:
+            aux_wx = 100
+        self.preprocess(obser_rad, height, aux_wx, num_jobs)
 
     def search_path(self, charging_point, current_cell):
         best_path = [current_cell]
@@ -67,7 +72,7 @@ class Grid(pykka.ThreadingActor):
 
         area = new_height * new_width
 
-        cells = self.find_cells(new_height, new_width, explore_capacity)
+        cells = self.find_cells(new_height, new_width, explore_capacity, height, cave_wx)
         self.set_cells(cells)
         num_cells = area / explore_capacity
         jobs = self.assign_jobs(cells, num_jobs, num_cells)
@@ -97,20 +102,32 @@ class Grid(pykka.ThreadingActor):
     '''
 
     @staticmethod
-    def find_cells(new_height, new_width, explore_capacity):
+    def find_cells(new_height, new_width, explore_capacity, height, cave_wx):
         len_y = int(new_width / np.sqrt(explore_capacity))
         len_x = int(new_height / np.sqrt(explore_capacity))
-        cells = np.full((len_x, len_y), Cell(CellState.UNEXPLORED, explore_capacity))
+
+        # check if the len_y < height
+        # check if the len_x < width
+        len = np.sqrt(explore_capacity)
+        len_y_real = len
+        len_x_real = len
+        if len > height:
+            len_y_real = height
+        if len > cave_wx:
+            len_x_real = cave_wx
+        real_size = len_y_real * len_x_real
+
+        cells = np.full((len_x, len_y), Cell(CellState.UNEXPLORED, explore_capacity, real_size))
 
         for i in range(len_x):
             for j in range(len_y):
                 coordinate = Coordinate(x=i, y=j)
                 if i == ((len_x // 2) - 1) and j == 0:
                     # Charging Point placement
-                    cells[i][j] = Cell(CellState.EXPLORED, explore_capacity, True, coordinate)
+                    cells[i][j] = Cell(CellState.EXPLORED, explore_capacity, real_size, True, coordinate)
                     cells[i][j].set_charging_point(True)
                 else:
-                    cells[i][j] = Cell(CellState.UNEXPLORED, explore_capacity, True, coordinate)
+                    cells[i][j] = Cell(CellState.UNEXPLORED, explore_capacity, real_size, True, coordinate)
 
         return cells
 
@@ -155,6 +172,16 @@ class Grid(pykka.ThreadingActor):
 
         return aux_jobs
 
+    def get_explored_cells(self):
+        aux_list = []
+
+        for i in range(len(self.cells)):
+            for j in range(len(self.cells[i])):
+                if self.cells[i][j].is_explored():
+                    aux_list.append(self.cells[i][j])
+        #cells_filtered = list(filter(lambda c: c.is_explored(), self.cells))
+        return aux_list
+
     def assign_cells(self, cells, cells_to_assign, aux_cells: [], it):
         for i in range(it, len(cells)+1):
             pos_x = cells[i]
@@ -162,6 +189,7 @@ class Grid(pykka.ThreadingActor):
 
             if len(pos_x) == 0:
                 print("There is no cell to assign in X:", i)
+                self.file_manager.write("There is no cell to assign in X:" + str(i))
 
             elif cells_to_assign > len(pos_x):
                 # Añadimos las celdas justas

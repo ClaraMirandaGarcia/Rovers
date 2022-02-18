@@ -12,9 +12,8 @@ class IdleState(State):
         pass
 
     def move(self, cell: Cell) -> None:
-        # si el robot tiene un job asignado
-        #self.context.location = cell
         self.context.time_idle += 1
+        self.context.total_time += 1
         if not self.context.job.is_job_finished():
             # cambiar a translate state
             self.context.set_state(s.TranslateState)

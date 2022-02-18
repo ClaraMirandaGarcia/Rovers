@@ -15,7 +15,8 @@ class Rover(pykka.ThreadingActor):
         @param charging_time:
     """
 
-    def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time, grid):
+    def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time, grid,
+                 max_time):
         super().__init__()
         self.battery = battery
         self.state = state
@@ -31,14 +32,22 @@ class Rover(pykka.ThreadingActor):
         self.location = None
         self.occupied = False
         self.grid = grid
-
         self.time_exploring = 0
         self.time_translate = 0
         self.time_idle = 0
         self.time_charging = 0
+        self.total_time = 0
+        self.max_time = max_time
+        self.is_max_time = False
+        self.area_explored = 0
+        self.file_manager = grid.file_manager
+
+    def write_file(self, to_write):
+        self.file_manager.write(to_write)
 
     def set_state(self, new_state):
         print(f"Agent: Transitioning to {new_state.__name__}")
+        # self.file_manager.write("Agent: Transitioning to {new_state.__name__}")
         self.state = new_state
         self.state.set_context(self.state, context=self)
 
@@ -49,9 +58,7 @@ class Rover(pykka.ThreadingActor):
 
     def check_cells(self):
         '''
-
         :return: True if there are accessible unexplored cells from the rover location
-
         '''
         accessible_cells = self.job.get_cells_accessible_from(self.location)
         unexplored_accessible_cells = list(filter(lambda a_c: not a_c.is_cell_explored(), accessible_cells))
@@ -59,6 +66,23 @@ class Rover(pykka.ThreadingActor):
             return True
         else:
             return False
+
+    def get_unexplored(self):
+        '''
+        :return: List of accessible unexplored cells from the rover location
+        '''
+        accessible_cells = self.job.get_cells_accessible_from(self.location)
+        unexplored_accessible_cells = list(filter(lambda a_c: not a_c.is_cell_explored(), accessible_cells))
+        return unexplored_accessible_cells
+
+    def get_unexplored_grid(self):
+        '''
+        :return: List of accessible unexplored cells from the rover location
+        '''
+
+        accessible_cells = self.grid.get_cells_accessible_from(self.location)
+        unexplored_accessible_cells = list(filter(lambda a_c: not a_c.is_cell_explored(), accessible_cells))
+        return unexplored_accessible_cells
 
     def move_to(self, cell: Cell):
         self.state.explore(self, cell)
@@ -117,14 +141,27 @@ class Rover(pykka.ThreadingActor):
     def get_translate_bat(self):
         return self.translate_bat
 
+    def set_is_max_time(self, is_max_time):
+        self.is_max_time = is_max_time
+
+    def get_is_max_time(self):
+        return self.is_max_time
+
     # Best known path
     def add_best_cell(self, best_cell: Cell):
         # check if there exists a path from best_cell[0] hasta -> best_cell mejor que el que hay hasta entonces
         # search for min distance path
         self.best_known_path = self.find_better_path(best_cell)
+        if best_cell not in self.best_known_path:
+            self.best_known_path.insert(0, best_cell)
         print("BEST KNOWN PATH")
+
+        self.write_file("\n")
+        self.write_file("BEST KNOWN PATH"+"\n")
         for cell in self.best_known_path:
-            print(cell.get_coordinate())
+            #   self.file_manager.write(cell.get_coordinate())
+            self.write_file(str(cell.get_coordinate())+"\n")
+        # self.file_manager.write("\n")
 
     def find_better_path(self, current_cell: Cell):
         better_path = [current_cell]
@@ -170,11 +207,10 @@ class Rover(pykka.ThreadingActor):
     def get_job(self) -> Job:
         return self.job
 
-    '''
-    Performs a simple strategy for the rover with the jobs given.
-    '''
-
     def simple_strategy(self):
+        """
+            Performs a simple strategy for the rover with the jobs given.
+        """
         cell_count = 0
 
         # Check for an accessible cell
@@ -182,25 +218,70 @@ class Rover(pykka.ThreadingActor):
         # If not then eliminate the cell for the cells of the job
 
         for cell in self.job.job_cells:
-            print("Exploring cell " + str(cell_count))
+            self.write_file("Exploring cell " + str(cell_count)+"\n")
+            # self.file_manager.write("Exploring cell " + str(cell_count))
             cell_count += 1
-            # self.location(cell)
+            if not self.is_max_time and not self.max_time == 0:
+                self.move(cell)
+                self.job.change_state()
+                # rises -> problem
+                self.write_file("Cell state: " + cell.get_cell_state().name+"\n")
+                self.write_file("Job state: " + self.job.get_job_state().name+"\n")
+
+        self.write_file("FINISHING"+"\n")
+        self.write_file(self.job.get_job_state())
+
+        self.write_file("\n")
+        self.write_file("RESUME"+"\n")
+        self.write_file("Time exploring (min):" + "{:.2f}".format(self.time_exploring)+"\n")
+        self.write_file("Time translate (min):" + "{:.2f}".format(self.time_translate)+"\n")
+        self.write_file("Time charging (min):" + "{:.2f}".format(self.time_charging)+"\n")
+        self.write_file("Time idle (min):" + "{:.2f}".format(self.time_idle)+"\n")
+        self.write_file("---------------------------------------"+"\n")
+        self.write_file("Total time calculated (min):"+ "{:.2f}".format(self.time_idle + self.time_translate + self.time_charging + self.time_exploring)+"\n")
+        self.write_file("Total explored (m^2):"+ "{:.2f}".format(self.area_explored)+"\n")
+        self.write_file("\n")
+
+    def simple_strategy_area(self):
+        """
+            Performs a simple strategy for the rover with the jobs given.
+        """
+        cell_count = 0
+
+        # Check for an accessible cell
+        # If accessible then explore
+        # If not then eliminate the cell for the cells of the job
+
+        for cell in self.job.job_cells:
+            self.write_file("Exploring cell " + str(cell_count)+"\n")
+            # self.file_manager.write("Exploring cell " + str(cell_count))
+            cell_count += 1
             self.move(cell)
             self.job.change_state()
             # rises -> problem
-            print("Cell state: " + cell.get_cell_state().name)
-            print("Job state: " + self.job.get_job_state().name)
+            self.write_file("Cell state: " + cell.get_cell_state().name+"\n")
+            self.write_file("Job state: " + self.job.get_job_state().name+"\n")
 
-        print("FINISHING")
-        print(self.job.get_job_state())
-
-        print("Time exploring:" + str(self.time_exploring))
-        print("Time translate:" + str(self.time_translate))
-        print("Time charging:" + str(self.time_charging))
-        print("Time idle:" + str(self.time_idle))
+        self.write_file("FINISHING"+"\n")
+        self.write_file(self.job.get_job_state())
+        self.write_file("\n")
+        self.write_file("RESUME"+"\n")
+        self.write_file("Time exploring:" + str(self.time_exploring)+"\n")
+        self.write_file("Time translate:" + str(self.time_translate)+"\n")
+        self.write_file("Time charging:" + str(self.time_charging)+"\n")
+        self.write_file("Time idle:" + str(self.time_idle)+"\n")
+        self.write_file("---------------------------------------"+"\n")
+        self.write_file("Total time calculated: "+
+              str(self.time_idle + self.time_translate + self.time_charging + self.time_exploring)+"\n")
+        self.write_file("Total explored: "+ str(self.area_explored)+"\n")
+        self.write_file("\n")
 
     def on_receive(self, message):
         if message == "simple_strategy":
             self.simple_strategy()
+        elif message == "simple_strategy_max_time":
+            self.simple_strategy_time()
+        elif message == "simple_strategy_max_area":
+            self.simple_strategy_area()
         else:
             print('MESSAGE NOT MATCHED')
