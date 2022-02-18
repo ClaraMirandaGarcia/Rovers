@@ -229,8 +229,9 @@ class Rover(pykka.ThreadingActor):
                 self.write_file("Job state: " + self.job.get_job_state().name+"\n")
 
         self.write_file("FINISHING"+"\n")
-        self.write_file(self.job.get_job_state())
+        self.write_file(str(self.job.get_job_state()))
 
+        self.write_file("\n")
         self.write_file("\n")
         self.write_file("RESUME"+"\n")
         self.write_file("Time exploring (min):" + "{:.2f}".format(self.time_exploring)+"\n")
