@@ -9,6 +9,10 @@ from rover import Rover
 
 class State(ABC):
 
+    @abstractmethod
+    def add_time(self, cell_origin, cell_to):
+        pass
+
     def context(self) -> Rover:
         return self.context
 

@@ -42,32 +42,23 @@ class Job:
         closest_cell = self.get_closest_cell(aux_cells, prioritized_cells)
         prioritized_cells.append(closest_cell)
         cells = self.get_cells_accessible_from(closest_cell)
-
+        cells = list(filter(lambda c: c in job_cells, cells))
         counter = 0
-        print(closest_cell.get_coordinate())
 
-        while counter < len(job_cells)-1:
-            #for cell in cells:
+        while counter < len(job_cells) - 1:
+            # for cell in cells:
             if closest_cell in aux_cells:
                 aux_cells.remove(closest_cell)
-
-            # find the closest accessible cell
+                cells = self.get_cells_accessible_from(closest_cell)
+                cells = list(filter(lambda c: c in job_cells, cells))
+            # find the closest accessible cell -> sometimes it always get the same
             closest_cell = self.get_closest_cell(cells, prioritized_cells)
             # add it to the prioritized list
             if (closest_cell not in prioritized_cells) and (closest_cell in job_cells):
                 prioritized_cells.append(closest_cell)
                 # compute the accessible cells from closest_cell
                 cells = self.get_cells_accessible_from(closest_cell)
-                counter += 1
-
-            elif (len(aux_cells) > 0) and (closest_cell not in prioritized_cells):
-                # si está en la lista de priorizados o no está en el trabajo -> seguir iterando
-                    # Añadir el resto de celdas al trabajo de manera lógica
-                to_extend = aux_cells
-                prioritized_cells.extend(to_extend)
-                counter = counter + len(to_extend)
-            else:
-                counter +=1
+            counter += 1
 
         if len(prioritized_cells) < len(job_cells):
             # Tenemos que suponer el caso de que todavía queden celdas que añadir, que no se hayan añadido todas
@@ -87,15 +78,17 @@ class Job:
         return list_accessible_cells
 
     def get_closest_cell(self, job_cells, prioritized):
-        closest_cell = job_cells[0]
-        for i in range(1, len(job_cells)):
-            if closest_cell in prioritized:
-                closest_cell = job_cells[i]
+        cells = list(filter(lambda c: c not in prioritized, job_cells))
+
+        if len(cells) == 0:
+            return None
+
+        closest_cell = cells[0]
         cp = self.charging_point
         min_distance = closest_cell.distance_to(cp)
 
-        for i in range(1, len(job_cells)):
-            cell_from = job_cells[i]
+        for i in range(1, len(cells)):
+            cell_from = cells[i]
 
             if cell_from not in prioritized:
                 distance = cell_from.distance_to(cp)

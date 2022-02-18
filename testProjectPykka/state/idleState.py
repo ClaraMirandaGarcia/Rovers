@@ -5,12 +5,15 @@ import state.translateState as s
 
 class IdleState(State):
 
+    def add_time(self, cell_origin, cell_to):
+        pass
+
     def battery_discharge(self):
         pass
 
     def move(self, cell: Cell) -> None:
-        # si el robot tiene un job asignado
-        self.context.time_idle +=1
+        self.context.time_idle += 1
+        self.context.total_time += 1
         if not self.context.job.is_job_finished():
             # cambiar a translate state
             self.context.set_state(s.TranslateState)

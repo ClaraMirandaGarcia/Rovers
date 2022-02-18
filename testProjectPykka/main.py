@@ -1,27 +1,35 @@
 from grid.grid import Grid
-from grid.cell import Cell
-from grid.cell import CellState
+import sys
 from planner import Planner
 from rover import Rover
-from coordinates import Coordinate
-
+from fileManagement import FileManager
+import time
 from state.exploringState import ExploringState
-import pykka
 
 
 class Main:
-    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers):
+    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file):
+
+        # File output
+        path_to_file = "log_files/"+name_file
+        file_manager = FileManager(name_file, path_to_file)
+        file_manager.open()
+
         # Preprocessing
         # Initialize variables
-        grid = Grid(obser_rad, height, cave_wx, num_jobs, num_rovers)
+        grid = Grid(obser_rad, height, cave_wx, num_jobs, 1, name_file)
 
         jbs = grid.get_jobs()
         counter = 0
+        file_manager.write("\n")
+        file_manager.write("GRID MODELLING")
         for jb in jbs:
             for cell in jb.job_cells:
-                print("JOB: ", counter, " - Cell location: ", cell.get_coordinate())
-            counter +=1
-
+                file_manager.write("\n")
+                file_manager.write("JOB: " + str(counter) + " - Cell location: " + str(cell.get_coordinate()))
+            file_manager.write("\n")
+            counter += 1
+        file_manager.write("\n")
         # Sortear las celdas a explorar por prioridad -> TBD
 
         # Planner
@@ -29,22 +37,65 @@ class Main:
         # un solo agente) los trabajos. El trabajo pasa a estar fulfilled una vez que
         # todas sus celdas estén explored. JOB (fulfilled, started, not started)
 
-        #def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
-        actor_ref = Rover.start(battery=100, state=ExploringState, translate_speed=1, exp_speed=1,
-                      exp_bat=10, translate_bat=5, charging_time=1, grid=grid)
+        # def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
+        actor_ref = Rover.start(battery=100, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
+                                exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time)
 
-        rover1 = actor_ref.proxy()
+        #rover1 = actor_ref.proxy()
 
-        planner_ref = Planner.start([actor_ref], 1)
+        planner_ref = Planner.start([actor_ref], 1, name_file)
         planner = planner_ref.proxy()
         planner.set_jobs(grid.get_jobs())
         planner.schedule()
         planner_ref.stop()
         actor_ref.stop()
+        file_manager.close()
 
 
+# main = Main(0.25, 5.7, 3.3, 4, 1)
+# main = Main(1, 4, 5, 3, 1)
 
-#main = Main(0.25, 5.7, 3.3, 4, 1)
-#main = Main(1, 4, 5, 3, 1)
-main = Main(1, 5.5, 2, 1, 1)
+# Cueva estrecha y la distancia
+#main = Main(5, 292.1, 1, 2, 1)
+#     def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers, tmax):
+#main = Main(1, 5.5, 100, 4, 1, 15000)
+
+if __name__ == "__main__":
+    elapsed_time = 0
+    inp = input("Enter a mode (TM: maximum time mode/ AM: maximum area mode): ")
+
+    while inp != "TM" and inp != "AM":
+        print("Please, enter one of the available modes.")
+        inp = input("Enter a mode (TM: maximum time mode/ AM: maximum area mode): ")
+
+    if inp == "TM":
+        name_file = input("Enter the name of the file: ")
+        observ_rad = 1
+        height = float(input("Enter the height (m): "))
+        num_jobs = int(input("Enter the num_jobs: "))
+        num_rovers = int(input("Enter the num_rovers: "))
+        max_time = int(input("Enter the Max_time(min): "))
+        cave_wx = None
+        start = time.time()
+        Main(observ_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file)
+        end = time.time()
+        elapsed_time = end - start
+
+    elif inp == "AM":
+        name_file = input("Enter the name of the file: ")
+        observ_rad = 1
+        height = float(input("Enter the height (m): "))
+        cave_wx = float(input("Enter the cave_wx (m) "))
+        num_jobs = int(input("Enter the num_jobs: "))
+        num_rovers = int(input("Enter the num_rovers: "))
+        max_time = None
+        start = time.time()
+        Main(observ_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file)
+        end = time.time()
+        elapsed_time = end - start
+
+    print(f"Process finished")
+    print(f"Elapsed time: {elapsed_time}")
+
+
 

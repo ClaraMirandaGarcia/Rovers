@@ -1,6 +1,9 @@
 
-6python:S125+"Remove this commented out code.(“°’
-fpython:S930"HRemove 1 unexpected arguments; 'retreat' expects 2 positional arguments.(¡’¦8ñ†ÖĞÛ/
-mpython:S930"JRemove 1 unexpected arguments; 'to_charge' expects 1 positional arguments.(øĞû­ûÿÿÿÿ8Å‰îĞÛ/
-;python:S2772F"Remove this unneeded "pass".(ã‘Û¾8¾ÂûÏÛ/
-ppython:S930@"RRemove 1 unexpected arguments; 'battery_discharge' expects 0 positional arguments.(³ß´Ì8¾ÂûÏÛ/
+;python:S2772S"Remove this unneeded "pass".(ã‘Û¾8Ã¬¡İ/
+ppython:S930M"RRemove 1 unexpected arguments; 'battery_discharge' expects 0 positional arguments.(³ß´Ì8Ã¬¡İ/
+lpython:S930."IRemove 1 unexpected arguments; 'add_time' expects 2 positional arguments.(Ğä¿¹ùÿÿÿÿ8ã’û¾İ/
+xpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ô¸Ø¾şÿÿÿÿ8®²Ï¾İ/
+mpython:S930"JRemove 1 unexpected arguments; 'to_charge' expects 1 positional arguments.(øĞû­ûÿÿÿÿ8®²Ï¾İ/
+lpython:S9303"IRemove 1 unexpected arguments; 'add_time' expects 2 positional arguments.(Ğä¿¹ùÿÿÿÿ8ƒ©û¾İ/
+fpython:S930"HRemove 1 unexpected arguments; 'retreat' expects 2 positional arguments.(¡’¦8®²Ï¾İ/
+lpython:S930J"IRemove 1 unexpected arguments; 'add_time' expects 2 positional arguments.(¼­ûÿÿÿÿ8¤–…¿İ/

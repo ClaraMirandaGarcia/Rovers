@@ -8,9 +8,10 @@ class CellState(Enum):
 
 
 class Cell:
-    def __init__(self, state: CellState, size: int, accessible=False, coordinate=Coordinate):
+    def __init__(self, state: CellState, size: int, real_size: int, accessible=False, coordinate=Coordinate):
         self.state = state
         self.size = size
+        self.real_size = real_size
         self.assigned = False
         self.accessible = accessible
         self.coordinate = coordinate
@@ -26,6 +27,31 @@ class Cell:
 
     def is_charging_point(self):
         return self.charging_point
+
+    @staticmethod
+    def get_closest_accessible_cell(from_cell, path, goal_cell):
+        cells = list(filter(lambda c: c.is_accessible(from_cell), path))
+        min_distance = from_cell.distance_to(goal_cell)
+        cell_to = from_cell
+
+        for cell in cells:
+            dis_aux = cell.distance_to(goal_cell)
+            if dis_aux <= min_distance:
+                cell_to = cell
+                min_distance = dis_aux
+
+        if cell_to == from_cell:
+            if from_cell in path:
+                index_cell = path.index(from_cell)
+
+                if goal_cell.is_accessible(from_cell):
+                    cell_to = goal_cell
+                elif len(cells) == 1 and cells[0].is_accessible(cell_to):
+                    cell_to = cells[0]
+                elif len(cells) > 1 and index_cell is not None:
+                    cell_to = path[index_cell - 1]
+
+        return cell_to
 
     def is_accessible(self, from_cell) -> bool:
         # Se dice que es accesible si pertenece al mismo trabajo
@@ -60,6 +86,11 @@ class Cell:
 
     def get_cell_state(self) -> CellState:
         return self.state
+
+    def is_cell_explored(self):
+        if self.state == CellState.EXPLORED:
+            return True
+        return False
 
     def set_assigned(self, assigned: bool):
         self.assigned = assigned
