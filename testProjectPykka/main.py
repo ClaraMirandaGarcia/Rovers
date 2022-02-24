@@ -61,7 +61,6 @@ class Main:
 #main = Main(1, 5.5, 100, 4, 1, 15000)
 
 if __name__ == "__main__":
-    main = Main(1, 5.5, 2, 2, 1, None, "log1")
     elapsed_time = 0
     inp = input("Enter a mode (TM: maximum time mode/ AM: maximum area mode): ")
 
@@ -97,6 +96,7 @@ if __name__ == "__main__":
 
     print(f"Process finished")
     print(f"Elapsed time: {elapsed_time}")
+    print(f"Output file created")
 
 
 

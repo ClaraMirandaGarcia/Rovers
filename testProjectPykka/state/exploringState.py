@@ -43,8 +43,9 @@ class ExploringState(State):
                 if cell.is_accessible(self.context.location):
                     self.add_time(self, self.context.location, cell)
                     self.context.location = cell
-        elif not unexplored_accessible_cells and self.context.location.is_explored():
+        elif not unexplored_accessible_cells and self.context.location.is_explored() and not self.context.job.job_fulfilled:
             # No hay celdas inexploradas y ya se ha explorado la localización
+            # Mirar si el trabajo ya está finalizado o no
             self.context.write_file("There are no accessible unexplored cells"+"\n")
             print("There are no accessible unexplored cells")
             self.context.set_state(TranslateState)

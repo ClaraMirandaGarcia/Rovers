@@ -2,6 +2,7 @@ from enum import Enum, auto
 from coordinates import Coordinate
 import numpy as np
 
+
 class CellState(Enum):
     EXPLORED = auto()
     UNEXPLORED = auto()
@@ -78,7 +79,7 @@ class Cell:
     def distance_to(self, cell_to):
         dx = (self.get_x() - cell_to.get_x()) ** 2
         dy = (self.get_y() - cell_to.get_y()) ** 2
-        distance = np.sqrt(dx+dy)
+        distance = np.sqrt(dx + dy)
         return distance
 
     def set_state(self, state: CellState):
