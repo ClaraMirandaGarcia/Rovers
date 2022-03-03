@@ -122,7 +122,13 @@ class Grid(pykka.ThreadingActor):
         for i in range(len_x):
             for j in range(len_y):
                 coordinate = Coordinate(x=i, y=j)
-                if i == ((len_x // 2) - 1) and j == 0:
+                # A menos que len_x == 1, entonces el punto de carga se tendría que colocar en una esquina.
+
+                if len_x == 1 and j == ((len_y//2)-1):
+                    # Charging Point placement
+                    cells[i][j] = Cell(CellState.EXPLORED, explore_capacity, real_size, True, coordinate)
+                    cells[i][j].set_charging_point(True)
+                elif i == ((len_x // 2) - 1) and j == 0:
                     # Charging Point placement
                     cells[i][j] = Cell(CellState.EXPLORED, explore_capacity, real_size, True, coordinate)
                     cells[i][j].set_charging_point(True)

@@ -1,0 +1,82 @@
+Log output for log1There is no cell to assign in X:0
+GRID MODELLING
+JOB: 0 - Cell location: Coordinate({'y': 0, 'x': 0})
+JOB: 0 - Cell location: Coordinate({'y': 1, 'x': 0})
+
+JOB: 1 - Cell location: Coordinate({'y': 0, 'x': 1})
+JOB: 1 - Cell location: Coordinate({'y': 1, 'x': 1})
+
+ROVER: rover1 - Exploring cell 0
+ROVER: rover1 - LOCATION: Coordinate({'y': 0, 'x': 0})
+ROVER: rover1 - BATTERY AVAILABLE: 100
+ROVER: rover1 - 
+ROVER: rover1 - BEST KNOWN PATH
+ROVER: rover1 - Coordinate({'y': 0, 'x': 0})
+ROVER: rover1 - Cell state: EXPLORED
+ROVER: rover1 - Job state: STARTED
+ROVER: rover1 - Exploring cell 1
+ROVER: rover1 - 
+FINISHED
+ROVER: rover1 - LOCATION: Coordinate({'y': 1, 'x': 0})
+ROVER: rover1 - BATTERY AVAILABLE: 99.5
+ROVER: rover1 - 
+ROVER: rover1 - BEST KNOWN PATH
+ROVER: rover1 - Coordinate({'y': 1, 'x': 0})
+ROVER: rover1 - Coordinate({'y': 0, 'x': 0})
+ROVER: rover1 - Cell state: EXPLORED
+ROVER: rover1 - Job state: FULFILLED
+ROVER: rover1 - FINISHING
+ROVER: rover1 - JobState.FULFILLEDROVER: rover1 - 
+ROVER: rover1 - 
+ROVER: rover1 - RESUME
+ROVER: rover1 - Time exploring (min):162.00
+ROVER: rover1 - Time translate (min):0.00
+ROVER: rover1 - Time charging (min):0.00
+ROVER: rover1 - Time idle (min):0.00
+ROVER: rover1 - ---------------------------------------
+ROVER: rover1 - Total time calculated (min):162.00
+ROVER: rover1 - Total explored (m^2):512.00
+ROVER: rover1 - 
+ROVER: rover1 - Exploring cell 0
+ROVER: rover1 - Moving to: Coordinate({'y': 0, 'x': 1}) from: Coordinate({'y': 1, 'x': 0})
+ROVER: rover1 - LOCATION AFTER MOVING: Coordinate({'y': 0, 'x': 0})
+ROVER: rover1 - 
+FINISHED
+ROVER: rover1 - LOCATION: Coordinate({'y': 0, 'x': 1})
+ROVER: rover1 - BATTERY AVAILABLE: 99.0
+ROVER: rover1 - 
+ROVER: rover1 - BEST KNOWN PATH
+ROVER: rover1 - Coordinate({'y': 0, 'x': 1})
+ROVER: rover1 - Coordinate({'y': 0, 'x': 0})
+ROVER: rover1 - LOCATION: Coordinate({'y': 0, 'x': 1})
+ROVER: rover1 - BATTERY AVAILABLE: 98.5
+ROVER: rover1 - 
+ROVER: rover1 - BEST KNOWN PATH
+ROVER: rover1 - Coordinate({'y': 0, 'x': 1})
+ROVER: rover1 - Coordinate({'y': 0, 'x': 0})
+ROVER: rover1 - Cell state: EXPLORED
+ROVER: rover1 - Job state: STARTED
+ROVER: rover1 - Exploring cell 1
+ROVER: rover1 - 
+FINISHED
+ROVER: rover1 - LOCATION: Coordinate({'y': 1, 'x': 1})
+ROVER: rover1 - BATTERY AVAILABLE: 98.0
+ROVER: rover1 - 
+ROVER: rover1 - BEST KNOWN PATH
+ROVER: rover1 - Coordinate({'y': 1, 'x': 1})
+ROVER: rover1 - Coordinate({'y': 0, 'x': 1})
+ROVER: rover1 - Coordinate({'y': 0, 'x': 0})
+ROVER: rover1 - Cell state: EXPLORED
+ROVER: rover1 - Job state: FULFILLED
+ROVER: rover1 - FINISHING
+ROVER: rover1 - JobState.FULFILLEDROVER: rover1 - 
+ROVER: rover1 - 
+ROVER: rover1 - RESUME
+ROVER: rover1 - Time exploring (min):711.27
+ROVER: rover1 - Time translate (min):6.67
+ROVER: rover1 - Time charging (min):0.00
+ROVER: rover1 - Time idle (min):0.00
+ROVER: rover1 - ---------------------------------------
+ROVER: rover1 - Total time calculated (min):717.94
+ROVER: rover1 - Total explored (m^2):1280.00
+ROVER: rover1 - 

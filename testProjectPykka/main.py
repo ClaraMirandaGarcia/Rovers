@@ -39,7 +39,9 @@ class Main:
 
         # def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
         actor_ref = Rover.start(battery=100, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
-                                exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time)
+                                exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
+                                name_rover="rover1")
+
 
         #rover1 = actor_ref.proxy()
 
@@ -62,6 +64,8 @@ class Main:
 
 if __name__ == "__main__":
     elapsed_time = 0
+    main = Main(4, 20, 20, 2, 2, None, "log1")
+
     inp = input("Enter a mode (TM: maximum time mode/ AM: maximum area mode): ")
 
     while inp != "TM" and inp != "AM":
@@ -70,7 +74,7 @@ if __name__ == "__main__":
 
     if inp == "TM":
         name_file = input("Enter the name of the file: ")
-        observ_rad = 1
+        observ_rad = float(input("Enter the observation radio (m): "))
         height = float(input("Enter the height (m): "))
         num_jobs = int(input("Enter the num_jobs: "))
         num_rovers = int(input("Enter the num_rovers: "))
@@ -83,7 +87,7 @@ if __name__ == "__main__":
 
     elif inp == "AM":
         name_file = input("Enter the name of the file: ")
-        observ_rad = 1
+        observ_rad = float(input("Enter the observation radio (m): "))
         height = float(input("Enter the height (m): "))
         cave_wx = float(input("Enter the cave_wx (m) "))
         num_jobs = int(input("Enter the num_jobs: "))

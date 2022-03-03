@@ -1,5 +1,6 @@
 from grid.cell import Cell
 from grid.job import Job
+from fileManagement import FileManager
 import pykka
 
 
@@ -16,7 +17,7 @@ class Rover(pykka.ThreadingActor):
     """
 
     def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time, grid,
-                 max_time):
+                 max_time, name_rover):
         super().__init__()
         self.battery = battery
         self.state = state
@@ -40,9 +41,12 @@ class Rover(pykka.ThreadingActor):
         self.max_time = max_time
         self.is_max_time = False
         self.area_explored = 0
-        self.file_manager = grid.file_manager
+        path_to_file = "log_files/" + grid.file_manager.name_file + name_rover
+        self.name_rover = name_rover
+        self.file_manager = FileManager(grid.file_manager.name_file, path_to_file)
 
     def write_file(self, to_write):
+        self.file_manager.write("ROVER: "+self.name_rover+" - ")
         self.file_manager.write(to_write)
 
     def set_state(self, new_state):

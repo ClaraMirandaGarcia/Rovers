@@ -51,8 +51,8 @@ class Planner(pykka.ThreadingActor):
             if not rover_ref.is_alive():
                 actor = rover_ref._actor
                 rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
-                                            max_bat=10, min_bat=5, charging_time=1, max_time=100)
-
+                                        max_bat=10, min_bat=5, charging_time=1, max_time=100,
+                                        name_rover="rover"+str(i))
             rover_ref.tell("simple_strategy")
             rover_ref.stop()
 
@@ -67,7 +67,8 @@ class Planner(pykka.ThreadingActor):
             if not rover_ref.is_alive():
                 actor = rover_ref._actor
                 rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
-                                        max_bat=10, min_bat=5, charging_time=1, max_time=100)
+                                        max_bat=10, min_bat=5, charging_time=1, max_time=100,
+                                        name_rover="rover1")
 
             rover_ref.tell("simple_strategy")
             counter += 1
@@ -90,7 +91,7 @@ class Planner(pykka.ThreadingActor):
             if not rover_ref.is_alive():
                 actor = rover_ref._actor
                 rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
-                      max_bat=10, min_bat=5, charging_time=1, max_time=100)
+                      max_bat=10, min_bat=5, charging_time=1, max_time=100, name_rover="rover1")
 
             try:
                 '''Wrapping the reference to represent the rover'''
