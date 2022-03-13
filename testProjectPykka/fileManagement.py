@@ -1,3 +1,6 @@
+import threading
+import time
+
 class Singleton(type):
     _instances = {}
 
@@ -20,7 +23,14 @@ class FileManager(metaclass=Singleton):
         self.f.write("Log output for " + self.name_file)
 
     def write(self, to_write):
-        self.f.write(to_write)
+        thread_name = threading.current_thread().name
+        self.f.write(f"{thread_name}: {to_write}")
+        #self.f.write(to_write)
 
     def close(self):
         self.f.close()
+
+    def log(msg):
+        thread_name = threading.current_thread().name
+        print(f"{thread_name}: {msg}")
+

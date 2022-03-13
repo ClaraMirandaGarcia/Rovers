@@ -63,7 +63,12 @@ class Grid(pykka.ThreadingActor):
 
     def preprocess(self, obser_rad, height, cave_wx, num_jobs):
 
-        explore_capacity = obser_rad ** 4
+        explore_capacity = 0
+
+        if obser_rad < 1:
+            explore_capacity = (obser_rad + obser_rad) ** 2
+        else:
+            explore_capacity = obser_rad ** 4
 
         # Calculating the new height in order to
         # obtain the logic grid

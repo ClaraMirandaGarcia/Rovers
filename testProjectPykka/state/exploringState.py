@@ -59,10 +59,9 @@ class ExploringState(State):
         else:
             self.context.location = cell
         rover = self.context
-        rover.write_file("LOCATION: " + str(rover.location.get_coordinate()) + "\n")
-        print("LOCATION: ", rover.location.get_coordinate())
+        self.context.write_file("LOCATION: " + str(rover.location.get_coordinate()))
         enough_battery = rover.battery_available()
-        rover.write_file("BATTERY AVAILABLE: " + str(rover.battery) + "\n")
+        self.context.write_file("BATTERY AVAILABLE: " + str(rover.battery))
         self.context.time_exploring += 1
 
         self.add_time(self, self.context.location, old_location)

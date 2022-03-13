@@ -1,5 +1,6 @@
 from grid.job import Job
 import pykka
+from rover import Rover
 from fileManagement import FileManager
 from state.exploringState import ExploringState
 
@@ -12,13 +13,15 @@ class Planner(pykka.ThreadingActor):
     Output: time spent in each mode
     """
 
-    def __init__(self, queue, deploy_time, name_file):
+    def __init__(self, queue, deploy_time, name_file, grid, max_time):
         super().__init__()
         self.queue = queue
         self.deploy_time = deploy_time
         self.jobs = []
         path_to_file = "log_files/" + name_file
         self.file_manager = FileManager(name_file, path_to_file)
+        self.grid = grid
+        self.max_time = max_time
 
     def set_jobs(self, jobs):
         self.jobs = jobs
@@ -40,7 +43,26 @@ class Planner(pykka.ThreadingActor):
             self.simple_strategy2(job, aux)
             aux += 1
         '''
+
     def simple_strategy3(self, jobs):
+        r1 = Rover.start(battery=100, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
+                                  exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=self.grid, max_time=self.max_time,
+                                  name_rover="rover1").proxy()
+        j1 = jobs[0]
+        r1.set_job(j1)
+        r1.simple_strategy()
+        r1.stop()
+
+        r2 = Rover.start(battery=90, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
+                                  exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=self.grid, max_time=self.max_time,
+                                  name_rover="rover2").proxy()
+        j2 = jobs[1]
+        r2.set_job(j2)
+        r2.simple_strategy()
+        r2.stop()
+
+    def simple_strategy33(self, jobs):
+
         for i in range(len(self.queue)):
             rover_ref = self.queue[i]
             print(type(rover_ref))

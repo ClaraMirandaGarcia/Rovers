@@ -38,19 +38,28 @@ class Main:
         # todas sus celdas estén explored. JOB (fulfilled, started, not started)
 
         # def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
-        actor_ref = Rover.start(battery=100, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
+        actor_ref_1 = Rover.start(battery=100, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
                                 exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
                                 name_rover="rover1")
+        actor_ref_2 = Rover.start(battery=90, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
+                                exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
+                                name_rover="rover2")
 
 
         #rover1 = actor_ref.proxy()
 
-        planner_ref = Planner.start([actor_ref], 1, name_file)
+        planner_ref = Planner.start([actor_ref_1, actor_ref_2], 1, name_file, grid, max_time)
         planner = planner_ref.proxy()
-        planner.set_jobs(grid.get_jobs())
+        aus = grid.jobs
+        planner.set_jobs(aus)
         planner.schedule()
         planner_ref.stop()
-        actor_ref.stop()
+        actor_ref_1.stop()
+        actor_ref_2.stop()
+
+
+
+        # rover1 = actor_ref.proxy()
         file_manager.close()
 
 
@@ -64,7 +73,7 @@ class Main:
 
 if __name__ == "__main__":
     elapsed_time = 0
-    main = Main(4, 20, 20, 2, 2, None, "log1")
+    main = Main(1, 5.5, 2, 2, 2, None, "log3")
 
     inp = input("Enter a mode (TM: maximum time mode/ AM: maximum area mode): ")
 
