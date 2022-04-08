@@ -24,7 +24,7 @@ class FileManager(metaclass=Singleton):
 
     def write(self, to_write):
         thread_name = threading.current_thread().name
-        self.f.write(f"{thread_name}: {to_write}")
+        self.f.write(f"{to_write}")
         #self.f.write(to_write)
 
     def close(self):

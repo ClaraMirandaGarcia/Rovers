@@ -6,9 +6,11 @@ from time import localtime, asctime
 import threading
 
 
-
 class Rover(pykka.ThreadingActor):
-    """Initialize the class Rover
+    """
+    CURRENTLY IT IS NOT BEING USED.
+
+    Initialize the class Rover
 
         @param battery: initial battery of the rover
         @param state: initial state of the rover
@@ -54,15 +56,15 @@ class Rover(pykka.ThreadingActor):
 
     def write_file_opening(self):
         self.f = open(self.name_file, "a")
-        self.f.write("Log output for " + self.name_file+"\n")
-        self.f.write(asctime(localtime())+"\n")
+        self.f.write("Log output for " + self.name_file + "\n")
+        self.f.write(asctime(localtime()) + "\n")
         self.f.close()
 
     def write_file(self, to_write):
         thread_name = threading.current_thread().name
         self.f = open(self.name_file, "a")
-        self.f.write(f"{thread_name}: {to_write}"+"\n")
-        #self.f.write("ROVER: "+self.name_rover+" - "+"\n")
+        self.f.write(f"{thread_name}: {to_write}" + "\n")
+        # self.f.write("ROVER: "+self.name_rover+" - "+"\n")
         self.f.write(to_write)
         self.f.close()
 
@@ -242,29 +244,30 @@ class Rover(pykka.ThreadingActor):
         # If not then eliminate the cell for the cells of the job
 
         for cell in self.job.job_cells:
-            self.write_file("Exploring cell " + str(cell_count)+"\n")
+            self.write_file("Exploring cell " + str(cell_count) + "\n")
             # self.file_manager.write("Exploring cell " + str(cell_count))
             cell_count += 1
             if not self.is_max_time and not self.max_time == 0:
                 self.move(cell)
                 self.job.change_state()
                 # rises -> problem
-                self.write_file("Cell state: " + cell.get_cell_state().name+"\n")
-                self.write_file("Job state: " + self.job.get_job_state().name+"\n")
+                self.write_file("Cell state: " + cell.get_cell_state().name + "\n")
+                self.write_file("Job state: " + self.job.get_job_state().name + "\n")
 
-        self.write_file("FINISHING"+"\n")
+        self.write_file("FINISHING" + "\n")
         self.write_file(str(self.job.get_job_state()))
 
         self.write_file("\n")
         self.write_file("\n")
-        self.write_file("RESUME"+"\n")
-        self.write_file("Time exploring (min):" + "{:.2f}".format(self.time_exploring)+"\n")
-        self.write_file("Time translate (min):" + "{:.2f}".format(self.time_translate)+"\n")
-        self.write_file("Time charging (min):" + "{:.2f}".format(self.time_charging)+"\n")
-        self.write_file("Time idle (min):" + "{:.2f}".format(self.time_idle)+"\n")
-        self.write_file("---------------------------------------"+"\n")
-        self.write_file("Total time calculated (min):"+ "{:.2f}".format(self.time_idle + self.time_translate + self.time_charging + self.time_exploring)+"\n")
-        self.write_file("Total explored (m^2):"+ "{:.2f}".format(self.area_explored)+"\n")
+        self.write_file("RESUME" + "\n")
+        self.write_file("Time exploring (min):" + "{:.2f}".format(self.time_exploring) + "\n")
+        self.write_file("Time translate (min):" + "{:.2f}".format(self.time_translate) + "\n")
+        self.write_file("Time charging (min):" + "{:.2f}".format(self.time_charging) + "\n")
+        self.write_file("Time idle (min):" + "{:.2f}".format(self.time_idle) + "\n")
+        self.write_file("---------------------------------------" + "\n")
+        self.write_file("Total time calculated (min):" + "{:.2f}".format(
+            self.time_idle + self.time_translate + self.time_charging + self.time_exploring) + "\n")
+        self.write_file("Total explored (m^2):" + "{:.2f}".format(self.area_explored) + "\n")
         self.write_file("\n")
 
     def simple_strategy_area(self):
@@ -278,27 +281,27 @@ class Rover(pykka.ThreadingActor):
         # If not then eliminate the cell for the cells of the job
 
         for cell in self.job.job_cells:
-            self.write_file("Exploring cell " + str(cell_count)+"\n")
+            self.write_file("Exploring cell " + str(cell_count) + "\n")
             # self.file_manager.write("Exploring cell " + str(cell_count))
             cell_count += 1
             self.move(cell)
             self.job.change_state()
             # rises -> problem
-            self.write_file("Cell state: " + cell.get_cell_state().name+"\n")
-            self.write_file("Job state: " + self.job.get_job_state().name+"\n")
+            self.write_file("Cell state: " + cell.get_cell_state().name + "\n")
+            self.write_file("Job state: " + self.job.get_job_state().name + "\n")
 
-        self.write_file("FINISHING"+"\n")
+        self.write_file("FINISHING" + "\n")
         self.write_file(self.job.get_job_state())
         self.write_file("\n")
-        self.write_file("RESUME"+"\n")
-        self.write_file("Time exploring:" + str(self.time_exploring)+"\n")
-        self.write_file("Time translate:" + str(self.time_translate)+"\n")
-        self.write_file("Time charging:" + str(self.time_charging)+"\n")
-        self.write_file("Time idle:" + str(self.time_idle)+"\n")
-        self.write_file("---------------------------------------"+"\n")
-        self.write_file("Total time calculated: "+
-              str(self.time_idle + self.time_translate + self.time_charging + self.time_exploring)+"\n")
-        self.write_file("Total explored: "+ str(self.area_explored)+"\n")
+        self.write_file("RESUME" + "\n")
+        self.write_file("Time exploring:" + str(self.time_exploring) + "\n")
+        self.write_file("Time translate:" + str(self.time_translate) + "\n")
+        self.write_file("Time charging:" + str(self.time_charging) + "\n")
+        self.write_file("Time idle:" + str(self.time_idle) + "\n")
+        self.write_file("---------------------------------------" + "\n")
+        self.write_file("Total time calculated: " +
+                        str(self.time_idle + self.time_translate + self.time_charging + self.time_exploring) + "\n")
+        self.write_file("Total explored: " + str(self.area_explored) + "\n")
         self.write_file("\n")
 
     def on_receive(self, message):
