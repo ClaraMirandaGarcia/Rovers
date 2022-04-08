@@ -1,0 +1,89 @@
+Log output for log_files/rover2
+Fri Apr  8 10:02:51 2022
+Exploring cell 0
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 100
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 1
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 3})
+BATTERY AVAILABLE: 99.5
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 3})
+Coordinate({'y': 0, 'x': 3})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 2
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 4})
+BATTERY AVAILABLE: 99.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 4})
+Coordinate({'y': 1, 'x': 3})
+Coordinate({'y': 0, 'x': 3})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 3
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 4})
+BATTERY AVAILABLE: 98.5
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 1, 'x': 3})
+Coordinate({'y': 1, 'x': 4})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 4
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 5})
+BATTERY AVAILABLE: 98.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 5})
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 1, 'x': 3})
+Coordinate({'y': 1, 'x': 4})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 5
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 5})
+BATTERY AVAILABLE: 97.5
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 5})
+Coordinate({'y': 1, 'x': 4})
+Coordinate({'y': 1, 'x': 3})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 5})
+Cell state: EXPLORED
+Job state: FULFILLED
+FINISHING
+JobState.FULFILLED
+
+
+
+
+RESUME
+
+Time exploring (min):56.00
+Time translate (min):0.00
+Time charging (min):0.00
+Time idle (min):0.00
+---------------------------------------
+Total time calculated (min):56.00
+Total explored (m^2):6.00

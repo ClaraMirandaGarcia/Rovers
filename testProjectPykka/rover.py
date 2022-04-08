@@ -2,6 +2,9 @@ from grid.cell import Cell
 from grid.job import Job
 from fileManagement import FileManager
 import pykka
+from time import localtime, asctime
+import threading
+
 
 
 class Rover(pykka.ThreadingActor):
@@ -18,7 +21,9 @@ class Rover(pykka.ThreadingActor):
 
     def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time, grid,
                  max_time, name_rover):
-        super().__init__()
+
+        self.file_manager = None
+        self.name_file = None
         self.battery = battery
         self.state = state
         self.set_state(state)
@@ -44,13 +49,29 @@ class Rover(pykka.ThreadingActor):
         path_to_file = "log_files/" + grid.file_manager.name_file + name_rover
         self.name_rover = name_rover
         self.file_manager = FileManager(grid.file_manager.name_file, path_to_file)
+        self.f = None
+        super().__init__()
+
+    def write_file_opening(self):
+        self.f = open(self.name_file, "a")
+        self.f.write("Log output for " + self.name_file+"\n")
+        self.f.write(asctime(localtime())+"\n")
+        self.f.close()
 
     def write_file(self, to_write):
-        self.file_manager.write("ROVER: "+self.name_rover+" - ")
-        self.file_manager.write(to_write)
+        thread_name = threading.current_thread().name
+        self.f = open(self.name_file, "a")
+        self.f.write(f"{thread_name}: {to_write}"+"\n")
+        #self.f.write("ROVER: "+self.name_rover+" - "+"\n")
+        self.f.write(to_write)
+        self.f.close()
+
+    def set_name_file(self, name_file):
+        self.name_file = name_file
 
     def set_state(self, new_state):
-        print(f"Agent: Transitioning to {new_state.__name__}")
+        if self.file_manager is not None:
+            self.write_file(f"Agent: Transitioning to {new_state.__name__}")
         # self.file_manager.write("Agent: Transitioning to {new_state.__name__}")
         self.state = new_state
         self.state.set_context(self.state, context=self)
@@ -158,13 +179,12 @@ class Rover(pykka.ThreadingActor):
         self.best_known_path = self.find_better_path(best_cell)
         if best_cell not in self.best_known_path:
             self.best_known_path.insert(0, best_cell)
-        print("BEST KNOWN PATH")
 
         self.write_file("\n")
-        self.write_file("BEST KNOWN PATH"+"\n")
+        self.write_file("BEST KNOWN PATH")
         for cell in self.best_known_path:
             #   self.file_manager.write(cell.get_coordinate())
-            self.write_file(str(cell.get_coordinate())+"\n")
+            self.write_file(str(cell.get_coordinate()))
         # self.file_manager.write("\n")
 
     def find_better_path(self, current_cell: Cell):

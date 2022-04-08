@@ -1,8 +1,8 @@
 from grid.job import Job
 import pykka
-from rover import Rover
+from rover1 import State1 as state
+from rover1 import Rover as Rover1
 from fileManagement import FileManager
-from state.exploringState import ExploringState
 
 
 class Planner(pykka.ThreadingActor):
@@ -33,76 +33,35 @@ class Planner(pykka.ThreadingActor):
         print("scheduling")
         aux = 0
         jobs = self.get_jobs()
-        if len(self.queue) == 1:
-            self.simple_strategy2(jobs)
-        elif len(self.queue) == 2:
-            self.simple_strategy3(jobs)
-        '''
-        print("scheduling3")
-        for job in jobs:
-            self.simple_strategy2(job, aux)
-            aux += 1
-        '''
+        self.simple_strategy(jobs)
 
-    def simple_strategy3(self, jobs):
-        r1 = Rover.start(battery=100, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
-                                  exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=self.grid, max_time=self.max_time,
-                                  name_rover="rover1").proxy()
-        j1 = jobs[0]
-        r1.set_job(j1)
-        r1.simple_strategy()
-        r1.stop()
+    def simple_strategy(self, jobs):
+        queue = self.queue
+        aux_jobs = jobs
+        jobs_left = jobs.copy()
 
-        r2 = Rover.start(battery=90, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
-                                  exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=self.grid, max_time=self.max_time,
-                                  name_rover="rover2").proxy()
-        j2 = jobs[1]
-        r2.set_job(j2)
-        r2.simple_strategy()
-        r2.stop()
+        while len(jobs_left) > 0:
+            for i in range(len(queue)):
+                agent = queue[i]
+                r = agent.proxy()
+                j = jobs[i]
+                r.set_name_file("log_files/"+agent._actor.name_rover)
+                r.set_job(j)
+                jobs_left.remove(j)
+                r.write_file_opening()
+                r.simple_strategy()
+                r.stop()
+                agent.stop()
 
-    def simple_strategy33(self, jobs):
-
-        for i in range(len(self.queue)):
-            rover_ref = self.queue[i]
-            print(type(rover_ref))
-            rover = rover_ref.proxy()
-            counter = 0
-            job = jobs[i]
-            rover.set_job(job)
-            if not rover_ref.is_alive():
-                actor = rover_ref._actor
-                rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
-                                        max_bat=10, min_bat=5, charging_time=1, max_time=100,
-                                        name_rover="rover"+str(i))
-            rover_ref.tell("simple_strategy")
-            rover_ref.stop()
-
-    def simple_strategy2(self, jobs):
-        rover_ref = self.queue[0]
-        print(type(rover_ref))
-        rover = rover_ref.proxy()
-        counter = 0
-        for job in jobs:
-            rover.set_job(job)
-
-            if not rover_ref.is_alive():
-                actor = rover_ref._actor
-                rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
-                                        max_bat=10, min_bat=5, charging_time=1, max_time=100,
-                                        name_rover="rover1")
-
-            rover_ref.tell("simple_strategy")
-            counter += 1
-
-        rover_ref.stop()
+        # Cosas que pueden pasar -> más trabajos que rovers
+        #                        -> más rovers que trabajos
 
     '''
     Simple strategy modeling the jobs as "halls" and assigning each of them
     to an agent
     '''
 
-    def simple_strategy(self, job: Job, aux_):
+    def simple_strategy_version1(self, job: Job, aux_):
         aux = 0
         num_agent = len(self.queue)
         print("Exploring job: " + str(aux_))
@@ -112,7 +71,7 @@ class Planner(pykka.ThreadingActor):
             rover_ref = self.queue[aux]
             if not rover_ref.is_alive():
                 actor = rover_ref._actor
-                rover_ref = actor.start(battery=100, state=ExploringState, max_speed=1, min_speed=1,
+                rover_ref = actor.start(battery=100, state=state.EXPLORING_STATE, max_speed=1, min_speed=1,
                       max_bat=10, min_bat=5, charging_time=1, max_time=100, name_rover="rover1")
 
             try:

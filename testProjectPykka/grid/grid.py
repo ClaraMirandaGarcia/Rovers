@@ -16,7 +16,7 @@ class Grid(pykka.ThreadingActor):
         self.cells = []
         aux_wx = cave_wx
         if aux_wx is None:
-            aux_wx = 100
+            aux_wx = 10
         self.preprocess(obser_rad, height, aux_wx, num_jobs)
 
     def search_path(self, charging_point, current_cell):
@@ -178,6 +178,8 @@ class Grid(pykka.ThreadingActor):
             cells_to_assign = int(num_cells // (num_jobs - n))
             num_cells -= cells_to_assign
             aux_cells = self.assign_cells(cells, cells_to_assign, [], 0)
+            # prioritize cells for distance with the charging point
+            #cells = self.prioritize_cells(aux_cells)
             aux_job = Job(JobState.NOTSTARTED, self.find_charging_point_placement(), aux_cells)
             aux_jobs.append(aux_job)
 

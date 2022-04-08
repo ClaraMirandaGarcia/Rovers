@@ -1,5 +1,6 @@
 from enum import Enum, auto
 import grid.cell as Cell
+import pykka
 
 
 class JobState(Enum):
@@ -8,7 +9,7 @@ class JobState(Enum):
     NOTSTARTED = auto()
 
 
-class Job:
+class Job(pykka.ThreadingActor):
 
     def __init__(self, state: JobState, charging_point: Cell, job_cells):
         self.state = state
