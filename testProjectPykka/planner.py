@@ -40,14 +40,20 @@ class Planner(pykka.ThreadingActor):
             for i in range(len(queue)):
                 agent = queue[i]
                 r = agent.proxy()
-                j = jobs[i]
-                r.set_name_file("log_files/"+agent._actor.name_rover)
-                r.set_job(j)
-                jobs_left.remove(j)
-                r.write_file_opening()
-                r.simple_strategy()
-                r.stop()
-                agent.stop()
+                position = len(jobs) - len(jobs_left)
+                if position >= 0:
+                    j = jobs[len(jobs)-len(jobs_left)]
+                    if j in jobs_left:
+                        r.set_name_file("log_files/"+agent._actor.name_rover)
+                        r.set_job(j)
+                        jobs_left.remove(j)
+                        r.write_file_opening()
+                        r.simple_strategy()
+                        #r.stop()
+                else:
+
+                    break
+        #pykka.ActorRegistry.stop_all()
 
     def on_receive(self, message):
         if message == "simple_strategy":

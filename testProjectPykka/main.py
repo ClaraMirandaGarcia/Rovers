@@ -44,16 +44,16 @@ class Main:
          #                       exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
           #                      name_rover="rover2")
 
-        actor_ref_1 = Rover1.start(battery=100, state=State1.EXPLORING_STATE, translate_speed=2.4, exp_speed=0.1,
+        actor_ref_1 = Rover1.start(battery=100, state=State1.EXPLORING_STATE, translate_speed=0.1, exp_speed=0.05,
                                 exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
                                 name_rover="rover1")
 
-        actor_ref_2 = Rover1.start(battery=100, state=State1.EXPLORING_STATE, translate_speed=2.4, exp_speed=0.1,
+        actor_ref_2 = Rover1.start(battery=100, state=State1.EXPLORING_STATE, translate_speed=0.1, exp_speed=0.05,
                                 exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
                                 name_rover="rover2")
 
-        actor_ref_3 = Rover1.start(battery=300, state=State1.EXPLORING_STATE, translate_speed=0.5, exp_speed=0.1,
-                                exp_bat=100, translate_bat=70, charging_time=3, grid=grid, max_time=max_time,
+        actor_ref_3 = Rover1.start(battery=100, state=State1.EXPLORING_STATE, translate_speed=0.1, exp_speed=0.05,
+                                exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
                                 name_rover="rover3")
         actor_ref_4 = Rover1.start(battery=300, state=State1.EXPLORING_STATE, translate_speed=0.5, exp_speed=0.1,
                                 exp_bat=100, translate_bat=70, charging_time=3, grid=grid, max_time=max_time,
@@ -62,7 +62,7 @@ class Main:
 
         #rover1 = actor_ref.proxy()
 
-        planner_ref = Planner.start([actor_ref_1, actor_ref_2], 1, name_file, grid, max_time)
+        planner_ref = Planner.start([actor_ref_1, actor_ref_2, actor_ref_3], 1, name_file, grid, max_time)
         planner = planner_ref.proxy()
         aus = grid.jobs
         planner.set_jobs(aus)
@@ -87,8 +87,8 @@ class Main:
 
 if __name__ == "__main__":
     elapsed_time = 0 #Main(observ_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file)
-    main = Main(1, 5.5, 2, 2, 2, None, "log4")
-
+    main = Main(1, 5.5, 2, 3, 3, None, "log4")
+'''
     inp = input("Enter a mode (TM: maximum time mode/ AM: maximum area mode): ")
 
     while inp != "TM" and inp != "AM":
@@ -124,6 +124,6 @@ if __name__ == "__main__":
     print(f"Process finished")
     print(f"Elapsed time: {elapsed_time}")
     print(f"Output file created")
-
+'''
 
 

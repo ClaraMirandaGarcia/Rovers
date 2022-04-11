@@ -2,6 +2,7 @@ from grid.cell import Cell, CellState
 from grid.job import Job
 from fileManagement import FileManager
 import pykka
+import time
 from time import localtime, asctime
 import threading
 import numpy as np
@@ -23,6 +24,7 @@ class Rover(pykka.ThreadingActor):
         self.file_manager = None
         self.name_file = None
         self.battery = battery
+        self.battery_capacity = battery
         self.state = state
         self.set_state(state)
         self.translate_speed = translate_speed
@@ -241,6 +243,22 @@ class Rover(pykka.ThreadingActor):
             Performs a simple strategy for the rover with the jobs given.
         """
         cell_count = 0
+        cell_0 = self.job.job_cells[0]
+        cp = self.grid.find_charging_point_placement()
+        shortest_path = self.grid.search_path(cp, cell_0)
+
+        while not self.grid.is_path_explored(shortest_path, cell_0):
+            time.sleep(2.5)
+
+        if len(shortest_path) > 1:
+            # moverse hasta el punto
+
+            # cambiar estado a translate
+            self.set_state(State1.TRANSLATE_STATE)
+            # set location -> CP
+            self.location = cp
+            # moverse hasta cell
+            self.move(cell_0)
 
         # Check for an accessible cell
         # If accessible then explore
@@ -564,11 +582,11 @@ class Rover(pykka.ThreadingActor):
 
     def move_charging(self, cell: Cell):
         battery_aux = self.get_battery()
-        while battery_aux != 100:
+        while battery_aux != self.battery_capacity:
             self.battery_charge_charging()
             battery_aux = self.get_battery()
 
-            if battery_aux == 100:
+            if battery_aux == self.battery_capacity:
                 self.recharge = False
                 self.add_time_charging(cell, cell)
                 self.set_state(State1.IDLE_STATE)
@@ -579,7 +597,7 @@ class Rover(pykka.ThreadingActor):
         # self.time_charging += time_to_charge
 
         new_battery = charge_speed + self.get_battery()
-        if new_battery > 100:
-            aux = 100 - new_battery
+        if new_battery > self.battery_capacity:
+            aux = self.battery_capacity - new_battery
             new_battery = new_battery + aux
         self.set_battery(new_battery)

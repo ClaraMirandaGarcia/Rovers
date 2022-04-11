@@ -19,6 +19,15 @@ class Grid(pykka.ThreadingActor):
             aux_wx = 10
         self.preprocess(obser_rad, height, aux_wx, num_jobs)
 
+    @staticmethod
+    def is_path_explored(path, cell):
+        is_explored = True
+        cells_filtered = list(filter(lambda c: not c.is_explored() and cell != c, path))
+        # quitando la propia celda a explorar
+        if len(cells_filtered) > 0:
+            is_explored = False
+        return is_explored
+
     def search_path(self, charging_point, current_cell):
         best_path = [current_cell]
         while not current_cell.is_charging_point():

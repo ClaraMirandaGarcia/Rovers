@@ -1,19 +1,22 @@
-Log output for log_files/rover1
+Log output for log_files/rover3
 Mon Apr 11 10:08:59 2022
 Agent: Transitioning to State1.TRANSLATE_STATE
+Moving to: Coordinate({'y': 0, 'x': 4}) from: Coordinate({'y': 0, 'x': 2})
+LOCATION AFTER MOVING: Coordinate({'y': 0, 'x': 3})
 Agent: Transitioning to State1.EXPLORING_STATE
 
 FINISHED
 
-LOCATION: Coordinate({'y': 0, 'x': 1})
+LOCATION: Coordinate({'y': 0, 'x': 4})
 BATTERY AVAILABLE: 100
 BEST KNOWN PATH
-Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 0, 'x': 4})
 Exploring cell 0
-LOCATION: Coordinate({'y': 0, 'x': 1})
+LOCATION: Coordinate({'y': 0, 'x': 4})
 BATTERY AVAILABLE: 99.5
 BEST KNOWN PATH
-Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
 Coordinate({'y': 0, 'x': 2})
 Cell state: EXPLORED
 Job state: STARTED
@@ -21,11 +24,12 @@ Exploring cell 1
 
 FINISHED
 
-LOCATION: Coordinate({'y': 1, 'x': 1})
+LOCATION: Coordinate({'y': 1, 'x': 4})
 BATTERY AVAILABLE: 99.0
 BEST KNOWN PATH
-Coordinate({'y': 1, 'x': 1})
-Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 1, 'x': 4})
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
 Coordinate({'y': 0, 'x': 2})
 Cell state: EXPLORED
 Job state: STARTED
@@ -33,24 +37,28 @@ Exploring cell 2
 
 FINISHED
 
-LOCATION: Coordinate({'y': 1, 'x': 0})
+LOCATION: Coordinate({'y': 1, 'x': 5})
 BATTERY AVAILABLE: 98.5
 BEST KNOWN PATH
-Coordinate({'y': 1, 'x': 0})
-Coordinate({'y': 1, 'x': 1})
-Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 1, 'x': 5})
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
 Coordinate({'y': 0, 'x': 2})
+Coordinate({'y': 1, 'x': 4})
 Cell state: EXPLORED
 Job state: STARTED
 Exploring cell 3
 
 FINISHED
 
-LOCATION: Coordinate({'y': 0, 'x': 0})
+LOCATION: Coordinate({'y': 0, 'x': 5})
 BATTERY AVAILABLE: 98.0
 BEST KNOWN PATH
-Coordinate({'y': 0, 'x': 0})
-Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 0, 'x': 5})
+Coordinate({'y': 1, 'x': 5})
+Coordinate({'y': 1, 'x': 4})
+Coordinate({'y': 1, 'x': 3})
+Coordinate({'y': 1, 'x': 2})
 Coordinate({'y': 0, 'x': 2})
 Cell state: EXPLORED
 Job state: FULFILLED
@@ -63,9 +71,9 @@ JobState.FULFILLED
 RESUME
 
 Time exploring (min):85.00
-Time translate (min):0.00
+Time translate (min):10.00
 Time charging (min):0.00
 Time idle (min):0.00
 ---------------------------------------
-Total time calculated (min):85.00
+Total time calculated (min):95.00
 Total explored (m^2):5.00

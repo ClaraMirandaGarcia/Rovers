@@ -1,16 +1,17 @@
-Log output for log4There is no cell to assign in X:0There is no cell to assign in X:1There is no cell to assign in X:2
+Log output for log4There is no cell to assign in X:0There is no cell to assign in X:1There is no cell to assign in X:0There is no cell to assign in X:1There is no cell to assign in X:2There is no cell to assign in X:3
 GRID MODELLING
-JOB: 0 - Cell location: Coordinate({'y': 0, 'x': 2})
-JOB: 0 - Cell location: Coordinate({'y': 1, 'x': 2})
-JOB: 0 - Cell location: Coordinate({'y': 1, 'x': 1})
 JOB: 0 - Cell location: Coordinate({'y': 0, 'x': 1})
-JOB: 0 - Cell location: Coordinate({'y': 0, 'x': 0})
+JOB: 0 - Cell location: Coordinate({'y': 1, 'x': 1})
 JOB: 0 - Cell location: Coordinate({'y': 1, 'x': 0})
+JOB: 0 - Cell location: Coordinate({'y': 0, 'x': 0})
 
-JOB: 1 - Cell location: Coordinate({'y': 0, 'x': 3})
+JOB: 1 - Cell location: Coordinate({'y': 0, 'x': 2})
+JOB: 1 - Cell location: Coordinate({'y': 1, 'x': 2})
 JOB: 1 - Cell location: Coordinate({'y': 1, 'x': 3})
-JOB: 1 - Cell location: Coordinate({'y': 1, 'x': 4})
-JOB: 1 - Cell location: Coordinate({'y': 0, 'x': 4})
-JOB: 1 - Cell location: Coordinate({'y': 0, 'x': 5})
-JOB: 1 - Cell location: Coordinate({'y': 1, 'x': 5})
+JOB: 1 - Cell location: Coordinate({'y': 0, 'x': 3})
+
+JOB: 2 - Cell location: Coordinate({'y': 0, 'x': 4})
+JOB: 2 - Cell location: Coordinate({'y': 1, 'x': 4})
+JOB: 2 - Cell location: Coordinate({'y': 1, 'x': 5})
+JOB: 2 - Cell location: Coordinate({'y': 0, 'x': 5})
 
