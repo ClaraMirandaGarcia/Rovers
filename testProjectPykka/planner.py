@@ -1,5 +1,6 @@
 import pykka
 from fileManagement import FileManager
+from rover1 import State1
 
 
 class Planner(pykka.ThreadingActor):
@@ -41,6 +42,7 @@ class Planner(pykka.ThreadingActor):
                 agent = queue[i]
                 r = agent.proxy()
                 position = len(jobs) - len(jobs_left)
+
                 if position >= 0:
                     j = jobs[len(jobs)-len(jobs_left)]
                     if j in jobs_left:
@@ -49,11 +51,15 @@ class Planner(pykka.ThreadingActor):
                         jobs_left.remove(j)
                         r.write_file_opening()
                         r.simple_strategy()
-                        #r.stop()
-                else:
+                        # se para
+                        r.set_state(State1.TRANSLATE_STATE)
 
+                else:
                     break
-        #pykka.ActorRegistry.stop_all()
+            r.stop()
+            print("__________-")
+
+        pykka.ActorRegistry.stop_all()
 
     def on_receive(self, message):
         if message == "simple_strategy":

@@ -2,6 +2,7 @@ from grid.grid import Grid
 from planner import Planner
 from rover1 import Rover as Rover1
 from rover1 import State1
+from charging_point import ChargingPoint
 from fileManagement import FileManager
 import time
 
@@ -10,13 +11,14 @@ class Main:
     def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file):
 
         # File output
-        path_to_file = "log_files/"+name_file
+        path_to_file = "log_files/" + name_file
         file_manager = FileManager(name_file, path_to_file)
         file_manager.open()
 
         # Preprocessing
         # Initialize variables
-        grid = Grid(obser_rad, height, cave_wx, num_jobs, 1, name_file)
+        charging_point = ChargingPoint.start(1, []).proxy()
+        grid = Grid(obser_rad, height, cave_wx, num_jobs, 1, name_file, charging_point)
 
         jbs = grid.get_jobs()
         counter = 0
@@ -37,32 +39,33 @@ class Main:
         # todas sus celdas estén explored. JOB (fulfilled, started, not started)
 
         # def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
-        #actor_ref_1 = Rover.start(battery=100, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
-         #                       exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
-          #                      name_rover="rover1")
-        #actor_ref_2 = Rover.start(battery=90, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
-         #                       exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
-          #                      name_rover="rover2")
+        # actor_ref_1 = Rover.start(battery=100, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
+        #                       exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
+        #                      name_rover="rover1")
+        # actor_ref_2 = Rover.start(battery=90, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
+        #                       exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
+        #                      name_rover="rover2")
 
-        actor_ref_1 = Rover1.start(battery=100, state=State1.EXPLORING_STATE, translate_speed=0.1, exp_speed=0.05,
-                                exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
-                                name_rover="rover1")
+
+        actor_ref_1 = Rover1.start(battery=10, state=State1.EXPLORING_STATE, translate_speed=0.1, exp_speed=0.05,
+                                   exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
+                                   name_rover="rover1")
 
         actor_ref_2 = Rover1.start(battery=100, state=State1.EXPLORING_STATE, translate_speed=0.1, exp_speed=0.05,
-                                exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
-                                name_rover="rover2")
+                                   exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
+                                   name_rover="rover2")
 
         actor_ref_3 = Rover1.start(battery=100, state=State1.EXPLORING_STATE, translate_speed=0.1, exp_speed=0.05,
-                                exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
-                                name_rover="rover3")
+                                   exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
+                                   name_rover="rover3")
         actor_ref_4 = Rover1.start(battery=300, state=State1.EXPLORING_STATE, translate_speed=0.5, exp_speed=0.1,
-                                exp_bat=100, translate_bat=70, charging_time=3, grid=grid, max_time=max_time,
-                                name_rover="rover4")
+                                   exp_bat=100, translate_bat=70, charging_time=3, grid=grid, max_time=max_time,
+                                   name_rover="rover4")
 
+        # rover1 = actor_ref.proxy()
+        queue = [actor_ref_1, actor_ref_2, actor_ref_3]
 
-        #rover1 = actor_ref.proxy()
-
-        planner_ref = Planner.start([actor_ref_1, actor_ref_2, actor_ref_3], 1, name_file, grid, max_time)
+        planner_ref = Planner.start(queue, 1, name_file, grid, max_time)
         planner = planner_ref.proxy()
         aus = grid.jobs
         planner.set_jobs(aus)
@@ -71,9 +74,9 @@ class Main:
         actor_ref_1.stop()
         actor_ref_2.stop()
 
-
-
         # rover1 = actor_ref.proxy()
+        # pykka.get_all(queue) # TODO: BLOCKING
+        # TODO: CLEAN UP pykka.ActorRegistry.stop_all()
         file_manager.close()
 
 
@@ -81,13 +84,13 @@ class Main:
 # main = Main(1, 4, 5, 3, 1)
 
 # Cueva estrecha y la distancia
-#main = Main(5, 292.1, 1, 2, 1)
+# main = Main(5, 292.1, 1, 2, 1)
 #     def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers, tmax):
-#main = Main(1, 5.5, 100, 4, 1, 15000)
+# main = Main(1, 5.5, 100, 4, 1, 15000)
 
 if __name__ == "__main__":
-    elapsed_time = 0 #Main(observ_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file)
-    main = Main(1, 5.5, 2, 3, 3, None, "log4")
+    elapsed_time = 0  # Main(observ_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file)
+    main = Main(1, 5.5, 2, 4, 1, None, "log4")
 '''
     inp = input("Enter a mode (TM: maximum time mode/ AM: maximum area mode): ")
 
@@ -125,5 +128,3 @@ if __name__ == "__main__":
     print(f"Elapsed time: {elapsed_time}")
     print(f"Output file created")
 '''
-
-

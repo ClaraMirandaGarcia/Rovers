@@ -17,14 +17,16 @@ class Cell:
         self.accessible = accessible
         self.coordinate = coordinate
         self.charging_point = False
+        self.charging_point_actor = None
 
     def is_explored(self) -> bool:
         if self.state == CellState.EXPLORED:
             return True
         return False
 
-    def set_charging_point(self, charging_point):
-        self.charging_point = charging_point
+    def set_charging_point(self, charging_point_boolean, charging_point_actor):
+        self.charging_point = charging_point_boolean
+        self.charging_point_actor = charging_point_actor
 
     def is_charging_point(self):
         return self.charging_point

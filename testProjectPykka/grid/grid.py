@@ -7,9 +7,10 @@ import pykka
 
 
 class Grid(pykka.ThreadingActor):
-    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers, name_file):
+    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers, name_file, charging_point):
         super().__init__()
         path_to_file = "log_files/" + name_file
+        self.charging_point = charging_point
         self.file_manager = FileManager(name_file, path_to_file)
         self.jobs = []
         self.num_rovers = num_rovers
@@ -115,8 +116,7 @@ class Grid(pykka.ThreadingActor):
     @new_
     '''
 
-    @staticmethod
-    def find_cells(new_height, new_width, explore_capacity, height, cave_wx):
+    def find_cells(self, new_height, new_width, explore_capacity, height, cave_wx):
         len_y = int(new_width / np.sqrt(explore_capacity))
         len_x = int(new_height / np.sqrt(explore_capacity))
 
@@ -141,11 +141,11 @@ class Grid(pykka.ThreadingActor):
                 if len_x == 1 and j == ((len_y//2)-1):
                     # Charging Point placement
                     cells[i][j] = Cell(CellState.EXPLORED, explore_capacity, real_size, True, coordinate)
-                    cells[i][j].set_charging_point(True)
+                    cells[i][j].set_charging_point(True, self.charging_point)
                 elif i == ((len_x // 2) - 1) and j == 0:
                     # Charging Point placement
                     cells[i][j] = Cell(CellState.EXPLORED, explore_capacity, real_size, True, coordinate)
-                    cells[i][j].set_charging_point(True)
+                    cells[i][j].set_charging_point(True, self.charging_point)
                 else:
                     cells[i][j] = Cell(CellState.UNEXPLORED, explore_capacity, real_size, True, coordinate)
 
