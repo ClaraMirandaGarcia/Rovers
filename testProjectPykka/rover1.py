@@ -16,6 +16,27 @@ class State1(Enum):
     CHARGING_STATE = 4
 
 
+class RoverModel:
+    def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time, grid,
+                 max_time, name_rover):
+        self.file_manager = None
+        self.name_file = None
+        self.battery = battery
+        self.state = state
+        self.translate_speed = translate_speed
+        self.exp_speed = exp_speed
+        self.translate_bat = translate_bat
+        self.exp_bat = exp_bat
+        self.charging_time = charging_time
+        self.grid = grid
+        self.max_time = max_time
+        self.is_max_time = False
+        self.name_rover = name_rover
+
+    def set_name_rover(self, name_rover):
+        self.name_rover = name_rover
+
+
 class Rover(pykka.ThreadingActor):
 
     def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time, grid,
@@ -244,21 +265,23 @@ class Rover(pykka.ThreadingActor):
         """
         cell_count = 0
         cell_0 = self.job.job_cells[0]
-        cp = self.grid.find_charging_point_placement()
-        shortest_path = self.grid.search_path(cp, cell_0)
 
-        while not self.grid.is_path_explored(shortest_path, cell_0):
-            time.sleep(2.5)
+        if self.location is None:
+            point_0 = self.grid.find_charging_point_placement()
+            shortest_path = self.grid.search_path(point_0, cell_0)
 
-        if len(shortest_path) > 1:
-            # moverse hasta el punto
+            while not self.grid.is_path_explored(shortest_path, cell_0):
+                time.sleep(2.5)
 
-            # cambiar estado a translate
-            self.set_state(State1.TRANSLATE_STATE)
-            # set location -> CP
-            self.location = cp
-            # moverse hasta cell
-            self.move(cell_0)
+            if len(shortest_path) > 1:
+                # moverse hasta el punto
+
+                # cambiar estado a translate
+                self.set_state(State1.TRANSLATE_STATE)
+                # set location -> CP
+                self.location = point_0
+                # moverse hasta cell
+                self.move(cell_0)
 
         # Check for an accessible cell
         # If accessible then explore
@@ -337,6 +360,11 @@ class Rover(pykka.ThreadingActor):
         else:
             print('MESSAGE NOT MATCHED')
 
+    def on_stop(self):
+        ...  # My optional cleanup code in same context as on_receive()
+        self.get()
+        self.stop()
+
     # EXPLORING STATE
     def add_time_exploring(self, cell_from, cell_to):
         distance = cell_from.distance_to(cell_to) * np.sqrt(cell_from.size)
@@ -356,6 +384,8 @@ class Rover(pykka.ThreadingActor):
         unexplored_accessible_cells = self.check_cells()
         old_location = self.location
         cells = self.get_unexplored()
+
+        # Es necesario?
 
         if unexplored_accessible_cells and self.location != cell:
             c0 = cells[0]
@@ -534,7 +564,9 @@ class Rover(pykka.ThreadingActor):
         self.write_file("NEXT TO CHARGING POINT")
         self.write_file(str(self.location.get_coordinate()))
         # Set state -> Idle
-        self.set_state(State1.CHARGING_STATE)
+        self.set_state(State1.IDLE_STATE)
+        # añadir rover a la cola del cargador
+        self.grid.charging_point.set_rover(self).get()
         self.move(cell)
 
     def retreat_translate(self, cell, best_known_path):
@@ -543,7 +575,12 @@ class Rover(pykka.ThreadingActor):
         current_index = cells.index(self.location)
         # Calculate the distance here
         cell_origin = cells[current_index]
-        cell_to = cells[current_index + 1]
+        cell_to = None
+        if len(cells) == 1:
+            cell_to = self.job.charging_point
+        else:
+            cell_to = cells[current_index + 1]
+
         self.add_time_translate(cell_origin, cell_to)
 
         self.location = cell_to

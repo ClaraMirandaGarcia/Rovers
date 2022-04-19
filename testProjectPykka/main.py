@@ -1,6 +1,7 @@
 from grid.grid import Grid
 from planner import Planner
 from rover1 import Rover as Rover1
+from rover1 import RoverModel
 from rover1 import State1
 from charging_point import ChargingPoint
 from fileManagement import FileManager
@@ -8,7 +9,7 @@ import time
 
 
 class Main:
-    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file):
+    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers, queue_models, max_time, name_file):
 
         # File output
         path_to_file = "log_files/" + name_file
@@ -38,32 +39,19 @@ class Main:
         # un solo agente) los trabajos. El trabajo pasa a estar fulfilled una vez que
         # todas sus celdas estén explored. JOB (fulfilled, started, not started)
 
-        # def __init__(self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time):
-        # actor_ref_1 = Rover.start(battery=100, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
-        #                       exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
-        #                      name_rover="rover1")
-        # actor_ref_2 = Rover.start(battery=90, state=ExploringState, translate_speed=2.4, exp_speed=0.1,
-        #                       exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
-        #                      name_rover="rover2")
+        # Creando las referencias a los actores para cada rover
+        queue = []
 
-
-        actor_ref_1 = Rover1.start(battery=10, state=State1.EXPLORING_STATE, translate_speed=0.1, exp_speed=0.05,
-                                   exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
-                                   name_rover="rover1")
-
-        actor_ref_2 = Rover1.start(battery=100, state=State1.EXPLORING_STATE, translate_speed=0.1, exp_speed=0.05,
-                                   exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
-                                   name_rover="rover2")
-
-        actor_ref_3 = Rover1.start(battery=100, state=State1.EXPLORING_STATE, translate_speed=0.1, exp_speed=0.05,
-                                   exp_bat=0.5, translate_bat=0.1, charging_time=1, grid=grid, max_time=max_time,
-                                   name_rover="rover3")
-        actor_ref_4 = Rover1.start(battery=300, state=State1.EXPLORING_STATE, translate_speed=0.5, exp_speed=0.1,
-                                   exp_bat=100, translate_bat=70, charging_time=3, grid=grid, max_time=max_time,
-                                   name_rover="rover4")
+        for j in range(num_rovers):
+            rover = queue_models[j]
+            actor_ref_j = Rover1.start(battery=rover.battery, state=rover.state, translate_speed=rover.translate_speed,
+                                       exp_speed=rover.exp_speed,
+                                       exp_bat=rover.exp_bat, translate_bat=rover.translate_bat,
+                                       charging_time=rover.charging_time, grid=grid, max_time=max_time,
+                                       name_rover=rover.name_rover)
+            queue.append(actor_ref_j)
 
         # rover1 = actor_ref.proxy()
-        queue = [actor_ref_1, actor_ref_2, actor_ref_3]
 
         planner_ref = Planner.start(queue, 1, name_file, grid, max_time)
         planner = planner_ref.proxy()
@@ -71,8 +59,6 @@ class Main:
         planner.set_jobs(aus)
         planner.schedule()
         planner_ref.stop()
-        actor_ref_1.stop()
-        actor_ref_2.stop()
 
         # rover1 = actor_ref.proxy()
         # pykka.get_all(queue) # TODO: BLOCKING
@@ -90,8 +76,40 @@ class Main:
 
 if __name__ == "__main__":
     elapsed_time = 0  # Main(observ_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file)
-    main = Main(1, 5.5, 2, 4, 1, None, "log4")
-'''
+
+    num_rovers = int(input("Please, select the number of rovers of the simulation: "))
+    queue_models = []
+    print("Please, enter whether the fleet of rovers are of the same type or not.")
+    inp = input("Enter the choice (Y: yes/ N: no): ")
+
+    for i in range(int(num_rovers)):
+        # self, battery, state, translate_speed, exp_speed, exp_bat, translate_bat, charging_time, grid,
+        # max_time, name_rover
+        print("Rover " + str(i))
+        name_rover = input("Enter the name of the rover: ")
+        battery = float(input("Enter the battery (m): "))
+        translate_speed = float(input("Enter the translate speed (m): "))
+        translate_bat = float(input("Enter the translate battery discharge (m): "))
+        exp_speed = float(input("Enter the exploration speed (m): "))
+        exp_bat = float(input("Enter the exploration battery discharge (m): "))
+        charging_time = float(input("Enter the charging time (m): "))
+
+        r = RoverModel(battery=battery, state=State1.EXPLORING_STATE, translate_speed=translate_speed,
+                       translate_bat=translate_bat, exp_speed=exp_speed, exp_bat=exp_bat, charging_time=charging_time,
+                       grid=None, max_time=None,
+                       name_rover=name_rover)
+        queue_models.append(r)
+        if inp == "Y":
+            for z in range(num_rovers-1):
+                num = z +1
+                r_aux = RoverModel(battery=r.battery, state=State1.EXPLORING_STATE, translate_speed=r.translate_speed,
+                       translate_bat=r.translate_bat, exp_speed=r.exp_speed, exp_bat=r.exp_bat, charging_time=r.charging_time,
+                       grid=None, max_time=None,
+                       name_rover=r.name_rover)
+                r_aux.set_name_rover("rover"+ str(z+1))
+                queue_models.append(r_aux)
+            break
+
     inp = input("Enter a mode (TM: maximum time mode/ AM: maximum area mode): ")
 
     while inp != "TM" and inp != "AM":
@@ -107,10 +125,9 @@ if __name__ == "__main__":
         max_time = int(input("Enter the Max_time(min): "))
         cave_wx = None
         start = time.time()
-        Main(observ_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file)
+        Main(observ_rad, height, cave_wx, num_jobs, num_rovers, queue_models, max_time, name_file)
         end = time.time()
         elapsed_time = end - start
-
     elif inp == "AM":
         name_file = input("Enter the name of the file: ")
         observ_rad = float(input("Enter the observation radio (m): "))
@@ -120,11 +137,10 @@ if __name__ == "__main__":
         num_rovers = int(input("Enter the num_rovers: "))
         max_time = None
         start = time.time()
-        Main(observ_rad, height, cave_wx, num_jobs, num_rovers, max_time, name_file)
+        Main(observ_rad, height, cave_wx, num_jobs, num_rovers, queue_models, max_time, name_file)
         end = time.time()
         elapsed_time = end - start
 
     print(f"Process finished")
     print(f"Elapsed time: {elapsed_time}")
     print(f"Output file created")
-'''
