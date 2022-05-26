@@ -1,0 +1,1364 @@
+Log output for log_files/rover2
+Mon May 23 09:56:01 2022
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+NEXT TO CHARGING POINT
+Coordinate({'y': 0, 'x': 2})
+Agent: Transitioning to State1.IDLE_STATE
+Agent: Transitioning to State1.CHARGING_STATE
+BATTERY: 2.5
+BATTERY: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+Agent: Transitioning to State1.EXPLORING_STATE
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 2.5
+Agent: Transitioning to State1.TRANSLATE_STATE
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+retreat
+Agent: Transitioning to State1.TRANSLATE_STATE
