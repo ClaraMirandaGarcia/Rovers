@@ -9,8 +9,8 @@ import time
 
 
 class Main:
-    def __init__(self, obser_rad, height, cave_wx, num_jobs, num_rovers, queue_models, max_time, name_file):
-
+    def __init__(self, mainwindow, obser_rad, height, cave_wx, num_jobs, num_rovers, queue_models, max_time, name_file):
+        self.mainwindow = mainwindow
         # File output
         path_to_file = "log_files/" + name_file
         file_manager = FileManager(name_file, path_to_file)
@@ -58,11 +58,19 @@ class Main:
         aus = grid.jobs
         planner.set_jobs(aus)
         planner.schedule()
-        planner_ref.stop()
+        #print("??")
+        #planner_ref.stop()
 
         # rover1 = actor_ref.proxy()
         # pykka.get_all(queue) # TODO: BLOCKING
         # TODO: CLEAN UP pykka.ActorRegistry.stop_all()
+        #print("HERE")
+        #time.sleep(15)
+        #print("HI")
+        #pykka.ActorRegistry.stop_all()
+        #print("HELLO")
+        # pop up
+        self.mainwindow.pop_up()
         file_manager.close()
 
 
@@ -144,3 +152,7 @@ if __name__ == "__main__":
     print(f"Process finished")
     print(f"Elapsed time: {elapsed_time}")
     print(f"Output file created")
+
+
+
+from app import MainWindow

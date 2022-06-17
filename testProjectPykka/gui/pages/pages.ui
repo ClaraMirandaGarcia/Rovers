@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>722</width>
+    <width>696</width>
     <height>922</height>
    </rect>
   </property>
@@ -14,7 +14,7 @@
    <string>StackedWidget</string>
   </property>
   <property name="currentIndex">
-   <number>2</number>
+   <number>1</number>
   </property>
   <widget class="QWidget" name="page_initial">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -88,16 +88,16 @@ color:rgb(255, 255, 255);</string>
    </layout>
   </widget>
   <widget class="QWidget" name="page_create_rover">
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QVBoxLayout" name="page_create_rover_layout">
     <item alignment="Qt::AlignHCenter">
-     <widget class="QFrame" name="frame_2">
+     <widget class="QFrame" name="central_frame_page_create_rover">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
+      <layout class="QVBoxLayout" name="central_layout_page_create_rover">
        <item>
         <widget class="QLabel" name="label_12">
          <property name="minimumSize">
@@ -122,11 +122,26 @@ color:rgb(255, 255, 255);</string>
         </widget>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout_10">
+        <layout class="QGridLayout" name="gridLayout_NameRover">
          <item row="0" column="0">
-          <widget class="QLabel" name="label_13">
+          <widget class="QLabel" name="label_name_create">
+           <property name="minimumSize">
+            <size>
+             <width>210</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>210</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+           </property>
            <property name="text">
-            <string>Name:</string>
+            <string>Name of the rover:</string>
            </property>
           </widget>
          </item>
@@ -134,11 +149,15 @@ color:rgb(255, 255, 255);</string>
           <widget class="QLineEdit" name="name_lineEdit">
            <property name="styleSheet">
             <string notr="true">QLineEdit{
-	background-color:rgb(68,71,90);
-	padding: 8px;
-	border: 2px solid #c3ccdf;
-	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+
+QLineEdit:hover{
+	border: 1px solid #c3ccdf;
 }</string>
            </property>
           </widget>
@@ -146,35 +165,69 @@ color:rgb(255, 255, 255);</string>
         </layout>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout_13">
+        <layout class="QGridLayout" name="gridLayout_trans_bat">
          <item row="0" column="1">
-          <widget class="QLineEdit" name="trans_dis_lineEdit">
+          <widget class="QLineEdit" name="trans_bat_lineEdit">
            <property name="styleSheet">
             <string notr="true">QLineEdit{
-	background-color:rgb(68,71,90);
-	padding: 8px;
-	border: 2px solid #c3ccdf;
-	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+
+QLineEdit:hover{
+	border: 1px solid #c3ccdf;
 }</string>
            </property>
           </widget>
          </item>
          <item row="0" column="0">
-          <widget class="QLabel" name="label_16">
+          <widget class="QLabel" name="label_trans_bat_create">
+           <property name="minimumSize">
+            <size>
+             <width>210</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>210</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+           </property>
            <property name="text">
-            <string>Translate battery discharge:</string>
+            <string>Translate battery discharge (W):</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout_11">
+        <layout class="QGridLayout" name="gridLayout_exp_dis">
          <item row="0" column="0">
-          <widget class="QLabel" name="label_14">
+          <widget class="QLabel" name="label_exp_dis_create">
+           <property name="minimumSize">
+            <size>
+             <width>210</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>210</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+           </property>
            <property name="text">
-            <string>Exploring battery discharge:</string>
+            <string>Exploring battery discharge (W):</string>
            </property>
           </widget>
          </item>
@@ -182,11 +235,15 @@ color:rgb(255, 255, 255);</string>
           <widget class="QLineEdit" name="exp_dis_lineEdit">
            <property name="styleSheet">
             <string notr="true">QLineEdit{
-	background-color:rgb(68,71,90);
-	padding: 8px;
-	border: 2px solid #c3ccdf;
-	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+
+QLineEdit:hover{
+	border: 1px solid #c3ccdf;
 }</string>
            </property>
           </widget>
@@ -194,11 +251,26 @@ color:rgb(255, 255, 255);</string>
         </layout>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout_14">
+        <layout class="QGridLayout" name="gridLayout_bat_create">
          <item row="0" column="0">
-          <widget class="QLabel" name="label_17">
+          <widget class="QLabel" name="label_bat_create">
+           <property name="minimumSize">
+            <size>
+             <width>210</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>210</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+           </property>
            <property name="text">
-            <string>Battery:</string>
+            <string>Battery (W/h):</string>
            </property>
           </widget>
          </item>
@@ -206,11 +278,15 @@ color:rgb(255, 255, 255);</string>
           <widget class="QLineEdit" name="bat_lineEdit">
            <property name="styleSheet">
             <string notr="true">QLineEdit{
-	background-color:rgb(68,71,90);
-	padding: 8px;
-	border: 2px solid #c3ccdf;
-	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+
+QLineEdit:hover{
+	border: 1px solid #c3ccdf;
 }</string>
            </property>
           </widget>
@@ -218,11 +294,26 @@ color:rgb(255, 255, 255);</string>
         </layout>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout_9">
+        <layout class="QGridLayout" name="gridLayout_ch_time_create">
          <item row="0" column="0">
-          <widget class="QLabel" name="label_11">
+          <widget class="QLabel" name="label_ch_time_create">
+           <property name="minimumSize">
+            <size>
+             <width>210</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>210</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+           </property>
            <property name="text">
-            <string>Charging time:</string>
+            <string>Charging time (minutes):</string>
            </property>
           </widget>
          </item>
@@ -230,11 +321,15 @@ color:rgb(255, 255, 255);</string>
           <widget class="QLineEdit" name="ch_time_lineEdit">
            <property name="styleSheet">
             <string notr="true">QLineEdit{
-	background-color:rgb(68,71,90);
-	padding: 8px;
-	border: 2px solid #c3ccdf;
-	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+
+QLineEdit:hover{
+	border: 1px solid #c3ccdf;
 }</string>
            </property>
           </widget>
@@ -242,11 +337,26 @@ color:rgb(255, 255, 255);</string>
         </layout>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout_12">
+        <layout class="QGridLayout" name="gridLayout_trans_sp_create">
          <item row="0" column="0">
-          <widget class="QLabel" name="label_15">
+          <widget class="QLabel" name="label_trans_sp_create">
+           <property name="minimumSize">
+            <size>
+             <width>210</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>210</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+           </property>
            <property name="text">
-            <string>Translate speed:</string>
+            <string>Translate speed (m/min):</string>
            </property>
           </widget>
          </item>
@@ -254,11 +364,15 @@ color:rgb(255, 255, 255);</string>
           <widget class="QLineEdit" name="trans_sp_lineEdit">
            <property name="styleSheet">
             <string notr="true">QLineEdit{
-	background-color:rgb(68,71,90);
-	padding: 8px;
-	border: 2px solid #c3ccdf;
-	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+
+QLineEdit:hover{
+	border: 1px solid #c3ccdf;
 }</string>
            </property>
           </widget>
@@ -266,34 +380,52 @@ color:rgb(255, 255, 255);</string>
         </layout>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout_15">
+        <layout class="QGridLayout" name="gridLayout_exp_sp">
          <item row="0" column="1">
           <widget class="QLineEdit" name="exp_sp_lineEdit">
            <property name="styleSheet">
             <string notr="true">QLineEdit{
-	background-color:rgb(68,71,90);
-	padding: 8px;
-	border: 2px solid #c3ccdf;
-	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
 }
-</string>
+
+QLineEdit:hover{
+	border: 1px solid #c3ccdf;
+}</string>
            </property>
           </widget>
          </item>
          <item row="0" column="0">
-          <widget class="QLabel" name="label_18">
+          <widget class="QLabel" name="label_exp_sp">
+           <property name="minimumSize">
+            <size>
+             <width>210</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>210</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+           </property>
            <property name="text">
-            <string>Exploration speed:</string>
+            <string>Exploration speed (m/min):</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout_2">
+        <layout class="QGridLayout" name="gridLayout_create_button">
          <item row="0" column="0">
-          <spacer name="horizontalSpacer">
+          <spacer name="horizontalSpacer_create">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -322,9 +454,12 @@ color:rgb(255, 255, 255);</string>
            <property name="styleSheet">
             <string notr="true">QPushButton{
 	background-color :rgb(67,133,200);
-	border: 2px solid #c3ccdf;
 	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	font: 11pt &quot;Segoe UI&quot;;
+	border-radius: 5px;
+	border: 2px solid rgb(67,133,200);
+	padding: 5px;
+	padding-left: 10px;
 }
 
 QPushButton:hover{
@@ -332,7 +467,7 @@ QPushButton:hover{
 }
 
 QPushButton:pressed{
-	background-color: rgb(255,0,127);
+	background-color: rgb(79, 198, 219);
 }</string>
            </property>
            <property name="text">
@@ -486,9 +621,12 @@ color:rgb(255, 255, 255);</string>
                 <string notr="true">QLineEdit{
 	background-color:rgb(68,71,90);
 	padding: 8px;
-	border: 2px solid #c3ccdf;
 	color: rgb(255, 255, 255);
 	border-radius: 10px;
+}
+
+QLineEdit:hover{
+	border: 1px solid #c3ccdf;
 }
 </string>
                </property>
@@ -501,13 +639,13 @@ color:rgb(255, 255, 255);</string>
               <widget class="QPushButton" name="search_rover">
                <property name="minimumSize">
                 <size>
-                 <width>60</width>
+                 <width>62</width>
                  <height>45</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>60</width>
+                 <width>62</width>
                  <height>45</height>
                 </size>
                </property>
@@ -515,7 +653,11 @@ color:rgb(255, 255, 255);</string>
                 <string notr="true">QPushButton{
 	background-color :rgb(67,133,200);
 	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	font: 11pt &quot;Segoe UI&quot;;
+	border-radius: 5px;
+	border: 2px solid rgb(67,133,200);
+	padding: 5px;
+	padding-left: 10px;
 }
 
 QPushButton:hover{
@@ -523,7 +665,7 @@ QPushButton:hover{
 }
 
 QPushButton:pressed{
-	background-color: rgb(255,0,127);
+	background-color: rgb(79, 198, 219);
 }</string>
                </property>
                <property name="text">
@@ -561,9 +703,12 @@ QPushButton:pressed{
                <property name="styleSheet">
                 <string notr="true">QPushButton{
 	background-color :rgb(67,133,200);
-	border: 2px solid #c3ccdf;
 	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	font: 11pt &quot;Segoe UI&quot;;
+	border-radius: 5px;
+	border: 2px solid rgb(67,133,200);
+	padding: 5px;
+	padding-left: 10px;
 }
 
 QPushButton:hover{
@@ -571,7 +716,7 @@ QPushButton:hover{
 }
 
 QPushButton:pressed{
-	background-color: rgb(255,0,127);
+	background-color: rgb(79, 198, 219);
 }</string>
                </property>
                <property name="text">
@@ -584,6 +729,9 @@ QPushButton:pressed{
           </item>
           <item>
            <widget class="QFrame" name="frame_table_rovers">
+            <property name="styleSheet">
+             <string notr="true">background-color: #282a36</string>
+            </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
             </property>
@@ -614,12 +762,745 @@ QPushButton:pressed{
                <property name="layoutDirection">
                 <enum>Qt::LeftToRight</enum>
                </property>
+               <property name="styleSheet">
+                <string notr="true">
+QTableWidget{
+background-color: transparent;
+border : 1px  #282a36;
+alternate-background-color:#525252;
+gridline-color:rgb(44, 49, 58);
+}
+
+QTableWidget::item{
+border-color: rgb(44, 49, 60);
+padding-left: 5px;
+padding-right: 5px;
+gridline-color: rgb(44, 49, 60);
+
+}
+
+
+QHeaderView::section{
+background-color: rgb(33, 37, 43);
+max-width: 30px;
+border: 1px solid rgb(44, 49, 58);
+border-style: none;
+border-bottom: 1px solid rgb(44, 49, 60);
+border-right: 1px solid rgb(44, 49, 60);
+}
+ </string>
+               </property>
                <property name="showGrid">
-                <bool>true</bool>
+                <bool>false</bool>
+               </property>
+               <property name="wordWrap">
+                <bool>false</bool>
+               </property>
+               <property name="cornerButtonEnabled">
+                <bool>false</bool>
                </property>
               </widget>
              </item>
             </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="page_simulation">
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_14">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item alignment="Qt::AlignLeft|Qt::AlignTop">
+     <widget class="QFrame" name="central_frame_simulation">
+      <property name="minimumSize">
+       <size>
+        <width>490</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>490</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_12">
+       <item>
+        <widget class="QFrame" name="top_frame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_15">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_run_simulation">
+            <property name="styleSheet">
+             <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
+color:rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Run your simulation</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_descrip_simulation">
+            <property name="styleSheet">
+             <string notr="true">font: 12pt &quot;Segoe UI&quot;;
+color:rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Please, select the following values in order to run a simulation</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="group_box_modes">
+         <property name="minimumSize">
+          <size>
+           <width>180</width>
+           <height>115</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>180</width>
+           <height>115</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
+         </property>
+         <property name="title">
+          <string>Mode</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_16">
+          <property name="leftMargin">
+           <number>9</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="radioButton_max_time">
+            <property name="styleSheet">
+             <string notr="true">QRadioButton::indicator {
+    border: 3px solid rgb(52, 59, 72);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+    background: rgb(44, 49, 60);
+}
+QRadioButton::indicator:hover {
+    border: 3px solid rgb(58, 66, 81);
+}
+QRadioButton::indicator:checked {
+    background: 3px solid rgb(94, 106, 130);
+	border: 3px solid rgb(52, 59, 72);	
+}
+font: 11pt &quot;Segoe UI&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Maximum Time</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_max_area">
+            <property name="styleSheet">
+             <string notr="true">QRadioButton::indicator {
+    border: 3px solid rgb(52, 59, 72);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+    background: rgb(44, 49, 60);
+}
+QRadioButton::indicator:hover {
+    border: 3px solid rgb(58, 66, 81);
+}
+QRadioButton::indicator:checked {
+    background: 3px solid rgb(94, 106, 130);
+	border: 3px solid rgb(52, 59, 72);	
+}
+font: 11pt &quot;Segoe UI&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Maximum Area</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_error_mode">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignLeft|Qt::AlignTop">
+        <widget class="QFrame" name="frame_simulation_widgets">
+         <property name="minimumSize">
+          <size>
+           <width>470</width>
+           <height>230</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>230</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="fr_sim_widgets_layout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_jobs">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QFormLayout" name="formLayout_2">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_num_jobs">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+              </property>
+              <property name="text">
+               <string>Select number of jobs:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="cb_num_jobs">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>500</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QComboBox{
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+QComboBox:hover{
+	border: 2px solid rgb(64, 71, 88);
+}
+QComboBox::drop-down {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 25px; 
+	border-left-width: 3px;
+	border-left-color: rgba(39, 44, 54, 150);
+	border-left-style: solid;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;	
+	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);
+	background-position: center;
+	background-repeat: no-reperat;
+ }</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QLabel" name="lbl_error_num_jobs">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_rovers_select">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QGridLayout" name="rover_select_gridLayout">
+            <item row="0" column="2">
+             <widget class="QLabel" name="label_num_rovers">
+              <property name="styleSheet">
+               <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+              </property>
+              <property name="text">
+               <string>Number of rovers:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4">
+             <widget class="QPushButton" name="add_rover_select_btn">
+              <property name="minimumSize">
+               <size>
+                <width>25</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+	background-color :rgb(67,133,200);
+	color: rgb(255, 255, 255);
+	font: 11pt &quot;Segoe UI&quot;;
+	border-radius: 5px;
+	border: 2px solid rgb(67,133,200);
+	padding: 5px;
+	padding-left: 10px;
+}
+
+QPushButton:hover{
+	background-color: rgb(85,170,225);
+}
+
+QPushButton:pressed{
+	background-color: rgb(79, 198, 219);
+}</string>
+              </property>
+              <property name="text">
+               <string>+</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="cb_rovers">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QComboBox{
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+QComboBox:hover{
+	border: 2px solid rgb(64, 71, 88);
+}
+QComboBox::drop-down {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 25px; 
+	border-left-width: 3px;
+	border-left-color: rgba(39, 44, 54, 150);
+	border-left-style: solid;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;	
+	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);
+	background-position: center;
+	background-repeat: no-reperat;
+ }</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_rovers_select">
+              <property name="styleSheet">
+               <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+              </property>
+              <property name="text">
+               <string>Select the rovers:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QComboBox" name="cb_num_rovers">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QComboBox{
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+QComboBox:hover{
+	border: 2px solid rgb(64, 71, 88);
+}
+QComboBox::drop-down {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 25px; 
+	border-left-width: 3px;
+	border-left-color: rgba(39, 44, 54, 150);
+	border-left-style: solid;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;	
+	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);
+	background-position: center;
+	background-repeat: no-reperat;
+ }</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="5">
+             <widget class="QLabel" name="lbl_error_rovers_select">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_rovers_selected">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_18">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_rovers_selected">
+            <property name="styleSheet">
+             <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+            </property>
+            <property name="text">
+             <string>These are the rovers selected:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="textEdit_rovers_selected">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTextEdit{
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+QTextEdit  QScrollBar:vertical {
+    width: 8px;
+ }
+QTextEdit  QScrollBar:horizontal {
+    height: 8px;
+ }
+QTextEdit:hover {
+	border: 2px solid rgb(64, 71, 88);
+}
+QTextEdit:focus {
+	border: 2px solid rgb(91, 101, 124);
+}</string>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOn</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_simulate">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="button_simulate">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color :rgb(67,133,200);
+	color: rgb(255, 255, 255);
+	font: 11pt &quot;Segoe UI&quot;;
+	border-radius: 5px;
+	border: 2px solid rgb(67,133,200);
+	padding: 5px;
+	padding-left: 10px;
+}
+
+QPushButton:hover{
+	background-color: rgb(85,170,225);
+}
+
+QPushButton:pressed{
+	background-color: rgb(79, 198, 219);
+}</string>
+            </property>
+            <property name="text">
+             <string>Simulate</string>
+            </property>
            </widget>
           </item>
          </layout>

@@ -1,6 +1,7 @@
 import pykka
 from fileManagement import FileManager
 from rover1 import State1
+import time
 
 
 class Planner(pykka.ThreadingActor):
@@ -32,6 +33,10 @@ class Planner(pykka.ThreadingActor):
         aux = 0
         jobs = self.get_jobs()
         self.simple_strategy(jobs)
+        print("HERE")
+        time.sleep(15)
+        print("HI")
+        pykka.ActorRegistry.stop_all()
 
     def simple_strategy(self, jobs):
         queue = self.queue

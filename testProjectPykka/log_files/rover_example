@@ -1,0 +1,312 @@
+Log output for log_files/rover_example
+Mon Jun  6 12:31:30 2022
+Exploring cell 0
+LOCATION: Coordinate({'y': 0, 'x': 2})
+BATTERY AVAILABLE: 100.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 1
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 2})
+BATTERY AVAILABLE: 99.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 2})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 2
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 1})
+BATTERY AVAILABLE: 98.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 1})
+Coordinate({'y': 1, 'x': 2})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 3
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 1})
+BATTERY AVAILABLE: 97.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 4
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 0})
+BATTERY AVAILABLE: 96.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 0})
+Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 5
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 0})
+BATTERY AVAILABLE: 95.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 0})
+Coordinate({'y': 0, 'x': 0})
+Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 6
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 94.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 7
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 3})
+BATTERY AVAILABLE: 93.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 3})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 8
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 4})
+BATTERY AVAILABLE: 92.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 4})
+Coordinate({'y': 1, 'x': 3})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 9
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 4})
+BATTERY AVAILABLE: 91.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 10
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 5})
+BATTERY AVAILABLE: 90.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 5})
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 11
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 5})
+BATTERY AVAILABLE: 89.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 5})
+Coordinate({'y': 0, 'x': 5})
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: FULFILLED
+FINISHING
+JobState.FULFILLED
+
+
+
+
+RESUME
+
+Time exploring (min):17.26
+Time translate (min):0.00
+Time charging (min):0.00
+Time idle (min):0.00
+---------------------------------------
+Total time calculated (min):17.26
+Total explored (m^2):12.00
+Agent: Transitioning to State1.TRANSLATE_STATE
+Log output for log_files/rover_example
+Tue Jun  7 19:51:16 2022
+Exploring cell 0
+LOCATION: Coordinate({'y': 0, 'x': 2})
+BATTERY AVAILABLE: 100.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 1
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 2})
+BATTERY AVAILABLE: 99.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 2})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 2
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 1})
+BATTERY AVAILABLE: 98.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 1})
+Coordinate({'y': 1, 'x': 2})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 3
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 1})
+BATTERY AVAILABLE: 97.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 4
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 0})
+BATTERY AVAILABLE: 96.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 0})
+Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 5
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 0})
+BATTERY AVAILABLE: 95.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 0})
+Coordinate({'y': 0, 'x': 0})
+Coordinate({'y': 0, 'x': 1})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 6
+LOCATION: Coordinate({'y': 0, 'x': 3})
+BATTERY AVAILABLE: 94.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 7
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 3})
+BATTERY AVAILABLE: 93.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 3})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 8
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 4})
+BATTERY AVAILABLE: 92.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 4})
+Coordinate({'y': 1, 'x': 3})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 9
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 4})
+BATTERY AVAILABLE: 91.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 10
+
+FINISHED
+
+LOCATION: Coordinate({'y': 0, 'x': 5})
+BATTERY AVAILABLE: 90.0
+BEST KNOWN PATH
+Coordinate({'y': 0, 'x': 5})
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: STARTED
+Exploring cell 11
+
+FINISHED
+
+LOCATION: Coordinate({'y': 1, 'x': 5})
+BATTERY AVAILABLE: 89.0
+BEST KNOWN PATH
+Coordinate({'y': 1, 'x': 5})
+Coordinate({'y': 0, 'x': 5})
+Coordinate({'y': 0, 'x': 4})
+Coordinate({'y': 0, 'x': 3})
+Coordinate({'y': 0, 'x': 2})
+Cell state: EXPLORED
+Job state: FULFILLED
+FINISHING
+JobState.FULFILLED
+
+
+
+
+RESUME
+
+Time exploring (min):17.26
+Time translate (min):0.00
+Time charging (min):0.00
+Time idle (min):0.00
+---------------------------------------
+Total time calculated (min):17.26
+Total explored (m^2):12.00
+Agent: Transitioning to State1.TRANSLATE_STATE

@@ -49,11 +49,13 @@ class UI_MainWindow(object):
                                           icon_path="icon_home.svg")
         self.btn_2 = PyPushButton(text="Rover management",
                                           icon_path="icon_widgets.svg")
+        self.btn_simulation = PyPushButton(text="Simulation", icon_path="cil-av-timer.png")
 
         # ADDING BUTTONS TO LAYOUT
         self.left_menu_top_layout.addWidget(self.toggle_button)
         self.left_menu_top_layout.addWidget(self.btn_1)
         self.left_menu_top_layout.addWidget(self.btn_2)
+        self.left_menu_top_layout.addWidget(self.btn_simulation)
 
         #SPACER
         self.left_menu_spacer = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding)
@@ -149,8 +151,6 @@ class UI_MainWindow(object):
         self.content_layout.addWidget(self.top_bar)
         self.content_layout.addWidget(self.pages)
         self.content_layout.addWidget(self.bottom_bar)
-
-
 
         # adding the widgets
         self.main_layout.addWidget(self.left_menu)

@@ -50,12 +50,10 @@ class DataBaseManager(object):
 
     def exec2(self, sql_qry,  parameters):
         try:
-            # this will retun MySQLCursorPrepared object
-            #cursor = connection.cursor(prepared=True)
             self.rs.prepared = True
             self.rs.execute(sql_qry, parameters)
             self.db.commit()
-            print("Data inserted successfully into employee table using the prepared statement")
+            print("Data inserted successfully")
             return True
 
         except mysql.connector.Error as error:

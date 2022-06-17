@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'pagesvTuJxh.ui'
+## Form generated from reading UI file 'pagesXFToyu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.3.0
 ##
@@ -15,16 +15,17 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QGridLayout,
-    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
-    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
-    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QFrame,
+    QGridLayout, QGroupBox, QHBoxLayout, QHeaderView,
+    QLabel, QLineEdit, QPushButton, QRadioButton,
+    QSizePolicy, QSpacerItem, QStackedWidget, QTableWidget,
+    QTableWidgetItem, QTextEdit, QVBoxLayout, QWidget)
 
 class Ui_app_pages(object):
     def setupUi(self, app_pages):
         if not app_pages.objectName():
             app_pages.setObjectName(u"app_pages")
-        app_pages.resize(722, 922)
+        app_pages.resize(696, 922)
         self.page_initial = QWidget()
         self.page_initial.setObjectName(u"page_initial")
         self.verticalLayout = QVBoxLayout(self.page_initial)
@@ -61,211 +62,8 @@ class Ui_app_pages(object):
         app_pages.addWidget(self.page_initial)
         self.page_create_rover = QWidget()
         self.page_create_rover.setObjectName(u"page_create_rover")
-        self.verticalLayout_2 = QVBoxLayout(self.page_create_rover)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.frame_2 = QFrame(self.page_create_rover)
-        self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setFrameShape(QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.frame_2)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.label_12 = QLabel(self.frame_2)
-        self.label_12.setObjectName(u"label_12")
-        self.label_12.setMinimumSize(QSize(0, 35))
-        self.label_12.setMaximumSize(QSize(16777215, 35))
-        self.label_12.setStyleSheet(u"font: 700 14pt \"Segoe UI\";\n"
-"color:rgb(255, 255, 255);")
-
-        self.verticalLayout_5.addWidget(self.label_12)
-
-        self.gridLayout_10 = QGridLayout()
-        self.gridLayout_10.setObjectName(u"gridLayout_10")
-        self.label_13 = QLabel(self.frame_2)
-        self.label_13.setObjectName(u"label_13")
-
-        self.gridLayout_10.addWidget(self.label_13, 0, 0, 1, 1)
-
-        self.name_lineEdit = QLineEdit(self.frame_2)
-        self.name_lineEdit.setObjectName(u"name_lineEdit")
-        self.name_lineEdit.setStyleSheet(u"QLineEdit{\n"
-"	background-color:rgb(68,71,90);\n"
-"	padding: 8px;\n"
-"	border: 2px solid #c3ccdf;\n"
-"	color: rgb(255, 255, 255);\n"
-"	border-radius: 10px;\n"
-"}")
-
-        self.gridLayout_10.addWidget(self.name_lineEdit, 0, 1, 1, 1)
-
-
-        self.verticalLayout_5.addLayout(self.gridLayout_10)
-
-        self.gridLayout_13 = QGridLayout()
-        self.gridLayout_13.setObjectName(u"gridLayout_13")
-        self.trans_dis_lineEdit = QLineEdit(self.frame_2)
-        self.trans_dis_lineEdit.setObjectName(u"trans_dis_lineEdit")
-        self.trans_dis_lineEdit.setStyleSheet(u"QLineEdit{\n"
-"	background-color:rgb(68,71,90);\n"
-"	padding: 8px;\n"
-"	border: 2px solid #c3ccdf;\n"
-"	color: rgb(255, 255, 255);\n"
-"	border-radius: 10px;\n"
-"}")
-
-        self.gridLayout_13.addWidget(self.trans_dis_lineEdit, 0, 1, 1, 1)
-
-        self.label_16 = QLabel(self.frame_2)
-        self.label_16.setObjectName(u"label_16")
-
-        self.gridLayout_13.addWidget(self.label_16, 0, 0, 1, 1)
-
-
-        self.verticalLayout_5.addLayout(self.gridLayout_13)
-
-        self.gridLayout_11 = QGridLayout()
-        self.gridLayout_11.setObjectName(u"gridLayout_11")
-        self.label_14 = QLabel(self.frame_2)
-        self.label_14.setObjectName(u"label_14")
-
-        self.gridLayout_11.addWidget(self.label_14, 0, 0, 1, 1)
-
-        self.exp_dis_lineEdit = QLineEdit(self.frame_2)
-        self.exp_dis_lineEdit.setObjectName(u"exp_dis_lineEdit")
-        self.exp_dis_lineEdit.setStyleSheet(u"QLineEdit{\n"
-"	background-color:rgb(68,71,90);\n"
-"	padding: 8px;\n"
-"	border: 2px solid #c3ccdf;\n"
-"	color: rgb(255, 255, 255);\n"
-"	border-radius: 10px;\n"
-"}")
-
-        self.gridLayout_11.addWidget(self.exp_dis_lineEdit, 0, 1, 1, 1)
-
-
-        self.verticalLayout_5.addLayout(self.gridLayout_11)
-
-        self.gridLayout_14 = QGridLayout()
-        self.gridLayout_14.setObjectName(u"gridLayout_14")
-        self.label_17 = QLabel(self.frame_2)
-        self.label_17.setObjectName(u"label_17")
-
-        self.gridLayout_14.addWidget(self.label_17, 0, 0, 1, 1)
-
-        self.bat_lineEdit = QLineEdit(self.frame_2)
-        self.bat_lineEdit.setObjectName(u"bat_lineEdit")
-        self.bat_lineEdit.setStyleSheet(u"QLineEdit{\n"
-"	background-color:rgb(68,71,90);\n"
-"	padding: 8px;\n"
-"	border: 2px solid #c3ccdf;\n"
-"	color: rgb(255, 255, 255);\n"
-"	border-radius: 10px;\n"
-"}")
-
-        self.gridLayout_14.addWidget(self.bat_lineEdit, 0, 1, 1, 1)
-
-
-        self.verticalLayout_5.addLayout(self.gridLayout_14)
-
-        self.gridLayout_9 = QGridLayout()
-        self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.label_11 = QLabel(self.frame_2)
-        self.label_11.setObjectName(u"label_11")
-
-        self.gridLayout_9.addWidget(self.label_11, 0, 0, 1, 1)
-
-        self.ch_time_lineEdit = QLineEdit(self.frame_2)
-        self.ch_time_lineEdit.setObjectName(u"ch_time_lineEdit")
-        self.ch_time_lineEdit.setStyleSheet(u"QLineEdit{\n"
-"	background-color:rgb(68,71,90);\n"
-"	padding: 8px;\n"
-"	border: 2px solid #c3ccdf;\n"
-"	color: rgb(255, 255, 255);\n"
-"	border-radius: 10px;\n"
-"}")
-
-        self.gridLayout_9.addWidget(self.ch_time_lineEdit, 0, 1, 1, 1)
-
-
-        self.verticalLayout_5.addLayout(self.gridLayout_9)
-
-        self.gridLayout_12 = QGridLayout()
-        self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.label_15 = QLabel(self.frame_2)
-        self.label_15.setObjectName(u"label_15")
-
-        self.gridLayout_12.addWidget(self.label_15, 0, 0, 1, 1)
-
-        self.trans_sp_lineEdit = QLineEdit(self.frame_2)
-        self.trans_sp_lineEdit.setObjectName(u"trans_sp_lineEdit")
-        self.trans_sp_lineEdit.setStyleSheet(u"QLineEdit{\n"
-"	background-color:rgb(68,71,90);\n"
-"	padding: 8px;\n"
-"	border: 2px solid #c3ccdf;\n"
-"	color: rgb(255, 255, 255);\n"
-"	border-radius: 10px;\n"
-"}")
-
-        self.gridLayout_12.addWidget(self.trans_sp_lineEdit, 0, 1, 1, 1)
-
-
-        self.verticalLayout_5.addLayout(self.gridLayout_12)
-
-        self.gridLayout_15 = QGridLayout()
-        self.gridLayout_15.setObjectName(u"gridLayout_15")
-        self.exp_sp_lineEdit = QLineEdit(self.frame_2)
-        self.exp_sp_lineEdit.setObjectName(u"exp_sp_lineEdit")
-        self.exp_sp_lineEdit.setStyleSheet(u"QLineEdit{\n"
-"	background-color:rgb(68,71,90);\n"
-"	padding: 8px;\n"
-"	border: 2px solid #c3ccdf;\n"
-"	color: rgb(255, 255, 255);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"")
-
-        self.gridLayout_15.addWidget(self.exp_sp_lineEdit, 0, 1, 1, 1)
-
-        self.label_18 = QLabel(self.frame_2)
-        self.label_18.setObjectName(u"label_18")
-
-        self.gridLayout_15.addWidget(self.label_18, 0, 0, 1, 1)
-
-
-        self.verticalLayout_5.addLayout(self.gridLayout_15)
-
-        self.gridLayout_2 = QGridLayout()
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer, 0, 0, 1, 1)
-
-        self.createButton = QPushButton(self.frame_2)
-        self.createButton.setObjectName(u"createButton")
-        self.createButton.setMinimumSize(QSize(60, 35))
-        self.createButton.setMaximumSize(QSize(60, 35))
-        self.createButton.setStyleSheet(u"QPushButton{\n"
-"	background-color :rgb(67,133,200);\n"
-"	border: 2px solid #c3ccdf;\n"
-"	color: rgb(255, 255, 255);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"	background-color: rgb(85,170,225);\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"	background-color: rgb(255,0,127);\n"
-"}")
-
-        self.gridLayout_2.addWidget(self.createButton, 0, 1, 1, 1)
-
-
-        self.verticalLayout_5.addLayout(self.gridLayout_2)
-
-
-        self.verticalLayout_2.addWidget(self.frame_2, 0, Qt.AlignHCenter)
-
+        self.page_create_rover_layout = QVBoxLayout(self.page_create_rover)
+        self.page_create_rover_layout.setObjectName(u"page_create_rover_layout")
         app_pages.addWidget(self.page_create_rover)
         self.page_rovers = QWidget()
         self.page_rovers.setObjectName(u"page_rovers")
@@ -323,9 +121,12 @@ class Ui_app_pages(object):
         self.search_lineEdit.setStyleSheet(u"QLineEdit{\n"
 "	background-color:rgb(68,71,90);\n"
 "	padding: 8px;\n"
-"	border: 2px solid #c3ccdf;\n"
 "	color: rgb(255, 255, 255);\n"
 "	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"	border: 1px solid #c3ccdf;\n"
 "}\n"
 "")
 
@@ -333,12 +134,16 @@ class Ui_app_pages(object):
 
         self.search_rover = QPushButton(self.frame_actions_rover)
         self.search_rover.setObjectName(u"search_rover")
-        self.search_rover.setMinimumSize(QSize(60, 45))
-        self.search_rover.setMaximumSize(QSize(60, 45))
+        self.search_rover.setMinimumSize(QSize(62, 45))
+        self.search_rover.setMaximumSize(QSize(62, 45))
         self.search_rover.setStyleSheet(u"QPushButton{\n"
 "	background-color :rgb(67,133,200);\n"
 "	color: rgb(255, 255, 255);\n"
-"	border-radius: 10px;\n"
+"	font: 11pt \"Segoe UI\";\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(67,133,200);\n"
+"	padding: 5px;\n"
+"	padding-left: 10px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
@@ -346,7 +151,7 @@ class Ui_app_pages(object):
 "}\n"
 "\n"
 "QPushButton:pressed{\n"
-"	background-color: rgb(255,0,127);\n"
+"	background-color: rgb(79, 198, 219);\n"
 "}")
 
         self.horizontalLayout.addWidget(self.search_rover)
@@ -361,9 +166,12 @@ class Ui_app_pages(object):
         self.create_rover_btn.setMaximumSize(QSize(60, 45))
         self.create_rover_btn.setStyleSheet(u"QPushButton{\n"
 "	background-color :rgb(67,133,200);\n"
-"	border: 2px solid #c3ccdf;\n"
 "	color: rgb(255, 255, 255);\n"
-"	border-radius: 10px;\n"
+"	font: 11pt \"Segoe UI\";\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(67,133,200);\n"
+"	padding: 5px;\n"
+"	padding-left: 10px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
@@ -371,7 +179,7 @@ class Ui_app_pages(object):
 "}\n"
 "\n"
 "QPushButton:pressed{\n"
-"	background-color: rgb(255,0,127);\n"
+"	background-color: rgb(79, 198, 219);\n"
 "}")
 
         self.horizontalLayout.addWidget(self.create_rover_btn)
@@ -381,6 +189,7 @@ class Ui_app_pages(object):
 
         self.frame_table_rovers = QFrame(self.background_frame)
         self.frame_table_rovers.setObjectName(u"frame_table_rovers")
+        self.frame_table_rovers.setStyleSheet(u"background-color: #282a36")
         self.frame_table_rovers.setFrameShape(QFrame.StyledPanel)
         self.frame_table_rovers.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_table_rovers)
@@ -391,7 +200,35 @@ class Ui_app_pages(object):
         self.table_rovers.setObjectName(u"table_rovers")
         self.table_rovers.setContextMenuPolicy(Qt.DefaultContextMenu)
         self.table_rovers.setLayoutDirection(Qt.LeftToRight)
-        self.table_rovers.setShowGrid(True)
+        self.table_rovers.setStyleSheet(u"\n"
+"QTableWidget{\n"
+"background-color: transparent;\n"
+"border : 1px  #282a36;\n"
+"alternate-background-color:#525252;\n"
+"gridline-color:rgb(44, 49, 58);\n"
+"}\n"
+"\n"
+"QTableWidget::item{\n"
+"border-color: rgb(44, 49, 60);\n"
+"padding-left: 5px;\n"
+"padding-right: 5px;\n"
+"gridline-color: rgb(44, 49, 60);\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section{\n"
+"background-color: rgb(33, 37, 43);\n"
+"max-width: 30px;\n"
+"border: 1px solid rgb(44, 49, 58);\n"
+"border-style: none;\n"
+"border-bottom: 1px solid rgb(44, 49, 60);\n"
+"border-right: 1px solid rgb(44, 49, 60);\n"
+"}\n"
+" ")
+        self.table_rovers.setShowGrid(False)
+        self.table_rovers.setWordWrap(False)
+        self.table_rovers.setCornerButtonEnabled(False)
 
         self.horizontalLayout_2.addWidget(self.table_rovers)
 
@@ -405,6 +242,389 @@ class Ui_app_pages(object):
         self.verticalLayout_3.addWidget(self.central_frame)
 
         app_pages.addWidget(self.page_rovers)
+        self.page_simulation = QWidget()
+        self.page_simulation.setObjectName(u"page_simulation")
+        self.page_simulation.setLayoutDirection(Qt.LeftToRight)
+        self.verticalLayout_14 = QVBoxLayout(self.page_simulation)
+        self.verticalLayout_14.setSpacing(0)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.central_frame_simulation = QFrame(self.page_simulation)
+        self.central_frame_simulation.setObjectName(u"central_frame_simulation")
+        self.central_frame_simulation.setMinimumSize(QSize(490, 0))
+        self.central_frame_simulation.setMaximumSize(QSize(490, 16777215))
+        self.central_frame_simulation.setLayoutDirection(Qt.LeftToRight)
+        self.central_frame_simulation.setFrameShape(QFrame.StyledPanel)
+        self.central_frame_simulation.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_12 = QVBoxLayout(self.central_frame_simulation)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.top_frame = QFrame(self.central_frame_simulation)
+        self.top_frame.setObjectName(u"top_frame")
+        self.top_frame.setFrameShape(QFrame.StyledPanel)
+        self.top_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_15 = QVBoxLayout(self.top_frame)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.label_run_simulation = QLabel(self.top_frame)
+        self.label_run_simulation.setObjectName(u"label_run_simulation")
+        self.label_run_simulation.setStyleSheet(u"font: 700 14pt \"Segoe UI\";\n"
+"color:rgb(255, 255, 255);")
+
+        self.verticalLayout_15.addWidget(self.label_run_simulation)
+
+        self.label_descrip_simulation = QLabel(self.top_frame)
+        self.label_descrip_simulation.setObjectName(u"label_descrip_simulation")
+        self.label_descrip_simulation.setStyleSheet(u"font: 12pt \"Segoe UI\";\n"
+"color:rgb(255, 255, 255);")
+
+        self.verticalLayout_15.addWidget(self.label_descrip_simulation)
+
+
+        self.verticalLayout_12.addWidget(self.top_frame)
+
+        self.group_box_modes = QGroupBox(self.central_frame_simulation)
+        self.group_box_modes.setObjectName(u"group_box_modes")
+        self.group_box_modes.setMinimumSize(QSize(180, 115))
+        self.group_box_modes.setMaximumSize(QSize(180, 115))
+        self.group_box_modes.setStyleSheet(u"font: 12pt \"Segoe UI\";")
+        self.verticalLayout_16 = QVBoxLayout(self.group_box_modes)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.verticalLayout_16.setContentsMargins(9, 9, -1, -1)
+        self.radioButton_max_time = QRadioButton(self.group_box_modes)
+        self.radioButton_max_time.setObjectName(u"radioButton_max_time")
+        self.radioButton_max_time.setStyleSheet(u"QRadioButton::indicator {\n"
+"    border: 3px solid rgb(52, 59, 72);\n"
+"	width: 15px;\n"
+"	height: 15px;\n"
+"	border-radius: 10px;\n"
+"    background: rgb(44, 49, 60);\n"
+"}\n"
+"QRadioButton::indicator:hover {\n"
+"    border: 3px solid rgb(58, 66, 81);\n"
+"}\n"
+"QRadioButton::indicator:checked {\n"
+"    background: 3px solid rgb(94, 106, 130);\n"
+"	border: 3px solid rgb(52, 59, 72);	\n"
+"}\n"
+"font: 11pt \"Segoe UI\";")
+
+        self.verticalLayout_16.addWidget(self.radioButton_max_time)
+
+        self.radioButton_max_area = QRadioButton(self.group_box_modes)
+        self.radioButton_max_area.setObjectName(u"radioButton_max_area")
+        self.radioButton_max_area.setStyleSheet(u"QRadioButton::indicator {\n"
+"    border: 3px solid rgb(52, 59, 72);\n"
+"	width: 15px;\n"
+"	height: 15px;\n"
+"	border-radius: 10px;\n"
+"    background: rgb(44, 49, 60);\n"
+"}\n"
+"QRadioButton::indicator:hover {\n"
+"    border: 3px solid rgb(58, 66, 81);\n"
+"}\n"
+"QRadioButton::indicator:checked {\n"
+"    background: 3px solid rgb(94, 106, 130);\n"
+"	border: 3px solid rgb(52, 59, 72);	\n"
+"}\n"
+"font: 11pt \"Segoe UI\";")
+
+        self.verticalLayout_16.addWidget(self.radioButton_max_area)
+
+        self.lbl_error_mode = QLabel(self.group_box_modes)
+        self.lbl_error_mode.setObjectName(u"lbl_error_mode")
+
+        self.verticalLayout_16.addWidget(self.lbl_error_mode)
+
+
+        self.verticalLayout_12.addWidget(self.group_box_modes)
+
+        self.frame_simulation_widgets = QFrame(self.central_frame_simulation)
+        self.frame_simulation_widgets.setObjectName(u"frame_simulation_widgets")
+        self.frame_simulation_widgets.setMinimumSize(QSize(470, 230))
+        self.frame_simulation_widgets.setMaximumSize(QSize(200, 230))
+        self.frame_simulation_widgets.setStyleSheet(u"")
+        self.frame_simulation_widgets.setFrameShape(QFrame.StyledPanel)
+        self.frame_simulation_widgets.setFrameShadow(QFrame.Raised)
+        self.fr_sim_widgets_layout = QVBoxLayout(self.frame_simulation_widgets)
+        self.fr_sim_widgets_layout.setSpacing(0)
+        self.fr_sim_widgets_layout.setObjectName(u"fr_sim_widgets_layout")
+        self.fr_sim_widgets_layout.setContentsMargins(0, 0, 0, 0)
+
+        self.verticalLayout_12.addWidget(self.frame_simulation_widgets, 0, Qt.AlignLeft|Qt.AlignTop)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_12.addItem(self.verticalSpacer)
+
+        self.frame_jobs = QFrame(self.central_frame_simulation)
+        self.frame_jobs.setObjectName(u"frame_jobs")
+        self.frame_jobs.setMinimumSize(QSize(0, 50))
+        self.frame_jobs.setFrameShape(QFrame.StyledPanel)
+        self.frame_jobs.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_4 = QHBoxLayout(self.frame_jobs)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.formLayout_2 = QFormLayout()
+        self.formLayout_2.setObjectName(u"formLayout_2")
+        self.label_num_jobs = QLabel(self.frame_jobs)
+        self.label_num_jobs.setObjectName(u"label_num_jobs")
+        self.label_num_jobs.setMinimumSize(QSize(150, 0))
+        self.label_num_jobs.setMaximumSize(QSize(150, 16777215))
+        self.label_num_jobs.setStyleSheet(u"font: 11pt \"Segoe UI\";")
+
+        self.formLayout_2.setWidget(0, QFormLayout.LabelRole, self.label_num_jobs)
+
+        self.cb_num_jobs = QComboBox(self.frame_jobs)
+        self.cb_num_jobs.setObjectName(u"cb_num_jobs")
+        self.cb_num_jobs.setMinimumSize(QSize(0, 30))
+        self.cb_num_jobs.setMaximumSize(QSize(500, 30))
+        self.cb_num_jobs.setStyleSheet(u"QComboBox{\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(33, 37, 43);\n"
+"	padding: 5px;\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QComboBox:hover{\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"	subcontrol-origin: padding;\n"
+"	subcontrol-position: top right;\n"
+"	width: 25px; \n"
+"	border-left-width: 3px;\n"
+"	border-left-color: rgba(39, 44, 54, 150);\n"
+"	border-left-style: solid;\n"
+"	border-top-right-radius: 3px;\n"
+"	border-bottom-right-radius: 3px;	\n"
+"	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
+"	background-position: center;\n"
+"	background-repeat: no-reperat;\n"
+" }")
+
+        self.formLayout_2.setWidget(0, QFormLayout.FieldRole, self.cb_num_jobs)
+
+        self.lbl_error_num_jobs = QLabel(self.frame_jobs)
+        self.lbl_error_num_jobs.setObjectName(u"lbl_error_num_jobs")
+        self.lbl_error_num_jobs.setMinimumSize(QSize(0, 20))
+        self.lbl_error_num_jobs.setMaximumSize(QSize(16777215, 20))
+
+        self.formLayout_2.setWidget(1, QFormLayout.SpanningRole, self.lbl_error_num_jobs)
+
+
+        self.horizontalLayout_4.addLayout(self.formLayout_2)
+
+
+        self.verticalLayout_12.addWidget(self.frame_jobs)
+
+        self.frame_rovers_select = QFrame(self.central_frame_simulation)
+        self.frame_rovers_select.setObjectName(u"frame_rovers_select")
+        self.frame_rovers_select.setMinimumSize(QSize(0, 50))
+        self.frame_rovers_select.setFrameShape(QFrame.StyledPanel)
+        self.frame_rovers_select.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_3 = QHBoxLayout(self.frame_rovers_select)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.rover_select_gridLayout = QGridLayout()
+        self.rover_select_gridLayout.setObjectName(u"rover_select_gridLayout")
+        self.label_num_rovers = QLabel(self.frame_rovers_select)
+        self.label_num_rovers.setObjectName(u"label_num_rovers")
+        self.label_num_rovers.setStyleSheet(u"font: 11pt \"Segoe UI\";")
+
+        self.rover_select_gridLayout.addWidget(self.label_num_rovers, 0, 2, 1, 1)
+
+        self.add_rover_select_btn = QPushButton(self.frame_rovers_select)
+        self.add_rover_select_btn.setObjectName(u"add_rover_select_btn")
+        self.add_rover_select_btn.setMinimumSize(QSize(25, 0))
+        self.add_rover_select_btn.setStyleSheet(u"QPushButton{\n"
+"	background-color :rgb(67,133,200);\n"
+"	color: rgb(255, 255, 255);\n"
+"	font: 11pt \"Segoe UI\";\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(67,133,200);\n"
+"	padding: 5px;\n"
+"	padding-left: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(85,170,225);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"	background-color: rgb(79, 198, 219);\n"
+"}")
+
+        self.rover_select_gridLayout.addWidget(self.add_rover_select_btn, 0, 4, 1, 1)
+
+        self.cb_rovers = QComboBox(self.frame_rovers_select)
+        self.cb_rovers.setObjectName(u"cb_rovers")
+        self.cb_rovers.setMinimumSize(QSize(0, 30))
+        self.cb_rovers.setMaximumSize(QSize(16777215, 30))
+        self.cb_rovers.setStyleSheet(u"QComboBox{\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(33, 37, 43);\n"
+"	padding: 5px;\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QComboBox:hover{\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"	subcontrol-origin: padding;\n"
+"	subcontrol-position: top right;\n"
+"	width: 25px; \n"
+"	border-left-width: 3px;\n"
+"	border-left-color: rgba(39, 44, 54, 150);\n"
+"	border-left-style: solid;\n"
+"	border-top-right-radius: 3px;\n"
+"	border-bottom-right-radius: 3px;	\n"
+"	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
+"	background-position: center;\n"
+"	background-repeat: no-reperat;\n"
+" }")
+
+        self.rover_select_gridLayout.addWidget(self.cb_rovers, 0, 1, 1, 1)
+
+        self.label_rovers_select = QLabel(self.frame_rovers_select)
+        self.label_rovers_select.setObjectName(u"label_rovers_select")
+        self.label_rovers_select.setStyleSheet(u"font: 11pt \"Segoe UI\";")
+
+        self.rover_select_gridLayout.addWidget(self.label_rovers_select, 0, 0, 1, 1)
+
+        self.cb_num_rovers = QComboBox(self.frame_rovers_select)
+        self.cb_num_rovers.setObjectName(u"cb_num_rovers")
+        self.cb_num_rovers.setMinimumSize(QSize(0, 30))
+        self.cb_num_rovers.setMaximumSize(QSize(16777215, 30))
+        self.cb_num_rovers.setStyleSheet(u"QComboBox{\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(33, 37, 43);\n"
+"	padding: 5px;\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QComboBox:hover{\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"	subcontrol-origin: padding;\n"
+"	subcontrol-position: top right;\n"
+"	width: 25px; \n"
+"	border-left-width: 3px;\n"
+"	border-left-color: rgba(39, 44, 54, 150);\n"
+"	border-left-style: solid;\n"
+"	border-top-right-radius: 3px;\n"
+"	border-bottom-right-radius: 3px;	\n"
+"	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
+"	background-position: center;\n"
+"	background-repeat: no-reperat;\n"
+" }")
+
+        self.rover_select_gridLayout.addWidget(self.cb_num_rovers, 0, 3, 1, 1)
+
+        self.lbl_error_rovers_select = QLabel(self.frame_rovers_select)
+        self.lbl_error_rovers_select.setObjectName(u"lbl_error_rovers_select")
+        self.lbl_error_rovers_select.setMinimumSize(QSize(0, 20))
+        self.lbl_error_rovers_select.setMaximumSize(QSize(16777215, 20))
+
+        self.rover_select_gridLayout.addWidget(self.lbl_error_rovers_select, 1, 0, 1, 5)
+
+
+        self.horizontalLayout_3.addLayout(self.rover_select_gridLayout)
+
+
+        self.verticalLayout_12.addWidget(self.frame_rovers_select)
+
+        self.frame_rovers_selected = QFrame(self.central_frame_simulation)
+        self.frame_rovers_selected.setObjectName(u"frame_rovers_selected")
+        self.frame_rovers_selected.setFrameShape(QFrame.StyledPanel)
+        self.frame_rovers_selected.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_18 = QVBoxLayout(self.frame_rovers_selected)
+        self.verticalLayout_18.setSpacing(0)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
+        self.label_rovers_selected = QLabel(self.frame_rovers_selected)
+        self.label_rovers_selected.setObjectName(u"label_rovers_selected")
+        self.label_rovers_selected.setStyleSheet(u"font: 11pt \"Segoe UI\";")
+
+        self.verticalLayout_18.addWidget(self.label_rovers_selected)
+
+        self.textEdit_rovers_selected = QTextEdit(self.frame_rovers_selected)
+        self.textEdit_rovers_selected.setObjectName(u"textEdit_rovers_selected")
+        self.textEdit_rovers_selected.setMinimumSize(QSize(0, 70))
+        self.textEdit_rovers_selected.setMaximumSize(QSize(16777215, 70))
+        self.textEdit_rovers_selected.setStyleSheet(u"QTextEdit{\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(33, 37, 43);\n"
+"	padding: 5px;\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QTextEdit  QScrollBar:vertical {\n"
+"    width: 8px;\n"
+" }\n"
+"QTextEdit  QScrollBar:horizontal {\n"
+"    height: 8px;\n"
+" }\n"
+"QTextEdit:hover {\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QTextEdit:focus {\n"
+"	border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.textEdit_rovers_selected.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.textEdit_rovers_selected.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+
+        self.verticalLayout_18.addWidget(self.textEdit_rovers_selected)
+
+
+        self.verticalLayout_12.addWidget(self.frame_rovers_selected)
+
+        self.frame_simulate = QFrame(self.central_frame_simulation)
+        self.frame_simulate.setObjectName(u"frame_simulate")
+        self.frame_simulate.setMinimumSize(QSize(0, 50))
+        self.frame_simulate.setMaximumSize(QSize(16777215, 50))
+        self.frame_simulate.setFrameShape(QFrame.StyledPanel)
+        self.frame_simulate.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_5 = QHBoxLayout(self.frame_simulate)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_3)
+
+        self.button_simulate = QPushButton(self.frame_simulate)
+        self.button_simulate.setObjectName(u"button_simulate")
+        self.button_simulate.setMinimumSize(QSize(70, 30))
+        self.button_simulate.setMaximumSize(QSize(16777215, 30))
+        self.button_simulate.setStyleSheet(u"QPushButton{\n"
+"	background-color :rgb(67,133,200);\n"
+"	color: rgb(255, 255, 255);\n"
+"	font: 11pt \"Segoe UI\";\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(67,133,200);\n"
+"	padding: 5px;\n"
+"	padding-left: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(85,170,225);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"	background-color: rgb(79, 198, 219);\n"
+"}")
+
+        self.horizontalLayout_5.addWidget(self.button_simulate)
+
+
+        self.verticalLayout_12.addWidget(self.frame_simulate)
+
+
+        self.verticalLayout_14.addWidget(self.central_frame_simulation, 0, Qt.AlignLeft|Qt.AlignTop)
+
+        app_pages.addWidget(self.page_simulation)
         self.page_details = QWidget()
         self.page_details.setObjectName(u"page_details")
         self.verticalLayout_6 = QVBoxLayout(self.page_details)
@@ -549,7 +769,7 @@ class Ui_app_pages(object):
 
         self.retranslateUi(app_pages)
 
-        app_pages.setCurrentIndex(2)
+        app_pages.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(app_pages)
@@ -559,19 +779,24 @@ class Ui_app_pages(object):
         app_pages.setWindowTitle(QCoreApplication.translate("app_pages", u"StackedWidget", None))
         self.label_welcome.setText(QCoreApplication.translate("app_pages", u"Welcome !", None))
         self.label_description_welcome.setText(QCoreApplication.translate("app_pages", u"<html><head/><body><p>This is the application created for the System for the </p><p>exploration of caves with exploring rovers </p><p>Final Degree Project</p></body></html>", None))
-        self.label_12.setText(QCoreApplication.translate("app_pages", u"Create your own rover:", None))
-        self.label_13.setText(QCoreApplication.translate("app_pages", u"Name:", None))
-        self.label_16.setText(QCoreApplication.translate("app_pages", u"Translate battery discharge:", None))
-        self.label_14.setText(QCoreApplication.translate("app_pages", u"Exploring battery discharge:", None))
-        self.label_17.setText(QCoreApplication.translate("app_pages", u"Battery:", None))
-        self.label_11.setText(QCoreApplication.translate("app_pages", u"Charging time:", None))
-        self.label_15.setText(QCoreApplication.translate("app_pages", u"Translate speed:", None))
-        self.label_18.setText(QCoreApplication.translate("app_pages", u"Exploration speed:", None))
-        self.createButton.setText(QCoreApplication.translate("app_pages", u"Create", None))
         self.label_rover.setText(QCoreApplication.translate("app_pages", u"Rover", None))
         self.search_lineEdit.setPlaceholderText(QCoreApplication.translate("app_pages", u"Search by name", None))
         self.search_rover.setText(QCoreApplication.translate("app_pages", u"Search", None))
         self.create_rover_btn.setText(QCoreApplication.translate("app_pages", u"Create", None))
+        self.label_run_simulation.setText(QCoreApplication.translate("app_pages", u"Run your simulation", None))
+        self.label_descrip_simulation.setText(QCoreApplication.translate("app_pages", u"Please, select the following values in order to run a simulation", None))
+        self.group_box_modes.setTitle(QCoreApplication.translate("app_pages", u"Mode", None))
+        self.radioButton_max_time.setText(QCoreApplication.translate("app_pages", u"Maximum Time", None))
+        self.radioButton_max_area.setText(QCoreApplication.translate("app_pages", u"Maximum Area", None))
+        self.lbl_error_mode.setText("")
+        self.label_num_jobs.setText(QCoreApplication.translate("app_pages", u"Select number of jobs:", None))
+        self.lbl_error_num_jobs.setText("")
+        self.label_num_rovers.setText(QCoreApplication.translate("app_pages", u"Number of rovers:", None))
+        self.add_rover_select_btn.setText(QCoreApplication.translate("app_pages", u"+", None))
+        self.label_rovers_select.setText(QCoreApplication.translate("app_pages", u"Select the rovers:", None))
+        self.lbl_error_rovers_select.setText("")
+        self.label_rovers_selected.setText(QCoreApplication.translate("app_pages", u"These are the rovers selected:", None))
+        self.button_simulate.setText(QCoreApplication.translate("app_pages", u"Simulate", None))
         self.label_rover_details.setText(QCoreApplication.translate("app_pages", u"Rover details:", None))
         self.label_rover_det_description.setText(QCoreApplication.translate("app_pages", u"These are the properties of the rover chosen", None))
         self.label_name.setText(QCoreApplication.translate("app_pages", u"Name:", None))

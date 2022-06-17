@@ -3,22 +3,19 @@ from PySide6.QtSql import QSqlQuery
 
 from database_manager.database_manager import DataBaseManager
 
-create_table_sql_query = "CREATE TABLE IF NOT EXISTS ROVERS (ROVER_ID INT AUTO_INCREMENT PRIMARY KEY," \
+create_table_sql_query = "CREATE TABLE IF NOT EXISTS SIMULATIONS (SIMULATION_ID INT AUTO_INCREMENT PRIMARY KEY," \
                          "NAME CHAR(20) NOT NULL," \
-                         "BATTERY FLOAT(22)," \
-                         "TRANSLATE_SPEED FLOAT(22)," \
-                         "TRANSLATE_BATTERY FLOAT(22)," \
-                         "EXP_SPEED FLOAT(22)," \
-                         "EXP_BATTERY FLOAT(22)," \
-                         "CHARGING_TIME FLOAT(22));"
+                         "TOTAL_TIME FLOAT(22)," \
+                         "TRANSLATE_TIME FLOAT(22)," \
+                         "EXPLORING_TIME FLOAT(22)," \
+                         "IDLE_TIME FLOAT(22), " \
+                         "FOREIGN KEY (FK_ROVER) REFERENCES ROVER(ROVER_ID);"
 
-insert_rover_sql = "INSERT INTO rovers VALUES (NULL, %s, %s, %s, %s, %s, %s, %s);"
+insert_rover_sql = "INSERT INTO simulations VALUES (NULL, %s, %s, %s, %s, %s, %s, %s);"
 get_rovers_table_query = "SELECT ROVER_ID, NAME, BATTERY, CHARGING_TIME FROM ROVERS;"
-get_rovers_name_query = "SELECT NAME FROM ROVERS;"
 get_rovers_query = "SELECT * FROM ROVERS;"
 get_rover_byid_sql = "SELECT * FROM ROVERS WHERE rover_id=%s;"
 get_rover_by_name_sql = "SELECT ROVER_ID, NAME, BATTERY, CHARGING_TIME FROM ROVERS WHERE name LIKE %s;"
-get_full_rover_by_name_sql = "SELECT * FROM ROVERS WHERE name LIKE %s;"
 delete_rover_by_id = "DELETE FROM ROVERS WHERE rover_id=%s;"
 update_rover_query = "UPDATE rovers SET NAME=%s, " \
                      "BATTERY=%s, " \
@@ -30,7 +27,7 @@ update_rover_query = "UPDATE rovers SET NAME=%s, " \
                      " WHERE (ROVER_ID=%s);"
 
 
-def get_create_table_sql():
+def get_create_table_sql(dbm: DataBaseManager):
     try:
         cnn = DataBaseManager()
         cnn.connect(3306)
@@ -41,7 +38,7 @@ def get_create_table_sql():
         cnn.close()
 
 
-def get_insert_rover_sql(name_rover, battery_rover, translate_speed, translate_battery, exp_speed,
+def get_insert_rover_sql(dbm: DataBaseManager, name_rover, battery_rover, translate_speed, translate_battery, exp_speed,
                          exp_battery,
                          charging_time):
     tuple = (name_rover, battery_rover, translate_speed, translate_battery, exp_speed, exp_battery, charging_time)
@@ -53,7 +50,7 @@ def get_insert_rover_sql(name_rover, battery_rover, translate_speed, translate_b
     except Exception as e:
         print(e)
     finally:
-        return val
+        print(val)
         cnn.close()
 
 
@@ -69,11 +66,12 @@ def update_rover_sql(rover_id, name_rover, battery_rover, translate_speed, trans
     except Exception as e:
         print(e)
     finally:
-        return val
+        print(val)
+        print("UPDATED")
         cnn.close()
 
 
-def get_all_rovers():
+def get_all_rovers(dbm: DataBaseManager):
     try:
         cnn = DataBaseManager()
         cnn.connect(3306)
@@ -84,21 +82,9 @@ def get_all_rovers():
     except Exception as e:
         print(e)
     finally:
+        print(':)')
         cnn.close()
 
-
-def get_rovers_names():
-    try:
-        cnn = DataBaseManager()
-        cnn.connect(3306)
-        cnn.exec(get_rovers_name_query)
-        rovers = cnn.rs.fetchall()
-        return rovers
-
-    except Exception as e:
-        print(e)
-    finally:
-        cnn.close()
 
 def get_all_rovers_table():
     try:
@@ -111,6 +97,7 @@ def get_all_rovers_table():
     except Exception as e:
         print(e)
     finally:
+        print(':)')
         cnn.close()
 
 
@@ -128,19 +115,6 @@ def get_rover_by_name(rover_name):
     finally:
         cnn.close()
 
-def get_full_rover_by_name(rover_name):
-    try:
-        cnn = DataBaseManager()
-        cnn.connect(3306)
-        tuple = (rover_name,)
-        cnn.exec2(get_full_rover_by_name_sql, tuple)
-        rovers = cnn.rs.fetchall()
-        return rovers
-
-    except Exception as e:
-        print(e)
-    finally:
-        cnn.close()
 
 def get_rover_by_id(rover_id):
     try:
