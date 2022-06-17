@@ -1,3 +1,5 @@
 
-fpython:S930"IRemove 1 unexpected arguments; 'add_time' expects 2 positional arguments.(µß„R8ÂûØÆÝ/
-}python:S1186"YAdd a nested comment explaining why this method is empty, or complete the implementation.(²®™÷þÿÿÿÿ8ÀäŒ¾Ý/
+Ipython:S1481!"2Remove the unused local variable "time_to_charge".(Úó“v
+;python:S125""Remove this commented out code.(ë©·Éøÿÿÿÿ
+vpython:S1186"YAdd a nested comment explaining why this method is empty, or complete the implementation.(²®™÷þÿÿÿÿ
+_python:S930"IRemove 1 unexpected arguments; 'add_time' expects 2 positional arguments.(µß„R

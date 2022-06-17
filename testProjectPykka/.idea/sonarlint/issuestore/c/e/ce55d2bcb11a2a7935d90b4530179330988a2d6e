@@ -1,5 +1,9 @@
 
-Bpython:S125-"Remove this commented out code.(ËÌ§¾øÿÿÿÿ8Ìúš•Ü/
-ppython:S930/"RRemove 1 unexpected arguments; 'battery_discharge' expects 0 positional arguments.(³ß´Ì8Ìúš•Ü/
-4python:S2772;"Remove this unneeded "pass".(ã‘Û¾
-gpython:S930"IRemove 1 unexpected arguments; 'add_time' expects 2 positional arguments.(ò–İ‡8³Æ¾İ/
+`python:S930 "IRemove 1 unexpected arguments; 'add_time' expects 2 positional arguments.(ó—Ö
+_python:S930#"IRemove 1 unexpected arguments; 'add_time' expects 2 positional arguments.(çøâ/
+_python:S930+"IRemove 1 unexpected arguments; 'add_time' expects 2 positional arguments.(çøâ/
+`python:S930>"IRemove 1 unexpected arguments; 'add_time' expects 2 positional arguments.(‘è³Ö
+fpython:S930?"ORemove 1 unexpected arguments; 'manage_battery' expects 2 positional arguments.(ö¾×œ
+ipython:S930D"RRemove 1 unexpected arguments; 'battery_discharge' expects 0 positional arguments.(³ß´Ì
+ipython:S930E"MRemove 1 unexpected arguments; 'add_explored' expects 1 positional arguments.(¨Ìéøÿÿÿÿ
+4python:S2772P"Remove this unneeded "pass".(ã‘Û¾
